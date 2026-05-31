@@ -66,7 +66,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   pointer-events: none;
 }
 .cover-mernova-logo { margin-bottom: 40px; position: relative; }
-.cover-mernova-logo img { height: 70px; filter: brightness(1.15); }
+.cover-mernova-logo svg { height: 70px; width: auto; }
 .cover-logo { font-size: 3.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; position: relative; }
 .cover-logo span { color: #14c4cf; }
 .cover-tagline { font-size: 1rem; opacity: 0.7; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 60px; }
@@ -118,13 +118,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 .chart-canvas-wrap { position: relative; height: 300px; max-height: 300px; }
 .chart-canvas-wrap canvas { max-height: 100% !important; }
 
-/* SKILLS TABLE */
-.skills-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.85rem; }
-.skills-table thead th { background: var(--primary); color: white; padding: 12px 16px; text-align: left; }
-.skills-table thead th:first-child { border-radius: 8px 0 0 0; }
-.skills-table thead th:last-child { border-radius: 0 8px 0 0; }
-.skills-table tbody tr:nth-child(even) { background: var(--gray-100); }
-.skills-table tbody td { padding: 10px 16px; border-bottom: 1px solid var(--gray-200); }
+/* SCORE BADGES */
 .score-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-weight: 700; font-size: 0.85rem; color: white; }
 .score-1 { background: var(--red); }
 .score-2 { background: var(--orange); }
@@ -148,6 +142,16 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 .proficient { border-left: 4px solid var(--gold); }
 .development { border-left: 4px solid var(--red); }
 
+/* SKILL CARDS */
+.skill-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.skill-card { border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px; display: flex; align-items: flex-start; gap: 14px; background: white; }
+.skill-card .skill-score-wrap { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.skill-card .skill-code { font-size: 0.65rem; color: var(--gray-600); font-weight: 600; }
+.skill-card .skill-info { flex: 1; min-width: 0; }
+.skill-card .skill-name { font-weight: 600; font-size: 0.88rem; margin-bottom: 4px; }
+.skill-card .skill-desc { font-size: 0.78rem; color: var(--gray-600); line-height: 1.4; }
+.skill-card .skill-level { font-size: 0.7rem; color: var(--gray-600); margin-top: 6px; font-style: italic; }
+
 /* RECOMMENDATIONS */
 .rec-card { background: #f0fafa; border-radius: 10px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #11a4af; }
 .rec-card h4 { color: var(--primary); margin-bottom: 6px; }
@@ -161,7 +165,6 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 
 /* ==================== MEDIA QUERIES ==================== */
 
-/* Small laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
   .page { padding: 40px 30px; }
   .section { padding: 30px; }
@@ -169,38 +172,31 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .gauge-container { gap: 40px; }
 }
 
-/* Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   .info-grid { grid-template-columns: 1fr; }
   .chart-row { grid-template-columns: 1fr; }
   .gauge-container { flex-direction: column; gap: 30px; }
   .cover-meta { flex-direction: column; gap: 10px; }
-
   .page { padding: 40px 20px; }
   .section { padding: 25px; margin-bottom: 30px; }
   .section-header h2 { font-size: 1.3rem; }
-
   .gauge-score { font-size: 2.8rem; }
   .gauge-score small { font-size: 1.2rem; }
   .gauge-stats { width: 100%; max-width: 400px; }
-
   .kpi-row { grid-template-columns: repeat(2, 1fr); }
-
   .chart-box { padding: 15px; }
   .chart-canvas-wrap { height: 260px; max-height: 260px; }
-
   .ka-card { gap: 15px; padding: 18px; }
   .ka-card .ka-bar { width: 100px; }
   .ka-card .ka-desc { font-size: 0.8rem; }
-
   .rec-card { padding: 18px; }
+  .skill-cards-grid { grid-template-columns: 1fr; }
 }
 
-/* Small phones (max-width: 480px) */
 @media (max-width: 480px) {
-  /* Cover page */
   .cover { padding: 80px 15px 100px; }
   .cover-logo { font-size: 2rem; }
+  .cover-mernova-logo svg { height: 50px; }
   .cover-tagline { font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 40px; }
   .cover-title { font-size: 1.15rem; }
   .cover-subtitle { font-size: 0.85rem; margin-bottom: 30px; }
@@ -210,15 +206,11 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .cover-meta { margin-top: 30px; gap: 8px; font-size: 0.75rem; }
   .cover-id { top: 15px; right: 15px; font-size: 0.7rem; }
   .cover-footer { position: relative; bottom: auto; margin-top: 40px; font-size: 0.65rem; text-align: center; padding: 0 10px; }
-
-  /* Page & sections */
   .page { padding: 20px 12px; }
   .section { padding: 18px; margin-bottom: 20px; }
   .section-header { gap: 10px; margin-bottom: 20px; padding-bottom: 12px; }
   .section-header h2 { font-size: 1.15rem; }
   .section-icon { width: 32px; height: 32px; font-size: 1rem; }
-
-  /* Gauge */
   .gauge-container { gap: 20px; padding: 10px 0; }
   .gauge-score { font-size: 2.2rem; }
   .gauge-score small { font-size: 1rem; }
@@ -226,38 +218,27 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .gauge-stats { gap: 10px; }
   .stat-item { gap: 8px; }
   .stat-text { font-size: 0.85rem; }
-
-  /* KPI cards */
   .kpi-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
   .kpi-card { padding: 15px 10px; }
   .kpi-card .value { font-size: 1.4rem; }
   .kpi-card .label { font-size: 0.7rem; }
-
-  /* Charts */
   .chart-row { gap: 15px; margin-top: 20px; }
   .chart-box { padding: 12px; }
   .chart-box h4 { font-size: 0.8rem; margin-bottom: 8px; }
   .chart-canvas-wrap { height: 220px; max-height: 220px; }
-
-  /* Skills table */
-  .skills-table { font-size: 0.75rem; }
-  .skills-table thead th { padding: 8px 10px; }
-  .skills-table tbody td { padding: 8px 10px; }
   .score-badge { width: 28px; height: 28px; font-size: 0.75rem; }
-
-  /* Knowledge area cards */
   .ka-card { flex-direction: column; align-items: flex-start; gap: 12px; padding: 15px; }
   .ka-card .ka-score { font-size: 1.2rem; min-width: auto; }
   .ka-card .ka-bar { width: 100%; }
   .ka-card .ka-desc { font-size: 0.78rem; }
-
-  /* Recommendations */
+  .skill-cards-grid { grid-template-columns: 1fr; gap: 10px; }
+  .skill-card { padding: 14px; gap: 10px; }
+  .skill-card .skill-name { font-size: 0.85rem; }
+  .skill-card .skill-desc { font-size: 0.75rem; }
   .rec-card { padding: 15px; margin-bottom: 12px; }
   .rec-card h4 { font-size: 0.95rem; }
   .rec-card p { font-size: 0.85rem; }
   .cert-tag { font-size: 0.7rem; padding: 3px 10px; }
-
-  /* Footer */
   .report-footer { padding: 20px 15px; font-size: 0.75rem; }
 }
 
@@ -273,7 +254,58 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 <div class="cover">
   <div class="cover-id">SIQ-PLN-2026-084</div>
   <div class="cover-mernova-logo">
-    <img src="https://mernovasolutions.com/logo.svg" alt="Mernova Business Solutions" style="height:70px; filter:brightness(10);">
+    <svg viewBox="100 160 730 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g>
+        <g transform="matrix(1,0,0,1,102,-87)">
+            <path d="M237.06,354.36L237.06,291.78L252.5,291.78L269.8,333.84L270.58,333.84L287.93,291.78L303.32,291.78L303.32,354.36L291.18,354.36L291.18,312.51L290.49,312.51L274.58,350.76L265.86,350.76L249.9,312.51L249.21,312.51L249.21,354.36L237.06,354.36Z" style="fill:white;fill-rule:nonzero;"/>
+            <path d="M359.95,354.36L318.49,354.36L318.49,291.78L359.95,291.78L359.95,302.97L331.59,302.97L331.59,317.58L358.35,317.58L358.35,327.94L331.59,327.94L331.59,343.16L359.95,343.16L359.95,354.36Z" style="fill:white;fill-rule:nonzero;"/>
+            <path d="M386.84,354.36L373.74,354.36L373.74,291.78L400.02,291.78C403.46,291.78 406.55,292.24 409.3,293.17C412.05,294.1 414.37,295.42 416.28,297.16C418.19,298.9 419.66,301 420.68,303.47C421.71,305.94 422.22,308.74 422.22,311.86C422.22,313.85 421.96,315.77 421.46,317.61C420.96,319.45 420.22,321.14 419.25,322.68C418.28,324.23 417.09,325.59 415.67,326.78C414.25,327.97 412.65,328.92 410.86,329.64L424.04,354.36L409.21,354.36L397.54,331.68L386.83,331.68L386.83,354.36L386.84,354.36ZM386.84,321.61L398.33,321.61C401.65,321.61 404.23,320.77 406.05,319.09C407.87,317.41 408.78,315.06 408.78,312.02C408.78,310.55 408.54,309.21 408.04,308.01C407.55,306.81 406.85,305.79 405.94,304.95C405.03,304.11 403.92,303.47 402.6,303.02C401.28,302.57 399.82,302.35 398.2,302.35L386.84,302.35L386.84,321.61Z" style="fill:white;fill-rule:nonzero;"/>
+            <path d="M435.41,354.36L435.41,291.78L446.34,291.78L475.13,330.77L475.91,330.77L475.91,291.78L488.44,291.78L488.44,354.36L477.6,354.36L448.72,315.2L447.94,315.2L447.94,354.36L435.41,354.36Z" style="fill:white;fill-rule:nonzero;"/>
+            <path d="M530.99,290.18C535.62,290.18 539.78,290.95 543.48,292.48C547.18,294.01 550.33,296.19 552.93,299.03C555.53,301.86 557.53,305.31 558.94,309.37C560.34,313.43 561.04,317.99 561.04,323.05C561.04,328.11 560.35,332.71 558.96,336.78C557.57,340.85 555.58,344.29 552.98,347.12C550.38,349.95 547.22,352.14 543.5,353.67C539.78,355.2 535.61,355.97 530.99,355.97C526.37,355.97 522.15,355.2 518.44,353.67C514.72,352.14 511.57,349.96 508.96,347.12C506.36,344.29 504.36,340.84 502.95,336.78C501.55,332.72 500.85,328.14 500.85,323.05C500.85,317.96 501.56,313.43 502.98,309.37C504.4,305.31 506.41,301.85 509.03,299C511.65,296.15 514.81,293.97 518.53,292.45C522.24,290.93 526.4,290.17 531,290.17L530.99,290.18ZM530.99,301.67C528.45,301.67 526.15,302.17 524.09,303.17C522.04,304.17 520.28,305.59 518.82,307.44C517.36,309.29 516.23,311.54 515.44,314.18C514.64,316.83 514.25,319.78 514.25,323.05C514.25,326.32 514.64,329.27 515.42,331.9C516.2,334.53 517.31,336.78 518.76,338.64C520.21,340.51 521.96,341.94 524.03,342.96C526.1,343.97 528.42,344.48 530.99,344.48C533.56,344.48 535.83,343.97 537.89,342.96C539.94,341.95 541.7,340.51 543.16,338.64C544.62,336.78 545.74,334.53 546.52,331.9C547.3,329.27 547.69,326.32 547.69,323.05C547.69,319.78 547.3,316.83 546.52,314.18C545.74,311.54 544.62,309.29 543.16,307.44C541.7,305.59 539.94,304.17 537.89,303.17C535.84,302.17 533.54,301.67 530.99,301.67Z" style="fill:white;fill-rule:nonzero;"/>
+            <path d="M590.13,354.36L568.97,291.78L583.76,291.78L597.98,339.61L598.76,339.61L612.73,291.78L626.82,291.78L605.96,354.36L590.13,354.36Z" style="fill:white;fill-rule:nonzero;"/>
+            <path d="M672.96,339.44L650.97,339.44L646.16,354.36L633.02,354.36L654.75,291.78L670.14,291.78L691.87,354.36L677.69,354.36L672.96,339.44ZM653.79,329.33L670.18,329.33L662.42,304.79L661.64,304.79L653.79,329.33Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,102,-87)">
+            <path d="M235.37,408.5L235.37,372.7L248.62,372.7C251.56,372.7 253.93,373.49 255.74,375.06C257.55,376.63 258.45,378.79 258.45,381.52C258.45,383.59 257.95,385.29 256.94,386.62C255.93,387.95 254.54,388.89 252.76,389.45L252.76,389.59C254,389.8 255.11,390.15 256.1,390.65C257.09,391.15 257.9,391.78 258.53,392.55C259.16,393.32 259.65,394.21 259.99,395.21C260.33,396.21 260.5,397.3 260.5,398.47C260.5,401.68 259.36,404.16 257.09,405.89C254.82,407.62 251.79,408.49 248.02,408.49L235.37,408.49L235.37,408.5ZM239.58,376.46L239.58,388.19L245.19,388.19C248.24,388.19 250.5,387.72 251.97,386.79C253.44,385.86 254.17,384.33 254.17,382.21C254.17,380.28 253.6,378.84 252.46,377.89C251.32,376.94 249.83,376.46 248,376.46L239.57,376.46L239.58,376.46ZM239.58,391.94L239.58,404.69L245.94,404.69C247.21,404.69 248.32,404.65 249.28,404.56C250.24,404.47 251.16,404.29 252.06,404.03C252.96,403.77 253.7,403.42 254.29,402.98C254.88,402.54 255.35,401.96 255.7,401.22C256.05,400.48 256.23,399.6 256.23,398.57C256.23,396.4 255.54,394.76 254.15,393.63C252.76,392.5 250.89,391.94 248.52,391.94L239.58,391.94Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M290.22,380.96L290.22,408.5L286.12,408.5L286.12,403.95L285.85,403.95C285.38,405.28 284.46,406.45 283.07,407.46C281.68,408.47 279.89,408.97 277.69,408.97C274.75,408.97 272.43,408.27 270.74,406.86C269.05,405.45 268.2,403.25 268.2,400.25L268.2,380.98L272.37,380.98L272.37,399.19C272.37,403.33 274.46,405.41 278.63,405.41C280.75,405.41 282.53,404.74 283.97,403.4C285.41,402.06 286.13,400.47 286.13,398.64L286.13,380.98L290.23,380.98L290.22,380.96Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M298.51,388.79C298.51,386.08 299.47,384.02 301.39,382.62C303.31,381.22 305.69,380.52 308.53,380.52C309.96,380.52 311.28,380.71 312.48,381.1C313.68,381.49 314.7,382.01 315.54,382.68C316.38,383.35 317.02,384.15 317.47,385.08C317.92,386.01 318.14,387.03 318.14,388.14L314.29,388.14C314.23,387.43 313.98,386.77 313.57,386.15C313.16,385.53 312.49,385.01 311.57,384.57C310.65,384.13 309.58,383.92 308.34,383.92C307.2,383.92 306.2,384.09 305.33,384.43C304.46,384.77 303.78,385.28 303.27,385.96C302.76,386.64 302.51,387.43 302.51,388.33C302.51,388.97 302.64,389.53 302.91,389.99C303.18,390.45 303.48,390.82 303.81,391.09C304.14,391.36 304.64,391.61 305.29,391.85C305.94,392.09 306.47,392.25 306.89,392.33C307.31,392.41 307.92,392.53 308.72,392.69L309.08,392.73L309.27,392.8C310.23,392.96 311.07,393.13 311.78,393.29C312.49,393.45 313.23,393.68 314.02,393.94C314.81,394.2 315.47,394.52 316,394.89C316.53,395.26 317.03,395.7 317.51,396.22C317.99,396.74 318.33,397.34 318.55,398.05C318.77,398.76 318.88,399.54 318.88,400.41C318.88,403.08 317.89,405.16 315.92,406.67C313.95,408.18 311.33,408.93 308.09,408.93C305.09,408.93 302.66,408.27 300.8,406.94C298.94,405.61 298.02,403.75 298.02,401.34L302.07,401.34C302.47,404.09 304.54,405.46 308.29,405.46C309.77,405.46 311.01,405.25 312.01,404.83C313.01,404.41 313.73,403.88 314.17,403.23C314.61,402.58 314.82,401.8 314.82,400.91C314.82,400.3 314.7,399.76 314.45,399.3C314.2,398.84 313.9,398.46 313.55,398.18C313.2,397.9 312.67,397.63 311.97,397.37C311.27,397.11 310.66,396.93 310.14,396.82C309.62,396.71 308.88,396.55 307.91,396.34C306.64,396.08 305.64,395.86 304.9,395.68C304.16,395.5 303.33,395.2 302.39,394.8C301.45,394.4 300.75,393.95 300.26,393.46C299.77,392.97 299.36,392.34 299.03,391.56C298.7,390.78 298.54,389.85 298.54,388.78L298.51,388.79Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M326.48,372.38C326.48,371.48 326.78,370.74 327.38,370.15C327.98,369.56 328.72,369.27 329.58,369.27C330.44,369.27 331.22,369.56 331.81,370.15C332.4,370.74 332.69,371.48 332.69,372.38C332.69,372.99 332.56,373.53 332.29,373.99C332.02,374.45 331.65,374.81 331.17,375.06C330.69,375.31 330.16,375.43 329.58,375.43C328.71,375.43 327.98,375.14 327.38,374.56C326.78,373.98 326.48,373.25 326.48,372.37L326.48,372.38ZM327.54,408.5L327.54,380.96L331.66,380.96L331.66,408.5L327.54,408.5Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M342,408.5L342,380.96L346.1,380.96L346.1,386.04L346.37,386.04C347.54,382.36 350.33,380.52 354.73,380.52C357.61,380.52 359.89,381.29 361.58,382.84C363.27,384.39 364.12,386.63 364.12,389.57L364.12,408.48L360,408.48L360,390.87C360,388.67 359.46,386.99 358.37,385.83C357.28,384.67 355.76,384.1 353.78,384.1C351.27,384.1 349.37,384.94 348.06,386.62C346.75,388.3 346.1,390.44 346.1,393.04L346.1,408.48L342,408.48L342,408.5Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M383.75,408.96C380.15,408.96 377.33,407.88 375.29,405.72C373.25,403.56 372.23,400.64 372.23,396.96L372.23,392.5C372.23,388.89 373.27,385.99 375.36,383.8C377.45,381.61 380.14,380.52 383.43,380.52C386.72,380.52 389.41,381.61 391.5,383.8C393.59,385.99 394.63,388.88 394.63,392.5L394.63,395.87L376.37,395.87L376.37,397.27C376.37,399.6 377.02,401.52 378.31,403.03C379.6,404.54 381.41,405.29 383.74,405.29C385.35,405.29 386.69,404.96 387.78,404.31C388.87,403.66 389.56,402.88 389.86,401.96L394.22,401.96C394.09,402.73 393.79,403.5 393.3,404.27C392.81,405.04 392.17,405.79 391.35,406.51C390.53,407.23 389.46,407.82 388.13,408.27C386.8,408.72 385.34,408.94 383.73,408.94L383.75,408.96ZM376.38,392.69L390.47,392.69L390.47,392.21C390.47,390.6 390.18,389.19 389.59,387.97C389,386.75 388.18,385.81 387.11,385.16C386.04,384.51 384.81,384.18 383.41,384.18C381.31,384.18 379.61,384.91 378.31,386.36C377.01,387.81 376.37,389.76 376.37,392.2L376.37,392.68L376.38,392.69Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M401.36,388.79C401.36,386.08 402.32,384.02 404.24,382.62C406.16,381.22 408.54,380.52 411.38,380.52C412.81,380.52 414.13,380.71 415.33,381.1C416.53,381.49 417.55,382.01 418.39,382.68C419.23,383.35 419.87,384.15 420.32,385.08C420.77,386.01 420.99,387.03 420.99,388.14L417.14,388.14C417.08,387.43 416.83,386.77 416.42,386.15C416.01,385.53 415.34,385.01 414.42,384.57C413.5,384.13 412.43,383.92 411.19,383.92C410.05,383.92 409.05,384.09 408.18,384.43C407.31,384.77 406.63,385.28 406.12,385.96C405.61,386.64 405.36,387.43 405.36,388.33C405.36,388.97 405.49,389.53 405.76,389.99C406.03,390.45 406.33,390.82 406.66,391.09C406.99,391.36 407.49,391.61 408.14,391.85C408.79,392.09 409.32,392.25 409.74,392.33C410.16,392.41 410.77,392.53 411.57,392.69L411.93,392.73L412.12,392.8C413.08,392.96 413.92,393.13 414.63,393.29C415.34,393.45 416.08,393.68 416.87,393.94C417.66,394.2 418.32,394.52 418.85,394.89C419.38,395.26 419.88,395.7 420.36,396.22C420.84,396.74 421.18,397.34 421.4,398.05C421.62,398.76 421.73,399.54 421.73,400.41C421.73,403.08 420.74,405.16 418.77,406.67C416.8,408.18 414.18,408.93 410.94,408.93C407.94,408.93 405.51,408.27 403.65,406.94C401.79,405.61 400.87,403.75 400.87,401.34L404.92,401.34C405.32,404.09 407.39,405.46 411.14,405.46C412.62,405.46 413.86,405.25 414.86,404.83C415.86,404.41 416.58,403.88 417.02,403.23C417.46,402.58 417.67,401.8 417.67,400.91C417.67,400.3 417.55,399.76 417.3,399.3C417.05,398.84 416.75,398.46 416.4,398.18C416.05,397.9 415.52,397.63 414.82,397.37C414.12,397.11 413.51,396.93 412.99,396.82C412.47,396.71 411.73,396.55 410.76,396.34C409.49,396.08 408.49,395.86 407.75,395.68C407.01,395.5 406.18,395.2 405.24,394.8C404.3,394.4 403.6,393.95 403.11,393.46C402.62,392.97 402.21,392.34 401.88,391.56C401.55,390.78 401.39,389.85 401.39,388.78L401.36,388.79Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M428.35,388.79C428.35,386.08 429.31,384.02 431.23,382.62C433.15,381.22 435.53,380.52 438.37,380.52C439.8,380.52 441.12,380.71 442.32,381.1C443.52,381.49 444.54,382.01 445.38,382.68C446.22,383.35 446.86,384.15 447.31,385.08C447.76,386.01 447.98,387.03 447.98,388.14L444.13,388.14C444.07,387.43 443.82,386.77 443.41,386.15C443,385.53 442.33,385.01 441.41,384.57C440.49,384.13 439.42,383.92 438.18,383.92C437.04,383.92 436.04,384.09 435.17,384.43C434.3,384.77 433.62,385.28 433.11,385.96C432.6,386.64 432.35,387.43 432.35,388.33C432.35,388.97 432.48,389.53 432.75,389.99C433.02,390.45 433.32,390.82 433.65,391.09C433.98,391.36 434.48,391.61 435.13,391.85C435.78,392.09 436.31,392.25 436.73,392.33C437.15,392.41 437.76,392.53 438.56,392.69L438.92,392.73L439.11,392.8C440.07,392.96 440.91,393.13 441.62,393.29C442.33,393.45 443.07,393.68 443.86,393.94C444.65,394.2 445.31,394.52 445.84,394.89C446.37,395.26 446.87,395.7 447.35,396.22C447.83,396.74 448.17,397.34 448.39,398.05C448.61,398.76 448.72,399.54 448.72,400.41C448.72,403.08 447.73,405.16 445.76,406.67C443.79,408.18 441.17,408.93 437.93,408.93C434.93,408.93 432.5,408.27 430.64,406.94C428.78,405.61 427.86,403.75 427.86,401.34L431.91,401.34C432.31,404.09 434.38,405.46 438.13,405.46C439.61,405.46 440.85,405.25 441.85,404.83C442.85,404.41 443.57,403.88 444.01,403.23C444.45,402.58 444.66,401.8 444.66,400.91C444.66,400.3 444.54,399.76 444.29,399.3C444.04,398.84 443.74,398.46 443.39,398.18C443.04,397.9 442.51,397.63 441.81,397.37C441.11,397.11 440.5,396.93 439.98,396.82C439.46,396.71 438.72,396.55 437.75,396.34C436.48,396.08 435.48,395.86 434.74,395.68C434,395.5 433.17,395.2 432.23,394.8C431.29,394.4 430.59,393.95 430.1,393.46C429.61,392.97 429.2,392.34 428.87,391.56C428.54,390.78 428.38,389.85 428.38,388.78L428.35,388.79Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M466.36,398.91L470.58,398.91C470.77,400.82 471.66,402.39 473.23,403.61C474.8,404.83 476.94,405.44 479.64,405.44C482.18,405.44 484.22,404.85 485.76,403.68C487.3,402.51 488.07,400.92 488.07,398.91C488.07,397.42 487.59,396.2 486.64,395.26C485.69,394.32 484.19,393.59 482.15,393.06L475.74,391.35C473.33,390.72 471.35,389.66 469.8,388.15C468.25,386.64 467.48,384.62 467.48,382.08C467.48,379.94 468.07,378.08 469.25,376.49C470.43,374.9 471.93,373.73 473.76,372.98C475.59,372.23 477.56,371.86 479.7,371.86C481.24,371.86 482.71,372.06 484.1,372.46C485.49,372.86 486.78,373.45 487.97,374.23C489.16,375.01 490.11,376.07 490.82,377.41C491.53,378.75 491.92,380.27 491.99,381.98L487.77,381.98C487.58,380.1 486.79,378.58 485.4,377.41C484.01,376.24 482.08,375.66 479.61,375.66C477.28,375.66 475.39,376.19 473.92,377.26C472.45,378.33 471.73,379.83 471.73,381.78C471.73,384.54 473.42,386.37 476.81,387.25L483.07,388.94C486.07,389.78 488.37,390.94 489.96,392.43C491.55,393.92 492.35,395.99 492.35,398.62C492.35,402.03 491.11,404.65 488.62,406.49C486.13,408.33 482.96,409.25 479.1,409.25C476.9,409.25 474.95,408.93 473.25,408.3C471.55,407.67 470.23,406.83 469.29,405.79C468.35,404.75 467.64,403.66 467.16,402.5C466.68,401.34 466.42,400.15 466.39,398.91L466.36,398.91Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M510.65,380.53C514.09,380.53 516.89,381.6 519.06,383.73C521.23,385.87 522.31,388.81 522.31,392.55L522.31,396.91C522.31,400.65 521.22,403.6 519.03,405.74C516.84,407.88 514.05,408.96 510.65,408.96C507.25,408.96 504.35,407.9 502.19,405.77C500.03,403.64 498.96,400.69 498.96,396.92L498.96,392.56C498.96,388.95 500.06,386.04 502.26,383.84C504.46,381.64 507.26,380.54 510.64,380.54L510.65,380.53ZM503.06,393.01L503.06,396.46C503.06,398.27 503.36,399.84 503.96,401.16C504.56,402.48 505.43,403.5 506.57,404.22C507.71,404.94 509.07,405.3 510.64,405.3C513,405.3 514.84,404.5 516.17,402.91C517.5,401.32 518.16,399.17 518.16,396.45L518.16,393C518.16,390.32 517.48,388.18 516.12,386.58C514.76,384.98 512.94,384.18 510.65,384.18C508.36,384.18 506.52,384.99 505.13,386.6C503.74,388.21 503.05,390.35 503.05,393L503.06,393.01Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <rect x="530.74" y="370.8" width="4.17" height="37.7" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M566.44,380.96L566.44,408.5L562.34,408.5L562.34,403.95L562.07,403.95C561.6,405.28 560.68,406.45 559.29,407.46C557.9,408.47 556.11,408.97 553.91,408.97C550.97,408.97 548.65,408.27 546.96,406.86C545.27,405.45 544.42,403.25 544.42,400.25L544.42,380.98L548.59,380.98L548.59,399.19C548.59,403.33 550.68,405.41 554.85,405.41C556.97,405.41 558.75,404.74 560.19,403.4C561.63,402.06 562.35,400.47 562.35,398.64L562.35,380.98L566.45,380.98L566.44,380.96Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M577.48,380.96L577.48,374.05L581.6,374.05L581.6,380.96L587.86,380.96L587.86,384.48L581.6,384.48L581.6,401.03C581.6,402.17 581.74,403.04 582.02,403.64C582.3,404.24 582.76,404.66 583.39,404.89C584.02,405.12 584.94,405.24 586.15,405.24C586.89,405.24 587.6,405.21 588.27,405.14L588.27,408.54C587.63,408.67 586.57,408.73 585.09,408.73C583.5,408.73 582.2,408.58 581.2,408.28C580.2,407.98 579.43,407.48 578.89,406.79C578.35,406.1 577.98,405.28 577.78,404.36C577.58,403.44 577.48,402.26 577.48,400.83L577.48,384.47L573.26,384.47L573.26,380.95L577.48,380.95L577.48,380.96Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M595.48,372.38C595.48,371.48 595.78,370.74 596.38,370.15C596.98,369.56 597.72,369.27 598.58,369.27C599.44,369.27 600.22,369.56 600.81,370.15C601.4,370.74 601.69,371.48 601.69,372.38C601.69,372.99 601.56,373.53 601.29,373.99C601.02,374.45 600.65,374.81 600.17,375.06C599.69,375.31 599.16,375.43 598.58,375.43C597.71,375.43 596.98,375.14 596.38,374.56C595.78,373.98 595.48,373.25 595.48,372.37L595.48,372.38ZM596.54,408.5L596.54,380.96L600.66,380.96L600.66,408.5L596.54,408.5Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M621.33,380.53C624.77,380.53 627.57,381.6 629.74,383.73C631.91,385.87 632.99,388.81 632.99,392.55L632.99,396.91C632.99,400.65 631.9,403.6 629.71,405.74C627.52,407.88 624.73,408.96 621.33,408.96C617.93,408.96 615.03,407.9 612.87,405.77C610.71,403.64 609.64,400.69 609.64,396.92L609.64,392.56C609.64,388.95 610.74,386.04 612.94,383.84C615.14,381.64 617.94,380.54 621.32,380.54L621.33,380.53ZM613.74,393.01L613.74,396.46C613.74,398.27 614.04,399.84 614.64,401.16C615.24,402.48 616.11,403.5 617.25,404.22C618.39,404.94 619.75,405.3 621.32,405.3C623.68,405.3 625.52,404.5 626.85,402.91C628.18,401.32 628.84,399.17 628.84,396.45L628.84,393C628.84,390.32 628.16,388.18 626.8,386.58C625.44,384.98 623.62,384.18 621.33,384.18C619.04,384.18 617.2,384.99 615.81,386.6C614.42,388.21 613.73,390.35 613.73,393L613.74,393.01Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M641.28,408.5L641.28,380.96L645.38,380.96L645.38,386.04L645.65,386.04C646.82,382.36 649.61,380.52 654.01,380.52C656.89,380.52 659.17,381.29 660.86,382.84C662.55,384.39 663.4,386.63 663.4,389.57L663.4,408.48L659.28,408.48L659.28,390.87C659.28,388.67 658.74,386.99 657.65,385.83C656.56,384.67 655.04,384.1 653.06,384.1C650.55,384.1 648.65,384.94 647.34,386.62C646.03,388.3 645.38,390.44 645.38,393.04L645.38,408.48L641.28,408.48L641.28,408.5Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+            <path d="M671.51,388.79C671.51,386.08 672.47,384.02 674.39,382.62C676.31,381.22 678.69,380.52 681.53,380.52C682.96,380.52 684.28,380.71 685.48,381.1C686.68,381.49 687.7,382.01 688.54,382.68C689.38,383.35 690.02,384.15 690.47,385.08C690.92,386.01 691.14,387.03 691.14,388.14L687.29,388.14C687.23,387.43 686.98,386.77 686.57,386.15C686.16,385.53 685.49,385.01 684.57,384.57C683.65,384.13 682.58,383.92 681.34,383.92C680.2,383.92 679.2,384.09 678.33,384.43C677.46,384.77 676.78,385.28 676.27,385.96C675.76,386.64 675.51,387.43 675.51,388.33C675.51,388.97 675.64,389.53 675.91,389.99C676.18,390.45 676.48,390.82 676.81,391.09C677.14,391.36 677.64,391.61 678.29,391.85C678.94,392.09 679.47,392.25 679.89,392.33C680.31,392.41 680.92,392.53 681.72,392.69L682.08,392.73L682.27,392.8C683.23,392.96 684.07,393.13 684.78,393.29C685.49,393.45 686.23,393.68 687.02,393.94C687.81,394.2 688.47,394.52 689,394.89C689.53,395.26 690.03,395.7 690.51,396.22C690.99,396.74 691.33,397.34 691.55,398.05C691.77,398.76 691.88,399.54 691.88,400.41C691.88,403.08 690.89,405.16 688.92,406.67C686.95,408.18 684.33,408.93 681.09,408.93C678.09,408.93 675.66,408.27 673.8,406.94C671.94,405.61 671.02,403.75 671.02,401.34L675.07,401.34C675.47,404.09 677.54,405.46 681.29,405.46C682.77,405.46 684.01,405.25 685.01,404.83C686.01,404.41 686.73,403.88 687.17,403.23C687.61,402.58 687.82,401.8 687.82,400.91C687.82,400.3 687.7,399.76 687.45,399.3C687.2,398.84 686.9,398.46 686.55,398.18C686.2,397.9 685.67,397.63 684.97,397.37C684.27,397.11 683.66,396.93 683.14,396.82C682.62,396.71 681.88,396.55 680.91,396.34C679.64,396.08 678.64,395.86 677.9,395.68C677.16,395.5 676.33,395.2 675.39,394.8C674.45,394.4 673.75,393.95 673.26,393.46C672.77,392.97 672.36,392.34 672.03,391.56C671.7,390.78 671.54,389.85 671.54,388.78L671.51,388.79Z" style="fill:rgb(17,164,175);fill-rule:nonzero;"/>
+        </g>
+    </g>
+    <g transform="matrix(1.422024,0,0,1,-191.842532,96)">
+        <path d="M691.53,257.73L236.58,258.61L236.58,267.01L691.53,266.13L691.53,257.73Z" style="fill:url(#_Linear8);fill-rule:nonzero;"/>
+    </g>
+    <g>
+        <g transform="matrix(1,0,0,1,-225,99)">
+            <path d="M551.31,124.46C551.31,100.16 531.61,80.46 507.31,80.46C497.73,80.46 488.88,83.53 481.65,88.73L481.64,88.73L481.23,89.03C481.08,89.14 480.92,89.26 480.77,89.37L440.84,119.18C429.49,126.84 422.02,139.83 422.02,154.55C422.02,167.08 427.42,178.34 436.02,186.14L472.46,222.58L476.32,226.2C484.27,234.09 495.22,238.97 507.31,238.97C531.61,238.97 551.31,219.27 551.31,194.97L551.31,125.51L551.27,125.47C551.27,125.13 551.31,124.8 551.31,124.46ZM527.45,155.87L527.45,194.98C527.45,206.11 518.43,215.13 507.3,215.13C503.29,215.13 499.56,213.95 496.43,211.93C496.43,211.93 492.72,208.89 492.09,208.17L491.58,207.73L472.95,189.46C465.06,181.58 456.84,172.86 453.27,169.5C450.34,167.06 448.09,163.75 446.95,159.82C444.27,150.58 448.43,142.74 456.9,136.74L470.09,126.44L497.02,106.14C499.96,104.51 503.33,103.58 506.93,103.58C518.26,103.58 527.44,112.76 527.44,124.09L527.44,155.86L527.45,155.87Z" style="fill:url(#_Linear9);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-225,99)">
+            <path d="M491.71,137.41L445.85,91.55L445.79,91.61C438.02,84.68 427.77,80.46 416.54,80.46C393.58,80.46 374.73,98.05 372.73,120.49L372.54,120.49L372.54,235.54L396.39,235.54L396.39,124.55C396.39,124.55 396.42,124.53 396.44,124.52C396.41,124.07 396.39,123.61 396.39,123.15C396.39,112.02 405.41,103 416.54,103C421.23,103 425.54,104.62 428.96,107.32C429.17,107.48 432.98,111.41 432.98,111.41L476.34,154.77C479.25,158.28 481,162.78 481,167.7C481,175.69 476.37,182.58 469.65,185.89L486.45,202.69C497.39,194.69 503.87,181.75 504.54,167.16C505.33,150.06 491.7,137.41 491.7,137.41L491.71,137.41Z" style="fill:url(#_Linear10);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-225,99)">
+            <path d="M440.83,119.19L457.66,136.09C457.66,136.09 453.62,139.19 454.73,138.33C455.84,137.47 452.27,140.76 452.27,140.76L435.59,123.42C435.59,123.42 436.72,122.15 437.9,121.3L440.83,119.19Z" style="fill:url(#_Linear11);fill-rule:nonzero;"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear8" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(453.4268,0,0,453.4268,242.6629,262.9448)"><stop offset="0" style="stop-color:rgb(0,188,205);stop-opacity:1"/><stop offset="0.23" style="stop-color:rgb(0,188,205);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(3,149,142);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear9" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(129.3,0,0,129.3,422.01,159.72)"><stop offset="0" style="stop-color:rgb(2,133,126);stop-opacity:1"/><stop offset="0.69" style="stop-color:rgb(22,173,178);stop-opacity:1"/><stop offset="0.95" style="stop-color:rgb(89,192,193);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(89,192,193);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear10" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(9642.374446,-13125.9712,13125.9712,9642.374446,52199.47744,30953.7864)"><stop offset="0" style="stop-color:rgb(25,40,81);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(0,99,159);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear11" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-5.53,5.93,-5.93,-5.53,448.8,127.42)"><stop offset="0" style="stop-color:rgb(0,79,74);stop-opacity:0.54"/><stop offset="0.82" style="stop-color:rgb(0,139,135);stop-opacity:0.08"/><stop offset="1" style="stop-color:rgb(0,139,135);stop-opacity:0.08"/></linearGradient>
+    </defs>
+    </svg>
   </div>
   <div class="cover-logo">Skills<span>IQ</span></div>
   <div class="cover-tagline">Powered by SCOR Framework &nbsp;|&nbsp; Assess Skills. Build Capability.</div>
@@ -327,13 +359,13 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
         </div>
       </div>
       <div class="gauge-stats">
-        <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">2</span></div>
-        <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">2</span></div>
-        <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">6</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">4</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">3</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">2</span></div>
       </div>
     </div>
     <div style="margin-top:20px; padding:20px; background:var(--gray-100); border-radius:10px; font-size:0.9rem; color:var(--gray-600); line-height:1.8;">
-      Omar demonstrates an <strong>Operational-level capability (transitioning to Professional)</strong>. He shows notable strength in Supply Chain Fundamentals and Planning &amp; Inventory Management, indicating a strong conceptual foundation in core supply chain principles. With targeted development in analytics, technology, risk management, and strategic leadership, he is well-positioned to achieve full Professional-level competency.
+      Omar demonstrates an <strong>Operational-level capability (transitioning to Professional)</strong>. He shows notable strength in Financial Acumen &amp; Cost Management, Planning &amp; Inventory Management, Supply Chain Fundamentals, and Production &amp; Operations Management — indicating a strong conceptual foundation in core planning competencies. With targeted development in warehouse management, logistics, and analytics, he is well-positioned to achieve full Professional-level competency.
     </div>
   </div>
 
@@ -345,7 +377,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
     </div>
     <div class="kpi-row">
       <div class="kpi-card"><div class="value">Planning</div><div class="label">Assessed Function</div></div>
-      <div class="kpi-card"><div class="value">10</div><div class="label">Knowledge Areas</div></div>
+      <div class="kpi-card"><div class="value">9</div><div class="label">Knowledge Areas</div></div>
       <div class="kpi-card"><div class="value">78</div><div class="label">SCOR-Defined Skills</div></div>
       <div class="kpi-card"><div class="value">234</div><div class="label">Scenario-Based Questions</div></div>
     </div>
@@ -368,9 +400,9 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <h2>Overall Performance Dashboard</h2>
     </div>
     <div class="kpi-row">
-      <div class="kpi-card"><div class="value">1.6</div><div class="label">Overall Assessed Score</div></div>
+      <div class="kpi-card"><div class="value">1.96</div><div class="label">Overall Assessed Score</div></div>
       <div class="kpi-card"><div class="value">80%</div><div class="label">Target Readiness</div></div>
-      <div class="kpi-card"><div class="value" style="color:#ea580c;">-0.2</div><div class="label">Gap to Target (Minimal)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#ea580c;">-0.04</div><div class="label">Gap to Target (Minimal)</div></div>
       <div class="kpi-card"><div class="value" style="font-size:1rem;">Operational &rarr; Professional</div><div class="label">Current Trajectory</div></div>
     </div>
     <div class="chart-row">
@@ -401,89 +433,82 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <div class="section-icon">&#127919;</div>
       <h2>Knowledge Areas Performance</h2>
     </div>
+    <p style="margin-bottom:16px; color:var(--gray-600); font-size:0.9rem;">Performance across the 9 knowledge areas relevant to the <strong>Planning</strong> function, assessed at <strong>Level 2 — Professional</strong>.</p>
     <div class="ka-grid">
-      <!-- Strength Areas -->
+      <!-- Strength Areas (score >= 2.0) -->
       <div class="ka-card strength">
-        <div class="ka-score" style="color:#11a4af;">2.3</div>
+        <div class="ka-score" style="color:#11a4af;">3.0</div>
         <div class="ka-info">
-          <div class="ka-name">Supply Chain Fundamentals</div>
-          <div class="ka-desc">Demonstrates a strong understanding of core supply chain concepts, processes, and interdependencies. Effectively connects operational activities to broader supply chain objectives.</div>
+          <div class="ka-name">Financial Acumen &amp; Cost Mgmt</div>
+          <div class="ka-desc">Independently analyzes cost data, prepares operational budgets, and identifies cost-saving opportunities within their function. Effectively interprets financial reports and understands how operational decisions impact costs and working capital.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:46%;background:#11a4af;"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
       </div>
       <div class="ka-card strength">
-        <div class="ka-score" style="color:#11a4af;">2.2</div>
+        <div class="ka-score" style="color:#11a4af;">2.1</div>
         <div class="ka-info">
           <div class="ka-name">Planning &amp; Inventory Management</div>
-          <div class="ka-desc">Demonstrates strong capability in planning, forecasting, and demand management activities. Effectively interprets data and supports decision-making through structured planning processes.</div>
+          <div class="ka-desc">Independently manages planning activities including forecasting, demand analysis, and inventory replenishment. Effectively interprets planning outputs and applies standard methodologies to support operational decision-making with minimal supervision.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:44%;background:#11a4af;"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
       </div>
-      <!-- Proficient Areas -->
-      <div class="ka-card proficient">
-        <div class="ka-score" style="color:#d4a853;">2.0</div>
+      <div class="ka-card strength">
+        <div class="ka-score" style="color:#11a4af;">2.0</div>
+        <div class="ka-info">
+          <div class="ka-name">Supply Chain Fundamentals</div>
+          <div class="ka-desc">Demonstrates solid command of end-to-end supply chain principles including sourcing, production, logistics, and fulfillment. Effectively connects daily operational tasks to broader supply chain outcomes and can explain how functional decisions impact overall network performance.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
+      </div>
+      <div class="ka-card strength">
+        <div class="ka-score" style="color:#11a4af;">2.0</div>
         <div class="ka-info">
           <div class="ka-name">Production &amp; Operations Mgmt</div>
-          <div class="ka-desc">Possesses a good understanding of production and operations management fundamentals. Can effectively support daily operational activities and performance objectives.</div>
+          <div class="ka-desc">Independently manages production scheduling, work order execution, and shop floor coordination. Effectively applies operations management principles to meet output targets, maintain quality standards, and support continuous improvement initiatives.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:40%;background:#d4a853;"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
+      </div>
+      <!-- Proficient Areas (1.7 <= score < 2.0) -->
+      <div class="ka-card proficient">
+        <div class="ka-score" style="color:#d4a853;">1.8</div>
+        <div class="ka-info">
+          <div class="ka-name">Strategic Mgmt &amp; Leadership</div>
+          <div class="ka-desc">Possesses good professional skills and understands workplace dynamics. Can manage personal responsibilities effectively and contribute to team goals. Further development in communication, time management, and stakeholder engagement would strengthen capability.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#d4a853;"></div></div></div>
       </div>
       <div class="ka-card proficient">
         <div class="ka-score" style="color:#d4a853;">1.8</div>
         <div class="ka-info">
-          <div class="ka-name">Data Analytics &amp; Technology</div>
-          <div class="ka-desc">Possesses a solid understanding of data analysis and technology applications. Can effectively utilize standard tools and reports to support operational activities.</div>
+          <div class="ka-name">Quality &amp; Risk Management</div>
+          <div class="ka-desc">Possesses solid understanding of quality principles and basic risk management concepts. Can support quality-related activities and compliance checks. Further development in statistical quality control, risk assessment methodologies, and audit techniques would strengthen capability.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:36%;background:#d4a853;"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#d4a853;"></div></div></div>
       </div>
-      <!-- Development Areas -->
+      <div class="ka-card proficient">
+        <div class="ka-score" style="color:#d4a853;">1.7</div>
+        <div class="ka-info">
+          <div class="ka-name">Data Analytics &amp; Technology</div>
+          <div class="ka-desc">Possesses solid understanding of data tools and basic analytics concepts. Can generate standard reports and interpret basic data visualizations. Further development in statistical analysis, database querying, and advanced Excel or BI tools would strengthen capability.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:85%;background:#d4a853;"></div></div></div>
+      </div>
+      <!-- Development Areas (score < 1.7) -->
       <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.4</div>
+        <div class="ka-score" style="color:#dc2626;">1.5</div>
         <div class="ka-info">
           <div class="ka-name">Warehouse Management</div>
-          <div class="ka-desc">Demonstrates limited capability in inventory planning and warehouse management practices. Additional development is recommended to improve inventory accuracy, control, and operational efficiency.</div>
+          <div class="ka-desc">Demonstrates limited experience in warehouse management practices. Additional development is recommended in inventory control, warehouse process flows, and operational efficiency principles. Building hands-on warehouse knowledge should be prioritized.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:28%;background:var(--red);"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:75%;background:var(--red);"></div></div></div>
       </div>
       <div class="ka-card development">
         <div class="ka-score" style="color:#dc2626;">1.5</div>
         <div class="ka-info">
           <div class="ka-name">Logistics &amp; Transportation</div>
-          <div class="ka-desc">Shows opportunities for improvement in logistics and transportation management. Additional learning is recommended to strengthen understanding of logistics planning and service performance management.</div>
+          <div class="ka-desc">Demonstrates limited knowledge of logistics and transportation management. Additional learning is recommended in transportation modes, freight documentation, and basic logistics planning. Building foundational logistics knowledge should be a priority.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--red);"></div></div></div>
-      </div>
-      <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.3</div>
-        <div class="ka-info">
-          <div class="ka-name">Sourcing &amp; Supplier Management</div>
-          <div class="ka-desc">Demonstrates limited proficiency in sourcing and supplier management activities. Further development is recommended in supplier evaluation, negotiation, and procurement best practices.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:26%;background:var(--red);"></div></div></div>
-      </div>
-      <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.5</div>
-        <div class="ka-info">
-          <div class="ka-name">Quality &amp; Risk Management</div>
-          <div class="ka-desc">Demonstrates limited capability in quality and risk management practices. Further development is recommended to strengthen understanding of risk identification, quality control, and compliance.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--red);"></div></div></div>
-      </div>
-      <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.5</div>
-        <div class="ka-info">
-          <div class="ka-name">Financial Acumen &amp; Cost Mgmt</div>
-          <div class="ka-desc">Shows opportunities for improvement in financial and cost management capability. Additional development is recommended in financial literacy, cost analysis, and supply chain economics.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--red);"></div></div></div>
-      </div>
-      <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.6</div>
-        <div class="ka-info">
-          <div class="ka-name">Strategic Mgmt &amp; Leadership</div>
-          <div class="ka-desc">Shows opportunities for improvement in strategic thinking and leadership capability. Additional development is recommended in leadership practices, decision-making, and business alignment skills.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:32%;background:var(--red);"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:75%;background:var(--red);"></div></div></div>
       </div>
     </div>
   </div>
@@ -495,12 +520,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <h2>Detailed Skills Assessment</h2>
     </div>
     <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">All 78 assessed skills scored against a 1–5 capability scale. Each skill was evaluated with 3 scenario-based questions.</p>
-    <div style="overflow-x:auto;">
-    <table class="skills-table">
-      <thead><tr><th>#</th><th>Skill Code</th><th>Skill Name</th><th>Description</th><th>Score</th><th>Level</th></tr></thead>
-      <tbody id="skillsTableBody"></tbody>
-    </table>
-    </div>
+    <div class="skill-cards-grid" id="skillCardsGrid"></div>
   </div>
 
   <!-- SCORE ANALYSIS -->
@@ -512,8 +532,8 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
     <div class="kpi-row">
       <div class="kpi-card"><div class="value" style="color:#dc2626;">30</div><div class="label">Skills at Level 1 (38%)</div></div>
       <div class="kpi-card"><div class="value" style="color:#ea580c;">23</div><div class="label">Skills at Level 2 (30%)</div></div>
-      <div class="kpi-card"><div class="value" style="color:#d4a853;">22</div><div class="label">Skills at Level 3 (28%)</div></div>
-      <div class="kpi-card"><div class="value" style="color:#11a4af;">3</div><div class="label">Skills at Level 4 (4%)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#d4a853;">23</div><div class="label">Skills at Level 3 (29%)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#11a4af;">2</div><div class="label">Skills at Level 4 (3%)</div></div>
     </div>
     <div class="chart-container">
       <div class="chart-canvas-wrap"><canvas id="distributionChart"></canvas></div>
@@ -526,90 +546,46 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <div class="section-icon">&#127891;</div>
       <h2>Development Recommendations &amp; Certification Pathways</h2>
     </div>
-    <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">Based on the assessment results, the following certifications and training programs are recommended, aligned to globally recognized associations.</p>
+    <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">Based on the assessment results for <strong>Level 2 — Professional</strong> in the <strong>Planning</strong> function, the following certifications and training programs are recommended per knowledge area.</p>
 
-    <div class="rec-card">
-      <h4>Priority 1 — Strengthen Foundations</h4>
-      <p>Build core supply chain knowledge to solidify the transition to Professional-level capability.</p>
+    <div class="rec-card" style="border-left-color:#dc2626;">
+      <h4>Priority 1 — Warehouse Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area)</span></h4>
+      <p>Build foundational knowledge in warehouse operations, inventory control, and operational efficiency to close the gap in this critical Planning support area.</p>
       <div class="cert-list">
-        <span class="cert-tag">ASCM FOSM</span>
-        <span class="cert-tag">ASCM CPIM Part 1</span>
-        <span class="cert-tag">ISM Supply Chain Fundamentals</span>
+        <span class="cert-tag">ASCM FOSM — Warehouse &amp; Distribution module</span>
+        <span class="cert-tag">ISM Warehouse Operations Certificate</span>
       </div>
     </div>
-    <div class="rec-card">
-      <h4>Priority 2 — Warehouse &amp; Logistics</h4>
-      <p>Develop practical knowledge in warehouse operations, inventory control, and transportation management.</p>
+    <div class="rec-card" style="border-left-color:#dc2626;">
+      <h4>Priority 2 — Logistics &amp; Transportation <span style="color:#dc2626;font-size:0.8rem;">(Development Area)</span></h4>
+      <p>Develop foundational logistics knowledge including transportation modes, freight documentation, and basic logistics planning.</p>
       <div class="cert-list">
-        <span class="cert-tag">ASCM CLTD</span>
-        <span class="cert-tag">CSCMP SCPro Level 1</span>
-        <span class="cert-tag">Lean Six Sigma Yellow Belt</span>
+        <span class="cert-tag">ASCM FOSM — Logistics Fundamentals</span>
+        <span class="cert-tag">ASCM CLTD — Transportation Basics</span>
       </div>
     </div>
-    <div class="rec-card">
-      <h4>Priority 3 — Sourcing &amp; Risk</h4>
-      <p>Build procurement fundamentals, supplier evaluation skills, and quality/risk management capabilities.</p>
+    <div class="rec-card" style="border-left-color:#d4a853;">
+      <h4>Priority 3 — Data Analytics &amp; Technology <span style="color:#d4a853;font-size:0.8rem;">(Proficient Area)</span></h4>
+      <p>Strengthen data tools proficiency, statistical analysis, database querying, and advanced Excel or BI tools to move from proficient to strength level.</p>
       <div class="cert-list">
-        <span class="cert-tag">CIPS Level 2</span>
+        <span class="cert-tag">ASCM FOSM — Digital Tools in SC</span>
+        <span class="cert-tag">ISM Technology in Supply Chain Certificate</span>
+      </div>
+    </div>
+    <div class="rec-card" style="border-left-color:#d4a853;">
+      <h4>Priority 4 — Quality &amp; Risk Management <span style="color:#d4a853;font-size:0.8rem;">(Proficient Area)</span></h4>
+      <p>Strengthen quality fundamentals, risk identification, statistical quality control, and audit techniques.</p>
+      <div class="cert-list">
+        <span class="cert-tag">Lean Six Sigma Yellow Belt — Quality Fundamentals</span>
         <span class="cert-tag">ISM Risk Management Certificate</span>
-        <span class="cert-tag">Lean Six Sigma Yellow Belt — Quality</span>
       </div>
     </div>
-    <div class="rec-card">
-      <h4>Priority 4 — Data &amp; Technology</h4>
-      <p>Strengthen analytical skills, ERP proficiency, and data-driven decision-making capabilities.</p>
+    <div class="rec-card" style="border-left-color:#d4a853;">
+      <h4>Priority 5 — Strategic Mgmt &amp; Leadership <span style="color:#d4a853;font-size:0.8rem;">(Proficient Area)</span></h4>
+      <p>Develop communication skills, time management, stakeholder engagement, and professional presence.</p>
       <div class="cert-list">
-        <span class="cert-tag">ASCM FOSM — Digital Tools</span>
-        <span class="cert-tag">ISM Technology in SC Certificate</span>
-      </div>
-    </div>
-    <div class="rec-card">
-      <h4>Priority 5 — Financial Acumen &amp; Strategic Leadership</h4>
-      <p>Develop financial literacy, cost awareness, and professional leadership presence.</p>
-      <div class="cert-list">
-        <span class="cert-tag">ASCM FOSM — SC Finance Basics</span>
         <span class="cert-tag">ASCM FOSM — SC Strategy Introduction</span>
         <span class="cert-tag">CSCMP SCPro Level 1</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOP STRENGTHS & CRITICAL GAPS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon">&#9889;</div>
-      <h2>Key Highlights</h2>
-    </div>
-    <div class="chart-row" style="margin-top:0;">
-      <div>
-        <h4 style="color:var(--green); margin-bottom:12px;">Top Performing Skills (Score 4)</h4>
-        <ul style="list-style:none; padding:0;">
-          <li style="padding:8px 0; border-bottom:1px solid var(--gray-200);"><strong>Build Schedule Evaluation</strong> — HS.0014</li>
-          <li style="padding:8px 0; border-bottom:1px solid var(--gray-200);"><strong>Returns Strategy Development</strong> — HS.0121</li>
-        </ul>
-        <h4 style="color:#d4a853; margin-top:20px; margin-bottom:12px;">Strong Skills (Score 3) — 22 Total</h4>
-        <p style="font-size:0.85rem; color:var(--gray-600);">Including: Capacity Planning, Master Data Mgmt, Delivery Scheduling, Lean Manufacturing, S&amp;OP, MRP Systems, Production Planning, Quality Management, and more.</p>
-      </div>
-      <div>
-        <h4 style="color:#dc2626; margin-bottom:12px;">Critical Development Skills (Score 1) — 30 Total</h4>
-        <ul style="list-style:none; padding:0; font-size:0.85rem; max-height:300px; overflow-y:auto;">
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Assembly Process Design</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Availability Management</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Benchmarking</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Demand Management</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">ERP Systems</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Forecasting</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Inventory Management</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Linear Programming</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Optimization</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Project Management</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Risk &amp; Exception Management</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Risk Identification</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Risk Mitigation</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Route Planning</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">Strategic Planning</li>
-          <li style="padding:6px 0; border-bottom:1px solid var(--gray-200);">+ 15 more...</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -710,19 +686,30 @@ const skills = [
 
 const levelNames = {1:"Operational",2:"Professional",3:"Supervisory",4:"Managerial",5:"Strategic"};
 
-// Populate skills table
-const tbody = document.getElementById('skillsTableBody');
-skills.forEach((s,i) => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${i+1}</td><td>${s.code}</td><td>${s.name}</td><td style="font-size:0.8rem;color:var(--gray-600);line-height:1.4;">${s.desc}</td><td><span class="score-badge score-${s.score}">${s.score}</span></td><td style="font-size:0.8rem;color:var(--gray-600);">${levelNames[s.score]}</td>`;
-  tbody.appendChild(tr);
+// Populate skill cards
+const grid = document.getElementById('skillCardsGrid');
+skills.forEach((s) => {
+  const card = document.createElement('div');
+  card.className = 'skill-card';
+  card.innerHTML = `
+    <div class="skill-score-wrap">
+      <span class="score-badge score-${s.score}">${s.score}</span>
+      <span class="skill-code">${s.code}</span>
+    </div>
+    <div class="skill-info">
+      <div class="skill-name">${s.name}</div>
+      <div class="skill-desc">${s.desc}</div>
+      <div class="skill-level">${levelNames[s.score]}</div>
+    </div>
+  `;
+  grid.appendChild(card);
 });
 
-// Knowledge Area data
-const kaLabels = ['SC Fundamentals','Planning & Inventory','Production & Ops','Data & Technology','Warehouse Mgmt','Logistics & Transport','Sourcing & Supplier','Quality & Risk','Financial Acumen','Strategic & Leadership'];
-const kaScores = [2.3, 2.2, 2.0, 1.8, 1.4, 1.5, 1.3, 1.5, 1.5, 1.6];
-const kaTarget = [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0];
-const kaReadiness = [115, 110, 100, 90, 70, 75, 65, 75, 75, 80];
+// Knowledge Area data — 9 areas for Planning function
+const kaLabels = ['SC Fundamentals','Planning & Inventory','Warehouse Mgmt','Logistics & Transport','Production & Ops','Quality & Risk','Financial Acumen','Data & Technology','Strategic & Leadership'];
+const kaScores = [2.0, 2.1, 1.5, 1.5, 2.0, 1.8, 3.0, 1.7, 1.8];
+const kaTarget = [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0];
+const kaReadiness = [100, 105, 75, 75, 100, 90, 150, 85, 90];
 
 // Radar Chart
 new Chart(document.getElementById('radarChart'), {
@@ -749,7 +736,7 @@ new Chart(document.getElementById('radarChart'), {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    scales: { r: { min: 0, max: 3, ticks: { stepSize: 1 } } },
+    scales: { r: { min: 0, max: 3.5, ticks: { stepSize: 0.5 } } },
     plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
   }
 });
@@ -771,21 +758,18 @@ new Chart(document.getElementById('barChart'), {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    scales: { x: { min: 0, max: 3, ticks: { stepSize: 1 } } },
-    plugins: { legend: { display: false },
-      annotation: { annotations: { target: { type: 'line', xMin: 2, xMax: 2, borderColor: '#ea4335', borderDash: [4,4], borderWidth: 2 } } }
-    }
+    scales: { x: { min: 0, max: 3.5, ticks: { stepSize: 0.5 } } },
+    plugins: { legend: { display: false } }
   }
 });
 
 // Pie Chart - Score Distribution
-const scoreCounts = [0,30,23,22,3,0];
 new Chart(document.getElementById('pieChart'), {
   type: 'doughnut',
   data: {
     labels: ['Level 1','Level 2','Level 3','Level 4'],
     datasets: [{
-      data: [30,23,22,3],
+      data: [30,23,23,2],
       backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af'],
       borderWidth: 2,
       borderColor: '#fff'
@@ -815,7 +799,7 @@ new Chart(document.getElementById('readinessChart'), {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    scales: { x: { min: 0, max: 120, ticks: { callback: v => v+'%' } } },
+    scales: { x: { min: 0, max: 160, ticks: { callback: v => v+'%' } } },
     plugins: { legend: { display: false } }
   }
 });
@@ -827,7 +811,7 @@ new Chart(document.getElementById('distributionChart'), {
     labels: ['Level 1\n(Operational)','Level 2\n(Professional)','Level 3\n(Supervisory)','Level 4\n(Managerial)'],
     datasets: [{
       label: 'Number of Skills',
-      data: [30,23,22,3],
+      data: [30,23,23,2],
       backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af'],
       borderRadius: 8,
       barThickness: 50
