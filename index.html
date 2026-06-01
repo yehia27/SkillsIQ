@@ -65,7 +65,14 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   background: radial-gradient(ellipse at 20% 80%, rgba(0,180,180,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
-.cover-mernova-logo { margin-bottom: 40px; position: relative; padding: 16px 24px; background: rgba(255,255,255,0.06); border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); }
+/* Fix M visibility: use a white background patch behind the logo */
+.cover-mernova-logo {
+  margin-bottom: 40px;
+  position: relative;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 12px 20px;
+}
 .cover-mernova-logo svg { height: 70px; width: auto; }
 .cover-logo { font-size: 3.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; position: relative; }
 .cover-logo span { color: #14c4cf; }
@@ -174,7 +181,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 
 @media (max-width: 768px) {
   .info-grid { grid-template-columns: 1fr; }
-  .chart-row { grid-template-columns: 1fr; gap: 20px; }
+  .chart-row { grid-template-columns: 1fr; }
   .gauge-container { flex-direction: column; gap: 30px; }
   .cover-meta { flex-direction: column; gap: 10px; }
   .page { padding: 40px 20px; }
@@ -183,53 +190,49 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .gauge-score { font-size: 2.8rem; }
   .gauge-score small { font-size: 1.2rem; }
   .gauge-stats { width: 100%; max-width: 400px; }
-  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
   .chart-box { padding: 15px; }
   .chart-canvas-wrap { height: 260px; max-height: 260px; }
-  .ka-card { gap: 15px; padding: 18px; flex-direction: row; }
+  .ka-card { gap: 15px; padding: 18px; }
   .ka-card .ka-bar { width: 100px; }
   .ka-card .ka-desc { font-size: 0.8rem; }
   .rec-card { padding: 18px; }
   .skill-cards-grid { grid-template-columns: 1fr; }
-  .cover-mernova-logo svg { height: 55px; }
-  .cover-logo { font-size: 2.4rem; }
-  .stat-item { gap: 10px; }
 }
 
 @media (max-width: 480px) {
   .cover { padding: 80px 15px 100px; }
-  .cover-logo { font-size: 1.8rem; }
-  .cover-mernova-logo { padding: 12px 16px; }
-  .cover-mernova-logo svg { height: 45px; }
-  .cover-tagline { font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 30px; }
-  .cover-title { font-size: 1.05rem; }
-  .cover-subtitle { font-size: 0.8rem; margin-bottom: 25px; }
-  .cover-candidate { padding: 18px 20px; }
-  .cover-candidate h2 { font-size: 1.05rem; }
-  .cover-candidate p { font-size: 0.8rem; }
-  .cover-meta { margin-top: 25px; gap: 6px; font-size: 0.7rem; }
-  .cover-id { top: 12px; right: 12px; font-size: 0.65rem; }
-  .cover-footer { position: relative; bottom: auto; margin-top: 30px; font-size: 0.6rem; text-align: center; padding: 0 10px; }
+  .cover-logo { font-size: 2rem; }
+  .cover-mernova-logo svg { height: 50px; }
+  .cover-tagline { font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 40px; }
+  .cover-title { font-size: 1.15rem; }
+  .cover-subtitle { font-size: 0.85rem; margin-bottom: 30px; }
+  .cover-candidate { padding: 20px 24px; }
+  .cover-candidate h2 { font-size: 1.15rem; }
+  .cover-candidate p { font-size: 0.85rem; }
+  .cover-meta { margin-top: 30px; gap: 8px; font-size: 0.75rem; }
+  .cover-id { top: 15px; right: 15px; font-size: 0.7rem; }
+  .cover-footer { position: relative; bottom: auto; margin-top: 40px; font-size: 0.65rem; text-align: center; padding: 0 10px; }
   .page { padding: 20px 12px; }
   .section { padding: 18px; margin-bottom: 20px; }
   .section-header { gap: 10px; margin-bottom: 20px; padding-bottom: 12px; }
-  .section-header h2 { font-size: 1.1rem; }
+  .section-header h2 { font-size: 1.15rem; }
   .section-icon { width: 32px; height: 32px; font-size: 1rem; }
   .gauge-container { gap: 20px; padding: 10px 0; }
   .gauge-score { font-size: 2.2rem; }
   .gauge-score small { font-size: 1rem; }
   .gauge-label { font-size: 0.8rem; }
-  .gauge-stats { gap: 10px; width: 100%; padding: 0 10px; }
+  .gauge-stats { gap: 10px; }
   .stat-item { gap: 8px; }
   .stat-text { font-size: 0.85rem; }
-  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  .kpi-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
   .kpi-card { padding: 15px 10px; }
   .kpi-card .value { font-size: 1.4rem; }
   .kpi-card .label { font-size: 0.7rem; }
-  .chart-row { gap: 12px; margin-top: 15px; }
-  .chart-box { padding: 10px; }
-  .chart-box h4 { font-size: 0.75rem; margin-bottom: 6px; }
-  .chart-canvas-wrap { height: 200px; max-height: 200px; }
+  .chart-row { gap: 15px; margin-top: 20px; }
+  .chart-box { padding: 12px; }
+  .chart-box h4 { font-size: 0.8rem; margin-bottom: 8px; }
+  .chart-canvas-wrap { height: 220px; max-height: 220px; }
   .score-badge { width: 28px; height: 28px; font-size: 0.75rem; }
   .ka-card { flex-direction: column; align-items: flex-start; gap: 12px; padding: 15px; }
   .ka-card .ka-score { font-size: 1.2rem; min-width: auto; }
@@ -244,21 +247,6 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .rec-card p { font-size: 0.85rem; }
   .cert-tag { font-size: 0.7rem; padding: 3px 10px; }
   .report-footer { padding: 20px 15px; font-size: 0.75rem; }
-  .info-grid { grid-template-columns: 1fr; gap: 12px; }
-  .info-item span { font-size: 0.9rem; }
-}
-
-/* Mobile bar chart spacing */
-@media (max-width: 768px) {
-  .chart-canvas-wrap { height: 240px !important; max-height: 240px !important; }
-  .chart-box { padding: 12px !important; }
-  .chart-box h4 { font-size: 0.8rem !important; }
-}
-
-@media (max-width: 480px) {
-  .chart-canvas-wrap { height: 200px !important; max-height: 200px !important; }
-  .chart-row { gap: 12px !important; margin-top: 15px !important; }
-  .chart-box { padding: 10px !important; }
 }
 
 @media print {
@@ -371,20 +359,20 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
     </div>
     <div class="gauge-container">
       <div class="gauge-wrap">
-        <div class="gauge-score">1.8<small> / 5.0</small></div>
+        <div class="gauge-score">1.6<small> / 5.0</small></div>
         <div class="gauge-label">Overall Assessment Score</div>
         <div style="margin-top:10px;">
           <span style="background:#d4a853;color:white;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;">80% Readiness for Level 2</span>
         </div>
       </div>
       <div class="gauge-stats">
-        <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">2</span></div>
-        <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">2</span></div>
-        <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">6</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">0</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Professional Areas</span><span class="stat-value">2</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">8</span></div>
       </div>
     </div>
     <div style="margin-top:20px; padding:20px; background:var(--gray-100); border-radius:10px; font-size:0.9rem; color:var(--gray-600); line-height:1.8;">
-      Omar demonstrates an <strong>Operational-level capability (transitioning to Professional)</strong>. He shows notable strength in Financial Acumen &amp; Cost Management, Planning &amp; Inventory Management, Supply Chain Fundamentals, and Production &amp; Operations Management — indicating a strong conceptual foundation in core planning competencies. With targeted development in warehouse management, logistics, and analytics, he is well-positioned to achieve full Professional-level competency.
+      Omar demonstrates an <strong>Operational-level capability (transitioning to Professional)</strong>. He shows relative strength in Production &amp; Operations Management and Data Analytics &amp; Technology. With targeted development across warehouse management, risk management, sourcing, and demand planning fundamentals, he is positioned to achieve full Professional-level competency within a focused 6–12 month development plan.
     </div>
   </div>
 
@@ -396,9 +384,9 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
     </div>
     <div class="kpi-row">
       <div class="kpi-card"><div class="value">Planning</div><div class="label">Assessed Function</div></div>
-      <div class="kpi-card"><div class="value">9</div><div class="label">Knowledge Areas</div></div>
-      <div class="kpi-card"><div class="value">78</div><div class="label">SCOR-Defined Skills</div></div>
-      <div class="kpi-card"><div class="value">234</div><div class="label">Scenario-Based Questions</div></div>
+      <div class="kpi-card"><div class="value">7</div><div class="label">Knowledge Areas</div></div>
+      <div class="kpi-card"><div class="value">77</div><div class="label">SCOR-Defined Skills</div></div>
+      <div class="kpi-card"><div class="value">126</div><div class="label">Scenario-Based Questions</div></div>
     </div>
     <div style="margin-top:10px;">
       <h4 style="margin-bottom:12px; color:var(--primary);">Capability Scale (1–5)</h4>
@@ -419,9 +407,9 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <h2>Overall Performance Dashboard</h2>
     </div>
     <div class="kpi-row">
-      <div class="kpi-card"><div class="value">1.8</div><div class="label">Overall Assessed Score</div></div>
+      <div class="kpi-card"><div class="value">1.6</div><div class="label">Overall Assessed Score</div></div>
       <div class="kpi-card"><div class="value">80%</div><div class="label">Target Readiness</div></div>
-      <div class="kpi-card"><div class="value" style="color:#ea580c;">-0.2</div><div class="label">Gap to Target (Minimal)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#ea580c;">-0.4</div><div class="label">Gap to Target (2.0)</div></div>
       <div class="kpi-card"><div class="value" style="font-size:1rem;">Operational &rarr; Professional</div><div class="label">Current Trajectory</div></div>
     </div>
     <div class="chart-row">
@@ -436,105 +424,126 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
     </div>
     <div class="chart-row" style="margin-top:20px;">
       <div class="chart-box">
-        <h4>Score Distribution</h4>
+        <h4>Proficiency Level Distribution (77 Skills)</h4>
         <div class="chart-canvas-wrap"><canvas id="pieChart"></canvas></div>
       </div>
       <div class="chart-box">
-        <h4>Target Readiness by Area</h4>
-        <div class="chart-canvas-wrap"><canvas id="readinessChart"></canvas></div>
-      </div>
-    </div>
-    <div class="chart-row" style="margin-top:20px;">
-      <div class="chart-box">
-        <h4>Readiness Analysis</h4>
+        <h4>Readiness Analysis (7 Knowledge Areas)</h4>
         <div class="chart-canvas-wrap"><canvas id="readinessPieChart"></canvas></div>
       </div>
     </div>
   </div>
 
   <!-- KNOWLEDGE AREAS BREAKDOWN -->
+  <!-- Sorted highest to lowest score per Excel: 2.38, 2.25, 2.12, 2.08, 2.00, 1.91, 1.67, 1.50, 1.20, 0.00 -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">&#127919;</div>
       <h2>Knowledge Areas Performance</h2>
     </div>
-    <p style="margin-bottom:16px; color:var(--gray-600); font-size:0.9rem;">Performance across the 9 knowledge areas relevant to the <strong>Planning</strong> function, assessed at <strong>Level 2 — Professional</strong>.</p>
+    <p style="margin-bottom:16px; color:var(--gray-600); font-size:0.9rem;">Performance across the 10 knowledge areas relevant to the <strong>Planning</strong> function, assessed at <strong>Level 2 — Professional</strong>. Sorted highest to lowest score.</p>
     <div class="ka-grid">
-      <!-- Strength Areas (score >= 2.0) -->
-      <div class="ka-card strength">
-        <div class="ka-score" style="color:#11a4af;">3.0</div>
-        <div class="ka-info">
-          <div class="ka-name">Financial Acumen &amp; Cost Mgmt</div>
-          <div class="ka-desc">Independently analyzes cost data, prepares operational budgets, and identifies cost-saving opportunities within their function. Effectively interprets financial reports and understands how operational decisions impact costs and working capital.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
-      </div>
-      <div class="ka-card strength">
-        <div class="ka-score" style="color:#11a4af;">2.1</div>
-        <div class="ka-info">
-          <div class="ka-name">Planning &amp; Inventory Management</div>
-          <div class="ka-desc">Independently manages planning activities including forecasting, demand analysis, and inventory replenishment. Effectively interprets planning outputs and applies standard methodologies to support operational decision-making with minimal supervision.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
-      </div>
-      <div class="ka-card strength">
-        <div class="ka-score" style="color:#11a4af;">2.0</div>
-        <div class="ka-info">
-          <div class="ka-name">Supply Chain Fundamentals</div>
-          <div class="ka-desc">Demonstrates solid command of end-to-end supply chain principles including sourcing, production, logistics, and fulfillment. Effectively connects daily operational tasks to broader supply chain outcomes and can explain how functional decisions impact overall network performance.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
-      </div>
-      <div class="ka-card strength">
-        <div class="ka-score" style="color:#11a4af;">2.0</div>
+
+      <!-- 1. Production & Operations Mgmt: 2.38 — Professional (95.2% readiness) -->
+      <div class="ka-card proficient">
+        <div class="ka-score" style="color:#d4a853;">2.38</div>
         <div class="ka-info">
           <div class="ka-name">Production &amp; Operations Mgmt</div>
-          <div class="ka-desc">Independently manages production scheduling, work order execution, and shop floor coordination. Effectively applies operations management principles to meet output targets, maintain quality standards, and support continuous improvement initiatives.</div>
+          <div class="ka-desc">Independently manages production scheduling, work order execution, and shop floor coordination. Exceptional score in Build Schedule Evaluation (4). Strong in Lean Manufacturing and Design &amp; Engineering Schedule Development. Demonstrates operational execution capability above peer average.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:95%;background:#d4a853;"></div></div></div>
       </div>
-      <!-- Proficient Areas (1.7 <= score < 2.0) -->
+
+      <!-- 2. Data Analytics & Technology: 2.25 — Professional (90.0% readiness) -->
       <div class="ka-card proficient">
-        <div class="ka-score" style="color:#d4a853;">1.8</div>
-        <div class="ka-info">
-          <div class="ka-name">Strategic Mgmt &amp; Leadership</div>
-          <div class="ka-desc">Possesses good professional skills and understands workplace dynamics. Can manage personal responsibilities effectively and contribute to team goals. Further development in communication, time management, and stakeholder engagement would strengthen capability.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#d4a853;"></div></div></div>
-      </div>
-      <div class="ka-card proficient">
-        <div class="ka-score" style="color:#d4a853;">1.8</div>
-        <div class="ka-info">
-          <div class="ka-name">Quality &amp; Risk Management</div>
-          <div class="ka-desc">Possesses solid understanding of quality principles and basic risk management concepts. Can support quality-related activities and compliance checks. Further development in statistical quality control, risk assessment methodologies, and audit techniques would strengthen capability.</div>
-        </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#d4a853;"></div></div></div>
-      </div>
-      <div class="ka-card proficient">
-        <div class="ka-score" style="color:#d4a853;">1.7</div>
+        <div class="ka-score" style="color:#d4a853;">2.25</div>
         <div class="ka-info">
           <div class="ka-name">Data Analytics &amp; Technology</div>
-          <div class="ka-desc">Possesses solid understanding of data tools and basic analytics concepts. Can generate standard reports and interpret basic data visualizations. Further development in statistical analysis, database querying, and advanced Excel or BI tools would strengthen capability.</div>
+          <div class="ka-desc">Possesses a solid understanding of data analysis and technology applications. Strong scores in Master Data Management, Analytical Skills, KPI, and Supply Chain Performance Measurements. Further development in ERP systems and advanced data analytics would strengthen capability.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:85%;background:#d4a853;"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#d4a853;"></div></div></div>
       </div>
-      <!-- Development Areas (score < 1.7) -->
+
+      <!-- 3. Supply Chain Fundamentals: 2.12 — Development (84.8% readiness) -->
       <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.5</div>
+        <div class="ka-score" style="color:#dc2626;">2.12</div>
         <div class="ka-info">
-          <div class="ka-name">Warehouse Management</div>
-          <div class="ka-desc">Demonstrates limited experience in warehouse management practices. Additional development is recommended in inventory control, warehouse process flows, and operational efficiency principles. Building hands-on warehouse knowledge should be prioritized.</div>
+          <div class="ka-name">Supply Chain Fundamentals</div>
+          <div class="ka-desc">Demonstrates solid command of end-to-end supply chain principles. Strong scores in Research, Supply Chain Modelling, and analytical disciplines. Gaps remain in Collaboration and Stock Strategy. Effectively connects operational activities to broader strategic objectives.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:75%;background:var(--red);"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:85%;background:#dc2626;"></div></div></div>
       </div>
+
+      <!-- 4. Strategic Mgmt & Leadership: 2.08 — Development (83.2% readiness) -->
       <div class="ka-card development">
-        <div class="ka-score" style="color:#dc2626;">1.5</div>
+        <div class="ka-score" style="color:#dc2626;">2.08</div>
+        <div class="ka-info">
+          <div class="ka-name">Strategic Mgmt &amp; Leadership</div>
+          <div class="ka-desc">Demonstrates moderate capability in professional skills. Strong in Returns Strategy Development (4) and MRO Management. However, Benchmarking, Project Management, Strategic Planning, Network Design, and Process Mapping all scored 1 — essential for independent professional-level work.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:83%;background:#dc2626;"></div></div></div>
+      </div>
+
+      <!-- 5. Logistics & Transportation: 2.00 — Development (80.0% readiness) -->
+      <div class="ka-card development">
+        <div class="ka-score" style="color:#dc2626;">2.00</div>
         <div class="ka-info">
           <div class="ka-name">Logistics &amp; Transportation</div>
-          <div class="ka-desc">Demonstrates limited knowledge of logistics and transportation management. Additional learning is recommended in transportation modes, freight documentation, and basic logistics planning. Building foundational logistics knowledge should be a priority.</div>
+          <div class="ka-desc">Shows mixed capability in logistics. Warranty Process &amp; Policy scored 3 and Warranty Return &amp; Repair scored 2. However Route Planning scored 1. Additional development in transportation planning and logistics fundamentals is recommended.</div>
         </div>
-        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:75%;background:var(--red);"></div></div></div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#dc2626;"></div></div></div>
       </div>
+
+      <!-- 6. Planning & Inventory Management: 1.91 — Development (76.4% readiness) -->
+      <div class="ka-card development">
+        <div class="ka-score" style="color:#dc2626;">1.91</div>
+        <div class="ka-info">
+          <div class="ka-name">Planning &amp; Inventory Management</div>
+          <div class="ka-desc">Strong capability in core planning disciplines — Master Scheduling, MRP Systems, S&amp;OP, Capacity Planning all scoring 3. However, critical sub-skills are at Level 1: Forecasting, Demand Management, Optimization, Push Systems, and ERP Systems. Targeted development in these fundamentals is essential.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:76%;background:#dc2626;"></div></div></div>
+      </div>
+
+      <!-- 7. Quality & Risk Management: 1.67 — Development (66.8% readiness) -->
+      <div class="ka-card development">
+        <div class="ka-score" style="color:#dc2626;">1.67</div>
+        <div class="ka-info">
+          <div class="ka-name">Quality &amp; Risk Management</div>
+          <div class="ka-desc">Lowest scored area among assessed KAs. Quality Management scored 3, but Risk Identification, Risk Mitigation, Risk &amp; Exception Management, and TQM all scored 1. Requires focused development in structured risk frameworks before progressing to Level 2.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:67%;background:#dc2626;"></div></div></div>
+      </div>
+
+      <!-- 8. Sourcing & Supplier Management: 1.50 — Development (60.0% readiness) -->
+      <div class="ka-card development">
+        <div class="ka-score" style="color:#dc2626;">1.50</div>
+        <div class="ka-info">
+          <div class="ka-name">Sourcing &amp; Supplier Management</div>
+          <div class="ka-desc">Demonstrates limited proficiency in sourcing and supplier management. Requirements Identification scored 2, but Manufacturing Resource Commitment scored 1. Further development in supplier evaluation, negotiation, and procurement best practices is recommended.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#dc2626;"></div></div></div>
+      </div>
+
+      <!-- 9. Warehouse Management: 1.20 — Development (48.0% readiness) -->
+      <div class="ka-card development">
+        <div class="ka-score" style="color:#dc2626;">1.20</div>
+        <div class="ka-info">
+          <div class="ka-name">Warehouse Management</div>
+          <div class="ka-desc">Critical operational gap. Inventory Management, Inventory Policy, VMI, and Stock Strategy all scored 1. Only Safety Stock &amp; Replenishment Calculations scored 2. Inventory fundamentals are foundational to the Planning function and must be prioritized.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:48%;background:#dc2626;"></div></div></div>
+      </div>
+
+      <!-- 10. Financial Acumen & Cost Mgmt: 0.00 — Development (0% readiness) -->
+      <div class="ka-card development">
+        <div class="ka-score" style="color:#dc2626;">0.00</div>
+        <div class="ka-info">
+          <div class="ka-name">Financial Acumen &amp; Cost Mgmt</div>
+          <div class="ka-desc">No skills assessed in this knowledge area within the Planning function scope. Score of 0.00 reflects the absence of evaluated competencies rather than demonstrated weakness. This area was not part of the active assessment scope for the Planning function.</div>
+        </div>
+        <div class="ka-bar"><div class="progress-bar"><div class="progress-fill" style="width:0%;background:#dc2626;"></div></div></div>
+      </div>
+
     </div>
   </div>
 
@@ -544,7 +553,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <div class="section-icon">&#128300;</div>
       <h2>Detailed Skills Assessment</h2>
     </div>
-    <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">All 78 assessed skills scored against a 1–5 capability scale. Each skill was evaluated with 3 scenario-based questions.</p>
+    <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">All 78 assessed skills scored against a 1–5 capability scale. Each skill was evaluated with 3 scenario-based questions. Sorted by score, highest to lowest.</p>
     <div class="skill-cards-grid" id="skillCardsGrid"></div>
   </div>
 
@@ -555,11 +564,10 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <h2>Score Distribution Analysis</h2>
     </div>
     <div class="kpi-row">
-      <div class="kpi-card"><div class="value" style="color:#dc2626;">30</div><div class="label">Level 1 — 38%</div></div>
-      <div class="kpi-card"><div class="value" style="color:#ea580c;">23</div><div class="label">Level 2 — 30%</div></div>
-      <div class="kpi-card"><div class="value" style="color:#d4a853;">23</div><div class="label">Level 3 — 29%</div></div>
-      <div class="kpi-card"><div class="value" style="color:#11a4af;">2</div><div class="label">Level 4 — 3%</div></div>
-      <div class="kpi-card"><div class="value" style="color:#1a2744;">0</div><div class="label">Level 5 — 0%</div></div>
+      <div class="kpi-card"><div class="value" style="color:#dc2626;">30</div><div class="label">Skills at Level 1 (38%)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#ea580c;">23</div><div class="label">Skills at Level 2 (30%)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#d4a853;">23</div><div class="label">Skills at Level 3 (29%)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#0fa897;">2</div><div class="label">Skills at Level 4 (3%)</div></div>
     </div>
     <div class="chart-container">
       <div class="chart-canvas-wrap"><canvas id="distributionChart"></canvas></div>
@@ -575,43 +583,43 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
     <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">Based on the assessment results for <strong>Level 2 — Professional</strong> in the <strong>Planning</strong> function, the following certifications and training programs are recommended per knowledge area.</p>
 
     <div class="rec-card" style="border-left-color:#dc2626;">
-      <h4>Priority 1 — Warehouse Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area)</span></h4>
-      <p>Build foundational knowledge in warehouse operations, inventory control, and operational efficiency to close the gap in this critical Planning support area.</p>
+      <h4>Priority 1 — Warehouse Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area — 48% Readiness)</span></h4>
+      <p>Critical gap: Inventory Management, Inventory Policy, VMI, and Stock Strategy all scored 1. Build foundational knowledge in warehouse operations, inventory control, and operational efficiency.</p>
       <div class="cert-list">
         <span class="cert-tag">ASCM FOSM — Warehouse &amp; Distribution module</span>
         <span class="cert-tag">ISM Warehouse Operations Certificate</span>
       </div>
     </div>
     <div class="rec-card" style="border-left-color:#dc2626;">
-      <h4>Priority 2 — Logistics &amp; Transportation <span style="color:#dc2626;font-size:0.8rem;">(Development Area)</span></h4>
-      <p>Develop foundational logistics knowledge including transportation modes, freight documentation, and basic logistics planning.</p>
-      <div class="cert-list">
-        <span class="cert-tag">ASCM FOSM — Logistics Fundamentals</span>
-        <span class="cert-tag">ASCM CLTD — Transportation Basics</span>
-      </div>
-    </div>
-    <div class="rec-card" style="border-left-color:#d4a853;">
-      <h4>Priority 3 — Data Analytics &amp; Technology <span style="color:#d4a853;font-size:0.8rem;">(Proficient Area)</span></h4>
-      <p>Strengthen data tools proficiency, statistical analysis, database querying, and advanced Excel or BI tools to move from proficient to strength level.</p>
-      <div class="cert-list">
-        <span class="cert-tag">ASCM FOSM — Digital Tools in SC</span>
-        <span class="cert-tag">ISM Technology in Supply Chain Certificate</span>
-      </div>
-    </div>
-    <div class="rec-card" style="border-left-color:#d4a853;">
-      <h4>Priority 4 — Quality &amp; Risk Management <span style="color:#d4a853;font-size:0.8rem;">(Proficient Area)</span></h4>
-      <p>Strengthen quality fundamentals, risk identification, statistical quality control, and audit techniques.</p>
+      <h4>Priority 2 — Quality &amp; Risk Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area — 67% Readiness)</span></h4>
+      <p>Risk identification, mitigation, risk &amp; exception management, and TQM all scored 1. Requires focused development in structured risk frameworks and quality control methodologies.</p>
       <div class="cert-list">
         <span class="cert-tag">Lean Six Sigma Yellow Belt — Quality Fundamentals</span>
         <span class="cert-tag">ISM Risk Management Certificate</span>
       </div>
     </div>
-    <div class="rec-card" style="border-left-color:#d4a853;">
-      <h4>Priority 5 — Strategic Mgmt &amp; Leadership <span style="color:#d4a853;font-size:0.8rem;">(Proficient Area)</span></h4>
-      <p>Develop communication skills, time management, stakeholder engagement, and professional presence.</p>
+    <div class="rec-card" style="border-left-color:#dc2626;">
+      <h4>Priority 3 — Sourcing &amp; Supplier Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area — 60% Readiness)</span></h4>
+      <p>Develop foundational sourcing skills including supplier evaluation, negotiation, and procurement best practices.</p>
       <div class="cert-list">
-        <span class="cert-tag">ASCM FOSM — SC Strategy Introduction</span>
-        <span class="cert-tag">CSCMP SCPro Level 1</span>
+        <span class="cert-tag">ASCM FOSM — Sourcing &amp; Procurement module</span>
+        <span class="cert-tag">CIPS Foundation Certificate</span>
+      </div>
+    </div>
+    <div class="rec-card" style="border-left-color:#dc2626;">
+      <h4>Priority 4 — Planning &amp; Inventory Management (core gaps) <span style="color:#dc2626;font-size:0.8rem;">(Development Area — 76% Readiness)</span></h4>
+      <p>Despite strong scores in Master Scheduling and MRP, Forecasting, Demand Management, Optimization, Push Systems, and ERP all scored 1. These are the daily instruments of a Planning professional.</p>
+      <div class="cert-list">
+        <span class="cert-tag">ASCM CPIM Part 1 — Basics of Supply Chain Management</span>
+        <span class="cert-tag">ASCM FOSM — Planning &amp; Forecasting module</span>
+      </div>
+    </div>
+    <div class="rec-card" style="border-left-color:#d4a853;">
+      <h4>Priority 5 — Data Analytics &amp; Technology <span style="color:#d4a853;font-size:0.8rem;">(Professional Area — 90% Readiness)</span></h4>
+      <p>Strengthen ERP systems proficiency, advanced analytics, and digital tools to move toward strength level.</p>
+      <div class="cert-list">
+        <span class="cert-tag">ASCM FOSM — Digital Tools in SC</span>
+        <span class="cert-tag">ISM Technology in Supply Chain Certificate</span>
       </div>
     </div>
   </div>
@@ -628,91 +636,93 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 </div>
 
 <script>
-// Skills Data
+// ==================== DATA (sourced from Omar_SkillsIQ_Report.xlsx) ====================
+
+// Skills sorted by score descending, then alphabetically within same score
 const skills = [
-  {code:"HS.0005",name:"Assembly Process Design",score:1,desc:"Designs and optimizes assembly workflows, line balancing, and process sequencing to improve production throughput and quality."},
-  {code:"HS.0007",name:"Availability Management",score:1,desc:"Monitors and manages product and resource availability to ensure timely fulfillment and minimize stockout risks."},
-  {code:"HS.0012",name:"Benchmarking",score:1,desc:"Compares organizational processes and performance metrics against industry best practices to identify improvement opportunities."},
   {code:"HS.0014",name:"Build Schedule Evaluation",score:4,desc:"Analyzes and validates production build schedules against capacity, material availability, and demand requirements."},
+  {code:"HS.0121",name:"Returns Strategy Development",score:4,desc:"Designs strategies for handling product returns, repairs, refurbishment, and end-of-life disposition."},
   {code:"HS.0016",name:"Capacity Planning and Management",score:3,desc:"Assesses production capacity against demand forecasts to identify constraints and optimize resource utilization."},
   {code:"HS.0033",name:"Master Data Management",score:3,desc:"Maintains accurate and consistent master data including items, suppliers, and customers to support supply chain operations."},
   {code:"HS.0036",name:"Delivery Scheduling",score:3,desc:"Plans and coordinates delivery timelines and sequences to meet customer commitments and optimize transportation."},
-  {code:"HS.0037",name:"Demand Management",score:1,desc:"Manages demand signals, customer orders, and demand patterns to align supply chain activities with market needs."},
   {code:"HS.0038",name:"Design and Engineering Schedule Development",score:3,desc:"Creates and manages schedules for engineering and design activities to align product development with supply chain timelines."},
+  {code:"HS.0064",name:"Lead-Time Validation",score:3,desc:"Verifies and analyzes supplier and internal lead times to improve planning accuracy and reduce supply delays."},
+  {code:"HS.0065",name:"Lean Manufacturing",score:3,desc:"Applies lean principles to eliminate waste, streamline operations, and create continuous flow in manufacturing processes."},
+  {code:"HS.0072",name:"Performance Management",score:3,desc:"Monitors, measures, and manages operational performance against key metrics to drive continuous improvement."},
+  {code:"HS.0074",name:"Master Scheduling",score:3,desc:"Develops and maintains the master production schedule to balance demand, capacity, and inventory objectives."},
+  {code:"HS.0077",name:"Master Production Schedule (MPS) Methodologies",score:3,desc:"Applies MPS techniques to translate demand plans into feasible production plans at the finished goods level."},
+  {code:"HS.0078",name:"Maintenance, Repair and Overhaul (MRO) Management",score:3,desc:"Manages spare parts, maintenance activities, and repair operations to ensure equipment reliability and uptime."},
+  {code:"HS.0079",name:"Material Requirements Planning (MRP) Systems",score:3,desc:"Operates MRP systems to calculate material needs, generate purchase orders, and manage production timing."},
+  {code:"HS.0101",name:"Production Planning",score:3,desc:"Develops comprehensive production plans that align material availability, capacity, and demand requirements."},
+  {code:"HS.0108",name:"Quality Management",score:3,desc:"Implements quality control and assurance practices to ensure products and processes meet specified standards."},
+  {code:"HS.0132",name:"Sales and Operations Planning (S&OP)",score:3,desc:"Facilitates the S&OP process to align demand, supply, and financial plans across the organization."},
+  {code:"HS.0142",name:"Supply Chain Performance Measurements",score:3,desc:"Defines and tracks KPIs and metrics to evaluate and improve end-to-end supply chain performance."},
+  {code:"HS.0145",name:"Supply Planning",score:3,desc:"Determines how to best meet demand through production, procurement, and inventory strategies."},
+  {code:"HS.0157",name:"Warranty Process and Policy",score:3,desc:"Develops and administers warranty policies, claims processes, and service level agreements for products."},
+  {code:"HS.0162",name:"Analytical Skills",score:3,desc:"Applies quantitative and qualitative analysis to interpret supply chain data and support evidence-based decisions."},
+  {code:"HS.0165",name:"Change Management",score:3,desc:"Guides organizations through supply chain transformations by managing stakeholder engagement and adoption."},
+  {code:"HS.0171",name:"Customer Segmentation",score:3,desc:"Groups customers by characteristics and needs to tailor service levels, strategies, and resource allocation."},
+  {code:"HS.0179",name:"Key Performance Indicator (KPI)",score:3,desc:"Designs, monitors, and interprets KPIs to measure and drive supply chain operational excellence."},
+  {code:"HS.0185",name:"Research",score:3,desc:"Conducts research on supply chain trends, technologies, and practices to inform strategic decisions."},
+  {code:"HS.0204",name:"Supply Chain Modelling",score:3,desc:"Builds mathematical and conceptual models to represent supply chain dynamics and support decision-making."},
   {code:"HS.0042",name:"Enabling Technology",score:2,desc:"Understands and applies technologies that enable supply chain automation, visibility, and process improvement."},
+  {code:"HS.0081",name:"Office Automation Tools",score:2,desc:"Leverages productivity software and digital tools to streamline administrative and supply chain documentation tasks."},
+  {code:"HS.0093",name:"Prioritization",score:2,desc:"Ranks tasks, orders, and resources by importance and urgency to ensure efficient execution of supply chain activities."},
+  {code:"HS.0102",name:"Production Planning Capacity Utilization",score:2,desc:"Measures and manages how effectively production capacity is being used to meet demand and minimize idle time."},
+  {code:"HS.0113",name:"Requirements Identification",score:2,desc:"Identifies and documents business, customer, and operational requirements to guide supply chain solution design."},
+  {code:"HS.0114",name:"Requirements Change Control and Change Notification",score:2,desc:"Manages changes to requirements and communicates changes to stakeholders to maintain alignment and traceability."},
+  {code:"HS.0120",name:"Return Plan Aggregation",score:2,desc:"Consolidates return volumes and plans across products and channels to optimize reverse logistics operations."},
+  {code:"HS.0125",name:"Risk Analysis",score:2,desc:"Evaluates potential supply chain risks in terms of likelihood, impact, and mitigation options across the network."},
+  {code:"HS.0128",name:"Risk Response Planning",score:2,desc:"Creates contingency plans and response protocols for managing supply chain disruptions when risks materialize."},
+  {code:"HS.0130",name:"S&OP Plan Communication",score:2,desc:"Communicates Sales and Operations Planning outcomes across functions to align the organization on the unified plan."},
+  {code:"HS.0131",name:"Safety Stock and Replenishment Calculations",score:2,desc:"Calculates optimal safety stock levels and replenishment triggers to balance service levels with inventory costs."},
+  {code:"HS.0133",name:"Six Sigma",score:2,desc:"Applies Six Sigma DMAIC methodology to reduce process variation and defects in supply chain operations."},
+  {code:"HS.0143",name:"Supply Chain Planning",score:2,desc:"Coordinates demand, supply, inventory, and logistics planning activities across the supply chain network."},
+  {code:"HS.0152",name:"Troubleshooting",score:2,desc:"Diagnoses and resolves operational issues in supply chain processes, systems, and supplier relationships."},
+  {code:"HS.0158",name:"Warranty Return and Repair",score:2,desc:"Manages the process of receiving, evaluating, and repairing or replacing products under warranty."},
+  {code:"HS.0167",name:"Contingency Planning",score:2,desc:"Develops backup plans and alternative strategies to maintain supply chain continuity during disruptions."},
+  {code:"HS.0189",name:"Supply Chain Mapping",score:2,desc:"Creates visual representations of the end-to-end supply chain to understand flows, dependencies, and risks."},
+  {code:"HS.0201",name:"Requirements Development and Management",score:2,desc:"Elicits, documents, and manages stakeholder requirements throughout the supply chain solution lifecycle."},
+  {code:"HS.0202",name:"Systems Thinking",score:2,desc:"Understands supply chain as an integrated system and analyzes how changes in one area affect the whole network."},
+  {code:"HS.0203",name:"Supply Chain Simulation",score:2,desc:"Uses simulation tools to model supply chain scenarios and evaluate the impact of changes before implementation."},
+  {code:"HS.0210",name:"Best Practices Knowledge",score:2,desc:"Applies industry best practices and proven methodologies to improve supply chain effectiveness and efficiency."},
+  {code:"HS.0212",name:"Critical Thinking",score:2,desc:"Evaluates supply chain situations objectively, questions assumptions, and makes reasoned judgments."},
+  {code:"HS.0213",name:"Time Management",score:2,desc:"Prioritizes and manages time effectively across competing supply chain tasks and deadlines."},
+  {code:"HS.0005",name:"Assembly Process Design",score:1,desc:"Designs and optimizes assembly workflows, line balancing, and process sequencing to improve production throughput and quality."},
+  {code:"HS.0007",name:"Availability Management",score:1,desc:"Monitors and manages product and resource availability to ensure timely fulfillment and minimize stockout risks."},
+  {code:"HS.0012",name:"Benchmarking",score:1,desc:"Compares organizational processes and performance metrics against industry best practices to identify improvement opportunities."},
+  {code:"HS.0037",name:"Demand Management",score:1,desc:"Manages demand signals, customer orders, and demand patterns to align supply chain activities with market needs."},
   {code:"HS.0046",name:"Enterprise Resources Planning (ERP) Systems",score:1,desc:"Utilizes ERP systems to manage business processes including finance, procurement, manufacturing, and supply chain."},
   {code:"HS.0048",name:"Forecasting",score:1,desc:"Develops demand forecasts using statistical methods and market intelligence to support planning decisions."},
   {code:"HS.0052",name:"Installation Scheduling",score:1,desc:"Plans and coordinates installation activities for products and equipment at customer sites or facilities."},
   {code:"HS.0058",name:"Inventory Management",score:1,desc:"Manages inventory levels, policies, and controls to balance availability with carrying costs across the supply chain."},
   {code:"HS.0061",name:"Item Master and Bill of Materials (BOM)",score:1,desc:"Manages item master records and BOM structures to ensure accurate product configuration and material planning."},
-  {code:"HS.0064",name:"Lead-Time Validation",score:3,desc:"Verifies and analyzes supplier and internal lead times to improve planning accuracy and reduce supply delays."},
-  {code:"HS.0065",name:"Lean Manufacturing",score:3,desc:"Applies lean principles to eliminate waste, streamline operations, and create continuous flow in manufacturing processes."},
   {code:"HS.0067",name:"Linear Programming",score:1,desc:"Uses mathematical optimization techniques to solve resource allocation and production planning problems."},
-  {code:"HS.0072",name:"Performance Management",score:3,desc:"Monitors, measures, and manages operational performance against key metrics to drive continuous improvement."},
   {code:"HS.0073",name:"Manufacturing Resource Commitment",score:1,desc:"Aligns manufacturing resources including labor, equipment, and materials to meet production commitments."},
-  {code:"HS.0074",name:"Master Scheduling",score:3,desc:"Develops and maintains the master production schedule to balance demand, capacity, and inventory objectives."},
-  {code:"HS.0077",name:"Master Production Schedule (MPS) Methodologies",score:3,desc:"Applies MPS techniques to translate demand plans into feasible production plans at the finished goods level."},
-  {code:"HS.0078",name:"Maintenance, Repair and Overhaul (MRO) Management",score:3,desc:"Manages spare parts, maintenance activities, and repair operations to ensure equipment reliability and uptime."},
-  {code:"HS.0079",name:"Material Requirements Planning (MRP) Systems",score:3,desc:"Operates MRP systems to calculate material needs, generate purchase orders, and manage production timing."},
-  {code:"HS.0081",name:"Office Automation Tools",score:2,desc:"Leverages productivity software and digital tools to streamline administrative and supply chain documentation tasks."},
   {code:"HS.0082",name:"Optimization",score:1,desc:"Applies optimization methods to improve supply chain decisions in routing, allocation, scheduling, and inventory."},
-  {code:"HS.0093",name:"Prioritization",score:2,desc:"Ranks tasks, orders, and resources by importance and urgency to ensure efficient execution of supply chain activities."},
-  {code:"HS.0101",name:"Production Planning",score:3,desc:"Develops comprehensive production plans that align material availability, capacity, and demand requirements."},
-  {code:"HS.0102",name:"Production Planning Capacity Utilization",score:2,desc:"Measures and manages how effectively production capacity is being used to meet demand and minimize idle time."},
   {code:"HS.0105",name:"Project Management",score:1,desc:"Plans, executes, and controls supply chain projects to deliver objectives on time, within scope, and on budget."},
   {code:"HS.0107",name:"Push Systems",score:1,desc:"Understands push-based production and distribution strategies where goods are produced based on forecasted demand."},
-  {code:"HS.0108",name:"Quality Management",score:3,desc:"Implements quality control and assurance practices to ensure products and processes meet specified standards."},
-  {code:"HS.0113",name:"Requirements Identification",score:2,desc:"Identifies and documents business, customer, and operational requirements to guide supply chain solution design."},
-  {code:"HS.0114",name:"Requirements Change Control and Change Notification",score:2,desc:"Manages changes to requirements and communicates changes to stakeholders to maintain alignment and traceability."},
-  {code:"HS.0120",name:"Return Plan Aggregation",score:2,desc:"Consolidates return volumes and plans across products and channels to optimize reverse logistics operations."},
-  {code:"HS.0121",name:"Returns Strategy Development",score:4,desc:"Designs strategies for handling product returns, repairs, refurbishment, and end-of-life disposition."},
   {code:"HS.0124",name:"Risk and Exception Management",score:1,desc:"Identifies supply chain risks and exceptions, and implements responses to minimize operational disruptions."},
-  {code:"HS.0125",name:"Risk Analysis",score:2,desc:"Evaluates potential supply chain risks in terms of likelihood, impact, and mitigation options across the network."},
   {code:"HS.0126",name:"Risk Identification",score:1,desc:"Recognizes and documents potential risks across suppliers, processes, markets, and geopolitical factors."},
   {code:"HS.0127",name:"Risk Mitigation",score:1,desc:"Develops and implements strategies to reduce the probability or impact of identified supply chain risks."},
-  {code:"HS.0128",name:"Risk Response Planning",score:2,desc:"Creates contingency plans and response protocols for managing supply chain disruptions when risks materialize."},
   {code:"HS.0129",name:"Route Planning",score:1,desc:"Designs transportation routes to minimize cost, transit time, and environmental impact while meeting service levels."},
-  {code:"HS.0130",name:"S&OP Plan Communication",score:2,desc:"Communicates Sales and Operations Planning outcomes across functions to align the organization on the unified plan."},
-  {code:"HS.0131",name:"Safety Stock and Replenishment Calculations",score:2,desc:"Calculates optimal safety stock levels and replenishment triggers to balance service levels with inventory costs."},
-  {code:"HS.0132",name:"Sales and Operations Planning (S&OP)",score:3,desc:"Facilitates the S&OP process to align demand, supply, and financial plans across the organization."},
-  {code:"HS.0133",name:"Six Sigma",score:2,desc:"Applies Six Sigma DMAIC methodology to reduce process variation and defects in supply chain operations."},
   {code:"HS.0137",name:"Strategic Planning",score:1,desc:"Develops long-term supply chain strategies aligned with business objectives and market dynamics."},
-  {code:"HS.0142",name:"Supply Chain Performance Measurements",score:3,desc:"Defines and tracks KPIs and metrics to evaluate and improve end-to-end supply chain performance."},
-  {code:"HS.0143",name:"Supply Chain Planning",score:2,desc:"Coordinates demand, supply, inventory, and logistics planning activities across the supply chain network."},
-  {code:"HS.0145",name:"Supply Planning",score:3,desc:"Determines how to best meet demand through production, procurement, and inventory strategies."},
   {code:"HS.0150",name:"Total Quality Management (TQM)",score:1,desc:"Implements organization-wide quality management principles focused on continuous improvement and customer satisfaction."},
-  {code:"HS.0152",name:"Troubleshooting",score:2,desc:"Diagnoses and resolves operational issues in supply chain processes, systems, and supplier relationships."},
   {code:"HS.0154",name:"Vendor-Managed Inventory (VMI)",score:1,desc:"Manages inventory programs where suppliers take responsibility for maintaining agreed inventory levels at customer locations."},
-  {code:"HS.0157",name:"Warranty Process and Policy",score:3,desc:"Develops and administers warranty policies, claims processes, and service level agreements for products."},
-  {code:"HS.0158",name:"Warranty Return and Repair",score:2,desc:"Manages the process of receiving, evaluating, and repairing or replacing products under warranty."},
-  {code:"HS.0162",name:"Analytical Skills",score:3,desc:"Applies quantitative and qualitative analysis to interpret supply chain data and support evidence-based decisions."},
-  {code:"HS.0165",name:"Change Management",score:3,desc:"Guides organizations through supply chain transformations by managing stakeholder engagement and adoption."},
-  {code:"HS.0167",name:"Contingency Planning",score:2,desc:"Develops backup plans and alternative strategies to maintain supply chain continuity during disruptions."},
-  {code:"HS.0171",name:"Customer Segmentation",score:3,desc:"Groups customers by characteristics and needs to tailor service levels, strategies, and resource allocation."},
   {code:"HS.0178",name:"Inventory Policy",score:1,desc:"Defines rules and parameters for inventory management including targets, replenishment methods, and controls."},
-  {code:"HS.0179",name:"Key Performance Indicator (KPI)",score:3,desc:"Designs, monitors, and interprets KPIs to measure and drive supply chain operational excellence."},
   {code:"HS.0182",name:"Network Design",score:1,desc:"Optimizes the physical supply chain network of facilities, warehouses, and distribution points for cost and service."},
   {code:"HS.0183",name:"Process Mapping",score:1,desc:"Documents and visualizes supply chain processes to identify inefficiencies and improvement opportunities."},
-  {code:"HS.0185",name:"Research",score:3,desc:"Conducts research on supply chain trends, technologies, and practices to inform strategic decisions."},
   {code:"HS.0188",name:"Stock Strategy",score:1,desc:"Determines inventory stocking strategies including make-to-stock, assemble-to-order, and make-to-order approaches."},
-  {code:"HS.0189",name:"Supply Chain Mapping",score:2,desc:"Creates visual representations of the end-to-end supply chain to understand flows, dependencies, and risks."},
   {code:"HS.0190",name:"Trend Analysis",score:1,desc:"Analyzes historical and current data patterns to identify trends and predict future supply chain behavior."},
   {code:"HS.0195",name:"Data Analytics",score:1,desc:"Uses statistical and computational methods to analyze supply chain data and generate actionable insights."},
   {code:"HS.0197",name:"Capacity Management",score:1,desc:"Plans and manages the capacity of resources including production, warehousing, and transportation assets."},
-  {code:"HS.0201",name:"Requirements Development and Management",score:2,desc:"Elicits, documents, and manages stakeholder requirements throughout the supply chain solution lifecycle."},
-  {code:"HS.0202",name:"Systems Thinking",score:2,desc:"Understands supply chain as an integrated system and analyzes how changes in one area affect the whole network."},
-  {code:"HS.0203",name:"Supply Chain Simulation",score:2,desc:"Uses simulation tools to model supply chain scenarios and evaluate the impact of changes before implementation."},
-  {code:"HS.0204",name:"Supply Chain Modelling",score:3,desc:"Builds mathematical and conceptual models to represent supply chain dynamics and support decision-making."},
-  {code:"HS.0210",name:"Best Practices Knowledge",score:2,desc:"Applies industry best practices and proven methodologies to improve supply chain effectiveness and efficiency."},
   {code:"HS.0211",name:"Collaboration",score:1,desc:"Works effectively across internal functions and with external partners to achieve supply chain objectives."},
-  {code:"HS.0212",name:"Critical Thinking",score:2,desc:"Evaluates supply chain situations objectively, questions assumptions, and makes reasoned judgments."},
-  {code:"HS.0213",name:"Time Management",score:2,desc:"Prioritizes and manages time effectively across competing supply chain tasks and deadlines."},
   {code:"HS.0216",name:"Root Cause Analysis",score:1,desc:"Investigates problems to identify underlying causes and implements corrective actions to prevent recurrence."}
 ];
 
 const levelNames = {1:"Operational",2:"Professional",3:"Supervisory",4:"Managerial",5:"Strategic"};
 
-// Populate skill cards
+// Populate skill cards (already sorted descending by score above)
 const grid = document.getElementById('skillCardsGrid');
 skills.forEach((s) => {
   const card = document.createElement('div');
@@ -731,13 +741,45 @@ skills.forEach((s) => {
   grid.appendChild(card);
 });
 
-// Knowledge Area data — 9 areas for Planning function
-const kaLabels = ['Financial Acumen','Planning & Inventory','SC Fundamentals','Production & Ops','Strategic & Leadership','Quality & Risk','Data & Technology','Warehouse Mgmt','Logistics & Transport'];
-const kaScores = [3.0, 2.1, 2.0, 2.0, 1.8, 1.8, 1.7, 1.5, 1.5];
-const kaTarget = [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0];
-const kaReadiness = [150, 105, 100, 100, 90, 90, 85, 75, 75];
+// ==================== CHART DATA (Excel source, sorted highest→lowest score) ====================
+// KA Labels sorted by score desc
+const kaLabels = [
+  'Production & Ops',
+  'Data & Technology',
+  'SC Fundamentals',
+  'Strategic & Leadership',
+  'Logistics & Transport',
+  'Planning & Inventory',
+  'Quality & Risk',
+  'Sourcing & Supplier',
+  'Warehouse Mgmt',
+  'Financial Acumen'
+];
+// Scores from Omar_SkillsIQ_Report.xlsx → Performance Dashboard sheet
+const kaScores = [2.38, 2.25, 2.12, 2.08, 2.00, 1.91, 1.67, 1.50, 1.20, 0.00];
+const kaTarget = [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0];
 
-// Radar Chart
+// Color per score category: ≥2.0 = gold (Professional), 1.5–1.99 = red (Development), <1.5 = red (Development)
+// Per task: ≥2.0 → teal (Professional, 90%+ readiness) or gold (Professional, <100%), <2.0 → red (Development)
+// Using established color coding: teal=strength(≥100%), gold=professional(90-99%), red=development(<90%)
+// 95.2%→gold, 90.0%→gold, 84.8%→red, 83.2%→red, 80.0%→red, 76.4%→red, 66.8%→red, 60%→red, 48%→red, 0%→red
+const kaColors = [
+  '#d4a853', // Production & Ops 2.38 — 95.2% Professional
+  '#d4a853', // Data & Technology 2.25 — 90.0% Professional
+  '#dc2626', // SC Fundamentals 2.12 — 84.8% Development
+  '#dc2626', // Strategic 2.08 — 83.2% Development
+  '#dc2626', // Logistics 2.00 — 80.0% Development
+  '#dc2626', // Planning 1.91 — 76.4% Development
+  '#dc2626', // Quality & Risk 1.67 — 66.8% Development
+  '#dc2626', // Sourcing 1.50 — 60.0% Development
+  '#dc2626', // Warehouse 1.20 — 48.0% Development
+  '#dc2626', // Financial 0.00 — 0.0% Development
+];
+
+// Readiness % per KA
+const kaReadiness = [95.2, 90.0, 84.8, 83.2, 80.0, 76.4, 66.8, 60.0, 48.0, 0.0];
+
+// ==================== RADAR CHART ====================
 new Chart(document.getElementById('radarChart'), {
   type: 'radar',
   data: {
@@ -762,12 +804,12 @@ new Chart(document.getElementById('radarChart'), {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    scales: { r: { min: 0, max: 5, ticks: { stepSize: 0.5 } } },
+    scales: { r: { min: 0, max: 5, ticks: { stepSize: 1 } } },
     plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
   }
 });
 
-// Bar Chart
+// ==================== BAR CHART — Knowledge Area Scores ====================
 new Chart(document.getElementById('barChart'), {
   type: 'bar',
   data: {
@@ -775,29 +817,38 @@ new Chart(document.getElementById('barChart'), {
     datasets: [{
       label: 'Score',
       data: kaScores,
-      backgroundColor: kaScores.map(s => s >= 2.0 ? '#11a4af' : s >= 1.7 ? '#d4a853' : '#dc2626'),
+      backgroundColor: kaColors,
       borderRadius: 6,
-      barPercentage: 0.65,
-      categoryPercentage: 0.75
+      barPercentage: 0.55,
+      categoryPercentage: 0.7
     }]
   },
   options: {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    scales: { x: { min: 0, max: 5, ticks: { stepSize: 0.5 } } },
+    scales: {
+      x: { min: 0, max: 5, ticks: { stepSize: 1 } }
+    },
     plugins: { legend: { display: false } }
   }
 });
 
-// Pie Chart - Score Distribution
+// ==================== PIE CHART — All 5 Proficiency Levels ====================
+// Level1=30, Level2=23, Level3=23, Level4=2, Level5=0  (total=78, from Detailed Skills Assessment)
 new Chart(document.getElementById('pieChart'), {
   type: 'doughnut',
   data: {
-    labels: ['Level 1 (0.0–1.0)','Level 2 (1.0–2.0)','Level 3 (2.0–3.0)','Level 4 (3.0–4.0)','Level 5 (4.0–5.0)'],
+    labels: [
+      'Level 1 — Operational (30)',
+      'Level 2 — Professional (23)',
+      'Level 3 — Supervisory (23)',
+      'Level 4 — Managerial (2)',
+      'Level 5 — Strategic (0)'
+    ],
     datasets: [{
-      data: [30,23,23,2,0],
-      backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af','#1a2744'],
+      data: [30, 23, 23, 2, 0],
+      backgroundColor: ['#dc2626','#ea580c','#d4a853','#0fa897','#1a2744'],
       borderWidth: 2,
       borderColor: '#fff'
     }]
@@ -805,42 +856,38 @@ new Chart(document.getElementById('pieChart'), {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 12 } } }
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            const val = ctx.parsed;
+            const total = 78;
+            const pct = val === 0 ? '0%' : Math.round((val/total)*100) + '%';
+            return ` ${val} skills (${pct})`;
+          }
+        }
+      }
+    }
   }
 });
 
-// Readiness Chart
-new Chart(document.getElementById('readinessChart'), {
-  type: 'bar',
-  data: {
-    labels: kaLabels,
-    datasets: [{
-      label: '% Readiness for Target',
-      data: kaReadiness,
-      backgroundColor: kaReadiness.map(r => r >= 100 ? '#11a4af' : r >= 80 ? '#d4a853' : '#dc2626'),
-      borderRadius: 6,
-      barPercentage: 0.7,
-      categoryPercentage: 0.8
-    }]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: { x: { min: 0, max: 160, ticks: { callback: v => v+'%' } } },
-    plugins: { legend: { display: false } }
-  }
-});
-
-
-// Readiness Pie Chart
+// ==================== READINESS PIE CHART ====================
+// Classification per KA using score/benchmark*100 vs thresholds:
+//   <90% → Development Area (8 KAs)
+//   90%–<100% → Professional (2 KAs: Production&Ops 95.2%, Data&Tech 90.0%)
+//   ≥100% → Strength Area (0 KAs)
 new Chart(document.getElementById('readinessPieChart'), {
   type: 'doughnut',
   data: {
-    labels: ['Strength Area (>=100%)','Professional (90–99%)','Development Area (<90%)'],
+    labels: [
+      'Development Area (<90%) — 8',
+      'Professional (90–99%) — 2',
+      'Strength Area (≥100%) — 0'
+    ],
     datasets: [{
-      data: [4,2,3],
-      backgroundColor: ['#11a4af','#d4a853','#dc2626'],
+      data: [8, 2, 0],
+      backgroundColor: ['#dc2626', '#d4a853', '#11a4af'],
       borderWidth: 2,
       borderColor: '#fff'
     }]
@@ -848,29 +895,62 @@ new Chart(document.getElementById('readinessPieChart'), {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            const val = ctx.parsed;
+            const total = 10;
+            const pct = Math.round((val/total)*100);
+            return ` ${val} Knowledge Areas (${pct}%)`;
+          }
+        }
+      }
+    }
   }
 });
-// Distribution bar chart
+
+// ==================== DISTRIBUTION BAR CHART ====================
 new Chart(document.getElementById('distributionChart'), {
   type: 'bar',
   data: {
-    labels: ['Level 1\n(0.0–1.0)','Level 2\n(1.0–2.0)','Level 3\n(2.0–3.0)','Level 4\n(3.0–4.0)','Level 5\n(4.0–5.0)'],
+    labels: [
+      'Level 1\n(Operational)',
+      'Level 2\n(Professional)',
+      'Level 3\n(Supervisory)',
+      'Level 4\n(Managerial)',
+      'Level 5\n(Strategic)'
+    ],
     datasets: [{
       label: 'Number of Skills',
-      data: [30,23,23,2,0],
-      backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af','#1a2744'],
+      data: [30, 23, 23, 2, 0],
+      backgroundColor: ['#dc2626','#ea580c','#d4a853','#0fa897','#1a2744'],
       borderRadius: 8,
-      barThickness: 40
+      barPercentage: 0.55,
+      categoryPercentage: 0.7
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    scales: { y: { beginAtZero: true } },
+    scales: {
+      y: { beginAtZero: true, ticks: { stepSize: 5 } },
+      x: { ticks: { font: { size: 11 } } }
+    },
     plugins: { legend: { display: false } }
   }
 });
+
+// ==================== MOBILE BAR SPACING ====================
+// Handled via barPercentage/categoryPercentage above; also apply CSS for small screens
+function applyMobileBarSpacing() {
+  if (window.innerWidth <= 768) {
+    Chart.defaults.datasets.bar.barPercentage = 0.45;
+    Chart.defaults.datasets.bar.categoryPercentage = 0.6;
+  }
+}
+applyMobileBarSpacing();
 </script>
 </body>
 </html>
