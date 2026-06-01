@@ -65,7 +65,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   background: radial-gradient(ellipse at 20% 80%, rgba(0,180,180,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
-.cover-mernova-logo { margin-bottom: 40px; position: relative; }
+.cover-mernova-logo { margin-bottom: 40px; position: relative; padding: 16px 24px; background: rgba(255,255,255,0.06); border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); }
 .cover-mernova-logo svg { height: 70px; width: auto; }
 .cover-logo { font-size: 3.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; position: relative; }
 .cover-logo span { color: #14c4cf; }
@@ -174,7 +174,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 
 @media (max-width: 768px) {
   .info-grid { grid-template-columns: 1fr; }
-  .chart-row { grid-template-columns: 1fr; }
+  .chart-row { grid-template-columns: 1fr; gap: 20px; }
   .gauge-container { flex-direction: column; gap: 30px; }
   .cover-meta { flex-direction: column; gap: 10px; }
   .page { padding: 40px 20px; }
@@ -183,49 +183,53 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .gauge-score { font-size: 2.8rem; }
   .gauge-score small { font-size: 1.2rem; }
   .gauge-stats { width: 100%; max-width: 400px; }
-  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .chart-box { padding: 15px; }
   .chart-canvas-wrap { height: 260px; max-height: 260px; }
-  .ka-card { gap: 15px; padding: 18px; }
+  .ka-card { gap: 15px; padding: 18px; flex-direction: row; }
   .ka-card .ka-bar { width: 100px; }
   .ka-card .ka-desc { font-size: 0.8rem; }
   .rec-card { padding: 18px; }
   .skill-cards-grid { grid-template-columns: 1fr; }
+  .cover-mernova-logo svg { height: 55px; }
+  .cover-logo { font-size: 2.4rem; }
+  .stat-item { gap: 10px; }
 }
 
 @media (max-width: 480px) {
   .cover { padding: 80px 15px 100px; }
-  .cover-logo { font-size: 2rem; }
-  .cover-mernova-logo svg { height: 50px; }
-  .cover-tagline { font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 40px; }
-  .cover-title { font-size: 1.15rem; }
-  .cover-subtitle { font-size: 0.85rem; margin-bottom: 30px; }
-  .cover-candidate { padding: 20px 24px; }
-  .cover-candidate h2 { font-size: 1.15rem; }
-  .cover-candidate p { font-size: 0.85rem; }
-  .cover-meta { margin-top: 30px; gap: 8px; font-size: 0.75rem; }
-  .cover-id { top: 15px; right: 15px; font-size: 0.7rem; }
-  .cover-footer { position: relative; bottom: auto; margin-top: 40px; font-size: 0.65rem; text-align: center; padding: 0 10px; }
+  .cover-logo { font-size: 1.8rem; }
+  .cover-mernova-logo { padding: 12px 16px; }
+  .cover-mernova-logo svg { height: 45px; }
+  .cover-tagline { font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 30px; }
+  .cover-title { font-size: 1.05rem; }
+  .cover-subtitle { font-size: 0.8rem; margin-bottom: 25px; }
+  .cover-candidate { padding: 18px 20px; }
+  .cover-candidate h2 { font-size: 1.05rem; }
+  .cover-candidate p { font-size: 0.8rem; }
+  .cover-meta { margin-top: 25px; gap: 6px; font-size: 0.7rem; }
+  .cover-id { top: 12px; right: 12px; font-size: 0.65rem; }
+  .cover-footer { position: relative; bottom: auto; margin-top: 30px; font-size: 0.6rem; text-align: center; padding: 0 10px; }
   .page { padding: 20px 12px; }
   .section { padding: 18px; margin-bottom: 20px; }
   .section-header { gap: 10px; margin-bottom: 20px; padding-bottom: 12px; }
-  .section-header h2 { font-size: 1.15rem; }
+  .section-header h2 { font-size: 1.1rem; }
   .section-icon { width: 32px; height: 32px; font-size: 1rem; }
   .gauge-container { gap: 20px; padding: 10px 0; }
   .gauge-score { font-size: 2.2rem; }
   .gauge-score small { font-size: 1rem; }
   .gauge-label { font-size: 0.8rem; }
-  .gauge-stats { gap: 10px; }
+  .gauge-stats { gap: 10px; width: 100%; padding: 0 10px; }
   .stat-item { gap: 8px; }
   .stat-text { font-size: 0.85rem; }
-  .kpi-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
   .kpi-card { padding: 15px 10px; }
   .kpi-card .value { font-size: 1.4rem; }
   .kpi-card .label { font-size: 0.7rem; }
-  .chart-row { gap: 15px; margin-top: 20px; }
-  .chart-box { padding: 12px; }
-  .chart-box h4 { font-size: 0.8rem; margin-bottom: 8px; }
-  .chart-canvas-wrap { height: 220px; max-height: 220px; }
+  .chart-row { gap: 12px; margin-top: 15px; }
+  .chart-box { padding: 10px; }
+  .chart-box h4 { font-size: 0.75rem; margin-bottom: 6px; }
+  .chart-canvas-wrap { height: 200px; max-height: 200px; }
   .score-badge { width: 28px; height: 28px; font-size: 0.75rem; }
   .ka-card { flex-direction: column; align-items: flex-start; gap: 12px; padding: 15px; }
   .ka-card .ka-score { font-size: 1.2rem; min-width: auto; }
@@ -240,6 +244,21 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   .rec-card p { font-size: 0.85rem; }
   .cert-tag { font-size: 0.7rem; padding: 3px 10px; }
   .report-footer { padding: 20px 15px; font-size: 0.75rem; }
+  .info-grid { grid-template-columns: 1fr; gap: 12px; }
+  .info-item span { font-size: 0.9rem; }
+}
+
+/* Mobile bar chart spacing */
+@media (max-width: 768px) {
+  .chart-canvas-wrap { height: 240px !important; max-height: 240px !important; }
+  .chart-box { padding: 12px !important; }
+  .chart-box h4 { font-size: 0.8rem !important; }
+}
+
+@media (max-width: 480px) {
+  .chart-canvas-wrap { height: 200px !important; max-height: 200px !important; }
+  .chart-row { gap: 12px !important; margin-top: 15px !important; }
+  .chart-box { padding: 10px !important; }
 }
 
 @media print {
@@ -359,9 +378,9 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
         </div>
       </div>
       <div class="gauge-stats">
-        <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">4</span></div>
-        <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">3</span></div>
-        <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">2</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">2</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">2</span></div>
+        <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">6</span></div>
       </div>
     </div>
     <div style="margin-top:20px; padding:20px; background:var(--gray-100); border-radius:10px; font-size:0.9rem; color:var(--gray-600); line-height:1.8;">
@@ -400,9 +419,9 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <h2>Overall Performance Dashboard</h2>
     </div>
     <div class="kpi-row">
-      <div class="kpi-card"><div class="value">1.96</div><div class="label">Overall Assessed Score</div></div>
+      <div class="kpi-card"><div class="value">1.8</div><div class="label">Overall Assessed Score</div></div>
       <div class="kpi-card"><div class="value">80%</div><div class="label">Target Readiness</div></div>
-      <div class="kpi-card"><div class="value" style="color:#ea580c;">-0.04</div><div class="label">Gap to Target (Minimal)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#ea580c;">-0.2</div><div class="label">Gap to Target (Minimal)</div></div>
       <div class="kpi-card"><div class="value" style="font-size:1rem;">Operational &rarr; Professional</div><div class="label">Current Trajectory</div></div>
     </div>
     <div class="chart-row">
@@ -423,6 +442,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <div class="chart-box">
         <h4>Target Readiness by Area</h4>
         <div class="chart-canvas-wrap"><canvas id="readinessChart"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-row" style="margin-top:20px;">
+      <div class="chart-box">
+        <h4>Readiness Analysis</h4>
+        <div class="chart-canvas-wrap"><canvas id="readinessPieChart"></canvas></div>
       </div>
     </div>
   </div>
@@ -530,10 +555,11 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       <h2>Score Distribution Analysis</h2>
     </div>
     <div class="kpi-row">
-      <div class="kpi-card"><div class="value" style="color:#dc2626;">30</div><div class="label">Skills at Level 1 (38%)</div></div>
-      <div class="kpi-card"><div class="value" style="color:#ea580c;">23</div><div class="label">Skills at Level 2 (30%)</div></div>
-      <div class="kpi-card"><div class="value" style="color:#d4a853;">23</div><div class="label">Skills at Level 3 (29%)</div></div>
-      <div class="kpi-card"><div class="value" style="color:#11a4af;">2</div><div class="label">Skills at Level 4 (3%)</div></div>
+      <div class="kpi-card"><div class="value" style="color:#dc2626;">30</div><div class="label">Level 1 — 38%</div></div>
+      <div class="kpi-card"><div class="value" style="color:#ea580c;">23</div><div class="label">Level 2 — 30%</div></div>
+      <div class="kpi-card"><div class="value" style="color:#d4a853;">23</div><div class="label">Level 3 — 29%</div></div>
+      <div class="kpi-card"><div class="value" style="color:#11a4af;">2</div><div class="label">Level 4 — 3%</div></div>
+      <div class="kpi-card"><div class="value" style="color:#1a2744;">0</div><div class="label">Level 5 — 0%</div></div>
     </div>
     <div class="chart-container">
       <div class="chart-canvas-wrap"><canvas id="distributionChart"></canvas></div>
@@ -706,10 +732,10 @@ skills.forEach((s) => {
 });
 
 // Knowledge Area data — 9 areas for Planning function
-const kaLabels = ['SC Fundamentals','Planning & Inventory','Warehouse Mgmt','Logistics & Transport','Production & Ops','Quality & Risk','Financial Acumen','Data & Technology','Strategic & Leadership'];
-const kaScores = [2.0, 2.1, 1.5, 1.5, 2.0, 1.8, 3.0, 1.7, 1.8];
+const kaLabels = ['Financial Acumen','Planning & Inventory','SC Fundamentals','Production & Ops','Strategic & Leadership','Quality & Risk','Data & Technology','Warehouse Mgmt','Logistics & Transport'];
+const kaScores = [3.0, 2.1, 2.0, 2.0, 1.8, 1.8, 1.7, 1.5, 1.5];
 const kaTarget = [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0];
-const kaReadiness = [100, 105, 75, 75, 100, 90, 150, 85, 90];
+const kaReadiness = [150, 105, 100, 100, 90, 90, 85, 75, 75];
 
 // Radar Chart
 new Chart(document.getElementById('radarChart'), {
@@ -736,7 +762,7 @@ new Chart(document.getElementById('radarChart'), {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    scales: { r: { min: 0, max: 3.5, ticks: { stepSize: 0.5 } } },
+    scales: { r: { min: 0, max: 5, ticks: { stepSize: 0.5 } } },
     plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
   }
 });
@@ -751,14 +777,15 @@ new Chart(document.getElementById('barChart'), {
       data: kaScores,
       backgroundColor: kaScores.map(s => s >= 2.0 ? '#11a4af' : s >= 1.7 ? '#d4a853' : '#dc2626'),
       borderRadius: 6,
-      barThickness: 20
+      barPercentage: 0.65,
+      categoryPercentage: 0.75
     }]
   },
   options: {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    scales: { x: { min: 0, max: 3.5, ticks: { stepSize: 0.5 } } },
+    scales: { x: { min: 0, max: 5, ticks: { stepSize: 0.5 } } },
     plugins: { legend: { display: false } }
   }
 });
@@ -767,10 +794,10 @@ new Chart(document.getElementById('barChart'), {
 new Chart(document.getElementById('pieChart'), {
   type: 'doughnut',
   data: {
-    labels: ['Level 1','Level 2','Level 3','Level 4'],
+    labels: ['Level 1 (0.0–1.0)','Level 2 (1.0–2.0)','Level 3 (2.0–3.0)','Level 4 (3.0–4.0)','Level 5 (4.0–5.0)'],
     datasets: [{
-      data: [30,23,23,2],
-      backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af'],
+      data: [30,23,23,2,0],
+      backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af','#1a2744'],
       borderWidth: 2,
       borderColor: '#fff'
     }]
@@ -778,7 +805,7 @@ new Chart(document.getElementById('pieChart'), {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 12 } } }
   }
 });
 
@@ -792,7 +819,8 @@ new Chart(document.getElementById('readinessChart'), {
       data: kaReadiness,
       backgroundColor: kaReadiness.map(r => r >= 100 ? '#11a4af' : r >= 80 ? '#d4a853' : '#dc2626'),
       borderRadius: 6,
-      barThickness: 18
+      barPercentage: 0.7,
+      categoryPercentage: 0.8
     }]
   },
   options: {
@@ -804,17 +832,36 @@ new Chart(document.getElementById('readinessChart'), {
   }
 });
 
+
+// Readiness Pie Chart
+new Chart(document.getElementById('readinessPieChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Strength Area (>=100%)','Professional (90–99%)','Development Area (<90%)'],
+    datasets: [{
+      data: [4,2,3],
+      backgroundColor: ['#11a4af','#d4a853','#dc2626'],
+      borderWidth: 2,
+      borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+  }
+});
 // Distribution bar chart
 new Chart(document.getElementById('distributionChart'), {
   type: 'bar',
   data: {
-    labels: ['Level 1\n(Operational)','Level 2\n(Professional)','Level 3\n(Supervisory)','Level 4\n(Managerial)'],
+    labels: ['Level 1\n(0.0–1.0)','Level 2\n(1.0–2.0)','Level 3\n(2.0–3.0)','Level 4\n(3.0–4.0)','Level 5\n(4.0–5.0)'],
     datasets: [{
       label: 'Number of Skills',
-      data: [30,23,23,2],
-      backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af'],
+      data: [30,23,23,2,0],
+      backgroundColor: ['#dc2626','#ea580c','#d4a853','#11a4af','#1a2744'],
       borderRadius: 8,
-      barThickness: 50
+      barThickness: 40
     }]
   },
   options: {
