@@ -6,183 +6,184 @@
 <title>SkillsIQ HR Assessment Report — Emily R. Parker</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-:root {
-  --primary: #192851;
-  --primary-dark: #0f1a33;
-  --teal: #11a4af;
-  --teal-dark: #0e8a93;
-  --teal-light: #e6f6f7;
-  --accent: #11a4af;
-  --accent-light: #e6f6f7;
-  --gold: #d4a853;
-  --green: #11a4af;
-  --red: #dc2626;
-  --orange: #ea580c;
-  --gray-100: #f7f8fa;
-  --gray-200: #e5e8ed;
-  --gray-300: #d0d5dd;
-  --gray-600: #5c6370;
-  --gray-800: #1a2744;
-  --radius: 12px;
-  --shadow: 0 4px 24px rgba(26,39,68,0.08);
+:root{
+  --primary:#192851;--primary-dark:#0f1a33;--teal:#11a4af;--teal-light:#e6f6f7;
+  --gold:#d4a853;--red:#dc2626;--orange:#ea580c;
+  --gray-100:#f7f8fa;--gray-200:#e5e8ed;--gray-300:#d0d5dd;--gray-600:#5c6370;--gray-800:#1a2744;
+  --radius:12px;--shadow:0 4px 24px rgba(26,39,68,0.08);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { overflow-x: hidden; }
-body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var(--gray-800); background: var(--gray-100); line-height: 1.6; overflow-x: hidden; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--gray-800);background:var(--gray-100);line-height:1.6;overflow-x:hidden;}
 
-.cover {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f1a33 0%, #192851 40%, #1e3566 100%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 60px 40px;
-  position: relative;
-  overflow: hidden;
+/* COVER */
+.cover{min-height:100vh;background:linear-gradient(135deg,#0f1a33 0%,#192851 40%,#1e3566 100%);color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 40px;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;top:0;right:0;width:100%;height:100%;background:radial-gradient(ellipse at 80% 20%,rgba(0,180,180,0.15) 0%,transparent 60%);pointer-events:none;}
+.cover::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 80%,rgba(0,180,180,0.08) 0%,transparent 60%);pointer-events:none;}
+.cover-mernova-logo{margin-bottom:32px;position:relative;background:rgba(255,255,255,0.06);border-radius:12px;padding:12px 20px;}
+.cover-mernova-logo svg{height:60px;width:auto;}
+.cover-logo{font-size:2.8rem;font-weight:800;letter-spacing:-1px;margin-bottom:6px;position:relative;}
+.cover-logo span{color:#14c4cf;}
+.cover-tagline{font-size:0.85rem;opacity:0.7;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;}
+.cover-title{font-size:1.6rem;font-weight:300;margin-bottom:8px;opacity:0.9;}
+.cover-subtitle{font-size:1rem;opacity:0.6;margin-bottom:40px;}
+.cover-candidate{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:24px 40px;backdrop-filter:blur(10px);}
+.cover-candidate h2{font-size:1.5rem;font-weight:600;margin-bottom:5px;}
+.cover-candidate p{opacity:0.7;font-size:0.9rem;}
+.cover-meta{margin-top:40px;display:flex;gap:32px;opacity:0.6;font-size:0.82rem;flex-wrap:wrap;justify-content:center;}
+.cover-footer{position:absolute;bottom:24px;font-size:0.72rem;opacity:0.4;text-align:center;padding:0 20px;}
+.cover-id{position:absolute;top:24px;right:32px;font-size:0.75rem;opacity:0.5;}
+
+/* LAYOUT */
+.page{max-width:1100px;margin:0 auto;padding:40px 20px;}
+.section{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px;margin-bottom:32px;}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--gray-200);}
+.section-header h2{font-size:1.35rem;color:var(--primary);}
+.section-icon{width:38px;height:38px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.info-item{display:flex;flex-direction:column;}
+.info-item label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray-600);margin-bottom:3px;}
+.info-item span{font-weight:600;font-size:0.92rem;}
+
+/* GAUGE */
+.gauge-container{display:flex;align-items:center;justify-content:center;gap:50px;flex-wrap:wrap;padding:16px 0;}
+.gauge-score{font-size:3.2rem;font-weight:800;color:var(--primary);line-height:1;}
+.gauge-score small{font-size:1.3rem;color:var(--gray-600);font-weight:400;}
+.gauge-label{font-size:0.85rem;color:var(--gray-600);margin-top:4px;}
+.gauge-stats{display:flex;flex-direction:column;gap:12px;min-width:180px;}
+.stat-item{display:flex;align-items:center;gap:10px;}
+.stat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.stat-text{font-size:0.88rem;flex:1;}
+.stat-value{font-weight:700;}
+
+/* KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;}
+.kpi-card{background:var(--gray-100);border-radius:10px;padding:18px;text-align:center;border:1px solid var(--gray-200);}
+.kpi-card .value{font-size:1.7rem;font-weight:800;color:var(--primary);}
+.kpi-card .label{font-size:0.75rem;color:var(--gray-600);margin-top:3px;}
+
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;}
+.chart-box{background:var(--gray-100);border-radius:10px;padding:18px;}
+.chart-box h4{font-size:0.85rem;color:var(--gray-600);margin-bottom:10px;text-align:center;font-weight:600;}
+.chart-canvas-wrap{position:relative;height:280px;}
+.chart-canvas-wrap canvas{max-height:100%!important;}
+
+/* BADGES */
+.score-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-weight:700;font-size:0.82rem;color:white;flex-shrink:0;}
+.score-1{background:var(--red);} .score-2{background:var(--orange);} .score-3{background:var(--gold);} .score-4{background:#0fa897;} .score-5{background:#1a2744;}
+
+/* PROGRESS */
+.progress-bar{height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;}
+
+/* FUNCTION CARDS */
+.fn-card{border:1px solid var(--gray-200);border-radius:10px;margin-bottom:20px;overflow:hidden;}
+.fn-card-header{background:var(--primary);color:white;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.fn-card-header h3{font-size:1rem;font-weight:700;}
+.fn-score-pill{background:rgba(255,255,255,0.15);border-radius:20px;padding:4px 14px;font-size:0.9rem;font-weight:800;white-space:nowrap;}
+.fn-card-body{padding:16px 18px;}
+.fn-desc-box{background:var(--gray-100);border-radius:8px;padding:14px 16px;font-size:0.87rem;color:var(--gray-600);line-height:1.75;margin-bottom:14px;border-left:4px solid var(--teal);}
+
+/* KA CARDS */
+.ka-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.ka-card{border:1px solid var(--gray-200);border-radius:10px;padding:16px;display:flex;align-items:center;gap:16px;}
+.ka-card .ka-score{font-size:1.4rem;font-weight:800;min-width:46px;text-align:center;flex-shrink:0;}
+.ka-card .ka-info{flex:1;min-width:0;}
+.ka-card .ka-name{font-weight:600;margin-bottom:3px;font-size:0.92rem;}
+.ka-card .ka-desc{font-size:0.8rem;color:var(--gray-600);line-height:1.5;}
+.ka-card .ka-bar{width:100px;flex-shrink:0;}
+.ka-card.strength{border-left:4px solid #11a4af;}
+.ka-card.proficient{border-left:4px solid var(--gold);}
+.ka-card.development{border-left:4px solid var(--red);}
+
+/* SKILL CARDS */
+.skill-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+.skill-card{border:1px solid var(--gray-200);border-radius:10px;padding:14px;display:flex;align-items:flex-start;gap:12px;background:white;}
+.skill-score-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.skill-code{font-size:0.62rem;color:var(--gray-600);font-weight:600;text-align:center;}
+.skill-info{flex:1;min-width:0;}
+.skill-name{font-weight:600;font-size:0.85rem;margin-bottom:3px;}
+.skill-desc{font-size:0.76rem;color:var(--gray-600);line-height:1.4;}
+.skill-level{font-size:0.68rem;color:var(--gray-600);margin-top:5px;font-style:italic;}
+
+/* RECOMMENDATIONS */
+.rec-card{border-radius:10px;padding:18px;margin-bottom:14px;}
+.rec-card h4{color:var(--primary);margin-bottom:5px;font-size:0.95rem;}
+.rec-card p{font-size:0.87rem;color:var(--gray-600);line-height:1.65;}
+.cert-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;}
+.cert-tag{background:white;border:1px solid var(--teal);color:#1a2744;padding:3px 11px;border-radius:20px;font-size:0.75rem;font-weight:600;}
+
+/* FOOTER */
+.report-footer{text-align:center;padding:36px 20px;color:var(--gray-600);font-size:0.78rem;}
+.confidential{background:var(--red);color:white;display:inline-block;padding:3px 14px;border-radius:4px;font-size:0.68rem;font-weight:700;letter-spacing:1px;margin-bottom:10px;}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .cover{padding:60px 16px 80px;min-height:auto;}
+  .cover-id{top:16px;right:16px;font-size:0.68rem;}
+  .cover-mernova-logo svg{height:44px;}
+  .cover-logo{font-size:2rem;}
+  .cover-tagline{font-size:0.72rem;letter-spacing:1px;}
+  .cover-title{font-size:1.15rem;}
+  .cover-subtitle{font-size:0.85rem;margin-bottom:28px;}
+  .cover-candidate{padding:18px 20px;}
+  .cover-candidate h2{font-size:1.2rem;}
+  .cover-meta{gap:10px;font-size:0.78rem;margin-top:28px;}
+  .cover-footer{position:relative;bottom:auto;margin-top:32px;font-size:0.65rem;}
+  .page{padding:16px 12px;}
+  .section{padding:18px 14px;margin-bottom:20px;}
+  .section-header h2{font-size:1.1rem;}
+  .section-icon{width:32px;height:32px;font-size:1rem;}
+  .info-grid{grid-template-columns:1fr;gap:10px;}
+  .gauge-container{gap:24px;}
+  .gauge-score{font-size:2.4rem;}
+  .gauge-score small{font-size:1rem;}
+  .gauge-stats{width:100%;}
+  .kpi-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px;}
+  .kpi-card{padding:14px 10px;}
+  .kpi-card .value{font-size:1.3rem;}
+  .kpi-card .label{font-size:0.68rem;}
+  .chart-row{grid-template-columns:1fr;gap:14px;margin-top:16px;}
+  .chart-canvas-wrap{height:240px;}
+  .ka-card{flex-direction:column;align-items:flex-start;gap:10px;padding:14px;}
+  .ka-card .ka-bar{width:100%;}
+  .ka-card .ka-score{min-width:auto;}
+  .skill-cards-grid{grid-template-columns:1fr;gap:10px;}
+  .skill-card{padding:12px;}
+  .fn-card-header{flex-direction:column;align-items:flex-start;}
+  .fn-card-body{padding:14px;}
+  .rec-card{padding:14px;}
+  .cert-tag{font-size:0.7rem;}
+  .report-footer{padding:24px 12px;}
 }
-.cover::before {
-  content: '';
-  position: absolute; top: 0; right: 0; width: 100%; height: 100%;
-  background: radial-gradient(ellipse at 80% 20%, rgba(0,180,180,0.15) 0%, transparent 60%);
-  pointer-events: none;
+@media(min-width:601px) and (max-width:900px){
+  .kpi-row{grid-template-columns:repeat(2,1fr);}
+  .chart-row{grid-template-columns:1fr;}
+  .page{padding:30px 20px;}
+  .section{padding:24px;}
 }
-.cover::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(ellipse at 20% 80%, rgba(0,180,180,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-.cover-mernova-logo { margin-bottom: 40px; position: relative; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 12px 20px; }
-.cover-mernova-logo svg { height: 70px; width: auto; }
-.cover-logo { font-size: 3.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; position: relative; }
-.cover-logo span { color: #14c4cf; }
-.cover-tagline { font-size: 1rem; opacity: 0.7; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
-.cover-title { font-size: 1.8rem; font-weight: 300; margin-bottom: 10px; opacity: 0.9; }
-.cover-subtitle { font-size: 1.1rem; opacity: 0.6; margin-bottom: 50px; }
-.cover-candidate { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 30px 50px; backdrop-filter: blur(10px); position: relative; }
-.cover-candidate h2 { font-size: 1.6rem; font-weight: 600; margin-bottom: 6px; }
-.cover-candidate p { opacity: 0.7; font-size: 0.95rem; }
-.cover-meta { margin-top: 50px; display: flex; gap: 40px; opacity: 0.6; font-size: 0.85rem; }
-.cover-footer { position: absolute; bottom: 30px; font-size: 0.75rem; opacity: 0.4; }
-.cover-id { position: absolute; top: 30px; right: 40px; font-size: 0.8rem; opacity: 0.5; }
-
-.page { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
-.section { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; margin-bottom: 40px; }
-.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--gray-200); }
-.section-header h2 { font-size: 1.5rem; color: var(--primary); }
-.section-icon { width: 40px; height: 40px; background: var(--accent-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.info-item { display: flex; flex-direction: column; }
-.info-item label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-600); margin-bottom: 4px; }
-.info-item span { font-weight: 600; font-size: 0.95rem; }
-
-.gauge-container { display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; padding: 20px 0; }
-.gauge-wrap { text-align: center; }
-.gauge-score { font-size: 3.5rem; font-weight: 800; color: var(--primary); }
-.gauge-score small { font-size: 1.5rem; color: var(--gray-600); font-weight: 400; }
-.gauge-label { font-size: 0.9rem; color: var(--gray-600); margin-top: 4px; }
-.gauge-stats { display: flex; flex-direction: column; gap: 14px; }
-.stat-item { display: flex; align-items: center; gap: 12px; }
-.stat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-.stat-text { font-size: 0.9rem; }
-.stat-value { font-weight: 700; margin-left: auto; }
-
-.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 30px; }
-.kpi-card { background: var(--gray-100); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid var(--gray-200); }
-.kpi-card .value { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
-.kpi-card .label { font-size: 0.8rem; color: var(--gray-600); margin-top: 4px; }
-
-.chart-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; }
-.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
-.chart-box { background: var(--gray-100); border-radius: 10px; padding: 20px; }
-.chart-box h4 { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 12px; text-align: center; }
-.chart-canvas-wrap { position: relative; height: 300px; max-height: 300px; }
-.chart-canvas-wrap canvas { max-height: 100% !important; }
-
-.score-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-weight: 700; font-size: 0.85rem; color: white; }
-.score-1 { background: var(--red); }
-.score-2 { background: var(--orange); }
-.score-3 { background: var(--gold); }
-.score-4 { background: #0fa897; }
-.score-5 { background: #1a2744; }
-
-.progress-bar { height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
-
-.ka-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-.ka-card { border: 1px solid var(--gray-200); border-radius: 10px; padding: 20px; display: flex; align-items: center; gap: 20px; }
-.ka-card .ka-score { font-size: 1.5rem; font-weight: 800; min-width: 50px; text-align: center; }
-.ka-card .ka-info { flex: 1; }
-.ka-card .ka-name { font-weight: 600; margin-bottom: 4px; }
-.ka-card .ka-desc { font-size: 0.82rem; color: var(--gray-600); }
-.ka-card .ka-bar { width: 120px; flex-shrink: 0; }
-.strength { border-left: 4px solid #11a4af; }
-.proficient { border-left: 4px solid var(--gold); }
-.development { border-left: 4px solid var(--red); }
-
-.fn-section { margin-bottom: 32px; }
-.fn-section-header { background: var(--primary); color: white; border-radius: 10px 10px 0 0; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-.fn-section-header h3 { font-size: 1rem; font-weight: 700; }
-.fn-score-pill { background: rgba(255,255,255,0.15); border-radius: 20px; padding: 4px 14px; font-size: 0.9rem; font-weight: 800; }
-.fn-section-body { border: 1px solid var(--gray-200); border-top: none; border-radius: 0 0 10px 10px; padding: 16px; }
-
-.skill-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
-.skill-card { border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px; display: flex; align-items: flex-start; gap: 14px; background: white; }
-.skill-card .skill-score-wrap { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.skill-card .skill-code { font-size: 0.65rem; color: var(--gray-600); font-weight: 600; }
-.skill-card .skill-info { flex: 1; min-width: 0; }
-.skill-card .skill-name { font-weight: 600; font-size: 0.88rem; margin-bottom: 4px; }
-.skill-card .skill-desc { font-size: 0.78rem; color: var(--gray-600); line-height: 1.4; }
-.skill-card .skill-level { font-size: 0.7rem; color: var(--gray-600); margin-top: 6px; font-style: italic; }
-
-.rec-card { background: #f0fafa; border-radius: 10px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #11a4af; }
-.rec-card h4 { color: var(--primary); margin-bottom: 6px; }
-.rec-card p { font-size: 0.9rem; color: var(--gray-600); }
-.cert-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.cert-tag { background: white; border: 1px solid #11a4af; color: #1a2744; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; }
-
-.report-footer { text-align: center; padding: 40px; color: var(--gray-600); font-size: 0.8rem; }
-.confidential { background: var(--red); color: white; display: inline-block; padding: 4px 16px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; }
-
-@media (max-width: 768px) {
-  .info-grid { grid-template-columns: 1fr; }
-  .chart-row { grid-template-columns: 1fr; }
-  .gauge-container { flex-direction: column; gap: 30px; }
-  .cover-meta { flex-direction: column; gap: 10px; }
-  .page { padding: 40px 20px; }
-  .section { padding: 25px; margin-bottom: 30px; }
-  .ka-card { gap: 15px; padding: 18px; }
-  .skill-cards-grid { grid-template-columns: 1fr; }
-}
-@media print {
-  .cover { page-break-after: always; }
-  .section { break-inside: avoid; }
+@media print{
+  .cover{page-break-after:always;min-height:auto;}
+  .section{break-inside:avoid;}
 }
 </style>
 </head>
 <body>
 
-<!-- COVER -->
 <div class="cover">
   <div class="cover-id">SIQ-2026-HR-00147</div>
-  <div class="cover-mernova-logo"><svg viewBox="100 160 730 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g><g transform="matrix(1,0,0,1,102,-87)"><path d="M237.06,354.36L237.06,291.78L252.5,291.78L269.8,333.84L270.58,333.84L287.93,291.78L303.32,291.78L303.32,354.36L291.18,354.36L291.18,312.51L290.49,312.51L274.58,350.76L265.86,350.76L249.9,312.51L249.21,312.51L249.21,354.36L237.06,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M359.95,354.36L318.49,354.36L318.49,291.78L359.95,291.78L359.95,302.97L331.59,302.97L331.59,317.58L358.35,317.58L358.35,327.94L331.59,327.94L331.59,343.16L359.95,343.16L359.95,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M386.84,354.36L373.74,354.36L373.74,291.78L400.02,291.78C403.46,291.78 406.55,292.24 409.3,293.17C412.05,294.1 414.37,295.42 416.28,297.16C418.19,298.9 419.66,301 420.68,303.47C421.71,305.94 422.22,308.74 422.22,311.86C422.22,313.85 421.96,315.77 421.46,317.61C420.96,319.45 420.22,321.14 419.25,322.68C418.28,324.23 417.09,325.59 415.67,326.78C414.25,327.97 412.65,328.92 410.86,329.64L424.04,354.36L409.21,354.36L397.54,331.68L386.83,331.68L386.83,354.36L386.84,354.36ZM386.84,321.61L398.33,321.61C401.65,321.61 404.23,320.77 406.05,319.09C407.87,317.41 408.78,315.06 408.78,312.02C408.78,310.55 408.54,309.21 408.04,308.01C407.55,306.81 406.85,305.79 405.94,304.95C405.03,304.11 403.92,303.47 402.6,303.02C401.28,302.57 399.82,302.35 398.2,302.35L386.84,302.35L386.84,321.61Z" style="fill:white;fill-rule:nonzero;"/><path d="M435.41,354.36L435.41,291.78L446.34,291.78L475.13,330.77L475.91,330.77L475.91,291.78L488.44,291.78L488.44,354.36L477.6,354.36L448.72,315.2L447.94,315.2L447.94,354.36L435.41,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M530.99,290.18C535.62,290.18 539.78,290.95 543.48,292.48C547.18,294.01 550.33,296.19 552.93,299.03C555.53,301.86 557.53,305.31 558.94,309.37C560.34,313.43 561.04,317.99 561.04,323.05C561.04,328.11 560.35,332.71 558.96,336.78C557.57,340.85 555.58,344.29 552.98,347.12C550.38,349.95 547.22,352.14 543.5,353.67C539.78,355.2 535.61,355.97 530.99,355.97C526.37,355.97 522.15,355.2 518.44,353.67C514.72,352.14 511.57,349.96 508.96,347.12C506.36,344.29 504.36,340.84 502.95,336.78C501.55,332.72 500.85,328.14 500.85,323.05C500.85,317.96 501.56,313.43 502.98,309.37C504.4,305.31 506.41,301.85 509.03,299C511.65,296.15 514.81,293.97 518.53,292.45C522.24,290.93 526.4,290.17 531,290.17L530.99,290.18ZM530.99,301.67C528.45,301.67 526.15,302.17 524.09,303.17C522.04,304.17 520.28,305.59 518.82,307.44C517.36,309.29 516.23,311.54 515.44,314.18C514.64,316.83 514.25,319.78 514.25,323.05C514.25,326.32 514.64,329.27 515.42,331.9C516.2,334.53 517.31,336.78 518.76,338.64C520.21,340.51 521.96,341.94 524.03,342.96C526.1,343.97 528.42,344.48 530.99,344.48C533.56,344.48 535.83,343.97 537.89,342.96C539.94,341.95 541.7,340.51 543.16,338.64C544.62,336.78 545.74,334.53 546.52,331.9C547.3,329.27 547.69,326.32 547.69,323.05C547.69,319.78 547.3,316.83 546.52,314.18C545.74,311.54 544.62,309.29 543.16,307.44C541.7,305.59 539.94,304.17 537.89,303.17C535.84,302.17 533.54,301.67 530.99,301.67Z" style="fill:white;fill-rule:nonzero;"/><path d="M590.13,354.36L568.97,291.78L583.76,291.78L597.98,339.61L598.76,339.61L612.73,291.78L626.82,291.78L605.96,354.36L590.13,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M672.96,339.44L650.97,339.44L646.16,354.36L633.02,354.36L654.75,291.78L670.14,291.78L691.87,354.36L677.69,354.36L672.96,339.44ZM653.79,329.33L670.18,329.33L662.42,304.79L661.64,304.79L653.79,329.33Z" style="fill:white;fill-rule:nonzero;"/></g></g>
-    <g transform="matrix(1.422024,0,0,1,-191.842532,96)"><path d="M691.53,257.73L236.58,258.61L236.58,267.01L691.53,266.13L691.53,257.73Z" style="fill:url(#_Linear8HR);fill-rule:nonzero;"/></g>
-    <g><g transform="matrix(1,0,0,1,-225,99)"><path d="M551.31,124.46C551.31,100.16 531.61,80.46 507.31,80.46C497.73,80.46 488.88,83.53 481.65,88.73L481.64,88.73L481.23,89.03C481.08,89.14 480.92,89.26 480.77,89.37L440.84,119.18C429.49,126.84 422.02,139.83 422.02,154.55C422.02,167.08 427.42,178.34 436.02,186.14L472.46,222.58L476.32,226.2C484.27,234.09 495.22,238.97 507.31,238.97C531.61,238.97 551.31,219.27 551.31,194.97L551.31,125.51L551.27,125.47C551.27,125.13 551.31,124.8 551.31,124.46ZM527.45,155.87L527.45,194.98C527.45,206.11 518.43,215.13 507.3,215.13C503.29,215.13 499.56,213.95 496.43,211.93C496.43,211.93 492.72,208.89 492.09,208.17L491.58,207.73L472.95,189.46C465.06,181.58 456.84,172.86 453.27,169.5C450.34,167.06 448.09,163.75 446.95,159.82C444.27,150.58 448.43,142.74 456.9,136.74L470.09,126.44L497.02,106.14C499.96,104.51 503.33,103.58 506.93,103.58C518.26,103.58 527.44,112.76 527.44,124.09L527.44,155.86L527.45,155.87Z" style="fill:url(#_Linear9HR);fill-rule:nonzero;"/></g><g transform="matrix(1,0,0,1,-225,99)"><path d="M491.71,137.41L445.85,91.55L445.79,91.61C438.02,84.68 427.77,80.46 416.54,80.46C393.58,80.46 374.73,98.05 372.73,120.49L372.54,120.49L372.54,235.54L396.39,235.54L396.39,124.55C396.39,124.55 396.42,124.53 396.44,124.52C396.41,124.07 396.39,123.61 396.39,123.15C396.39,112.02 405.41,103 416.54,103C421.23,103 425.54,104.62 428.96,107.32C429.17,107.48 432.98,111.41 432.98,111.41L476.34,154.77C479.25,158.28 481,162.78 481,167.7C481,175.69 476.37,182.58 469.65,185.89L486.45,202.69C497.39,194.69 503.87,181.75 504.54,167.16C505.33,150.06 491.7,137.41 491.7,137.41L491.71,137.41Z" style="fill:url(#_Linear10HR);fill-rule:nonzero;"/></g></g>
-    <defs>
-        <linearGradient id="_Linear8HR" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(453.4268,0,0,453.4268,242.6629,262.9448)"><stop offset="0" style="stop-color:rgb(0,188,205);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(3,149,142);stop-opacity:1"/></linearGradient>
-        <linearGradient id="_Linear9HR" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(129.3,0,0,129.3,422.01,159.72)"><stop offset="0" style="stop-color:rgb(2,133,126);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(89,192,193);stop-opacity:1"/></linearGradient>
-        <linearGradient id="_Linear10HR" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(9642,−13126,13126,9642,52199,30954)"><stop offset="0" style="stop-color:rgb(25,40,81);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(0,99,159);stop-opacity:1"/></linearGradient>
-    </defs>
+  <div class="cover-mernova-logo"><svg viewBox="100 160 730 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<g><g transform="matrix(1,0,0,1,102,-87)"><path d="M237.06,354.36L237.06,291.78L252.5,291.78L269.8,333.84L270.58,333.84L287.93,291.78L303.32,291.78L303.32,354.36L291.18,354.36L291.18,312.51L290.49,312.51L274.58,350.76L265.86,350.76L249.9,312.51L249.21,312.51L249.21,354.36L237.06,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M359.95,354.36L318.49,354.36L318.49,291.78L359.95,291.78L359.95,302.97L331.59,302.97L331.59,317.58L358.35,317.58L358.35,327.94L331.59,327.94L331.59,343.16L359.95,343.16L359.95,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M435.41,354.36L435.41,291.78L446.34,291.78L475.13,330.77L475.91,330.77L475.91,291.78L488.44,291.78L488.44,354.36L477.6,354.36L448.72,315.2L447.94,315.2L447.94,354.36L435.41,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M530.99,290.18C535.62,290.18 543.48,292.48 552.93,299.03C555.53,301.86 561.04,317.99 561.04,323.05C561.04,328.11 558.96,336.78 552.98,347.12C547.22,352.14 535.61,355.97 530.99,355.97C526.37,355.97 518.44,353.67 508.96,347.12C504.36,340.84 500.85,323.05 500.85,323.05C500.85,317.96 504.4,305.31 509.03,299C514.81,293.97 526.4,290.17 531,290.17L530.99,290.18ZM530.99,301.67C518.82,307.44 514.25,323.05 514.25,323.05C514.25,326.32 516.2,334.53 518.76,338.64C524.03,342.96 530.99,344.48 530.99,344.48C543.16,338.64 547.69,323.05 547.69,323.05C545.74,311.54 537.89,303.17 530.99,301.67Z" style="fill:white;fill-rule:nonzero;"/><path d="M590.13,354.36L568.97,291.78L583.76,291.78L597.98,339.61L598.76,339.61L612.73,291.78L626.82,291.78L605.96,354.36L590.13,354.36Z" style="fill:white;fill-rule:nonzero;"/><path d="M672.96,339.44L650.97,339.44L646.16,354.36L633.02,354.36L654.75,291.78L670.14,291.78L691.87,354.36L677.69,354.36L672.96,339.44ZM653.79,329.33L670.18,329.33L662.42,304.79L661.64,304.79L653.79,329.33Z" style="fill:white;fill-rule:nonzero;"/></g></g>
+<g transform="matrix(1.422024,0,0,1,-191.842532,96)"><path d="M691.53,257.73L236.58,258.61L236.58,267.01L691.53,266.13L691.53,257.73Z" style="fill:rgb(0,188,205);fill-rule:nonzero;"/></g>
+<g><g transform="matrix(1,0,0,1,-225,99)"><path d="M551.31,124.46C551.31,100.16 531.61,80.46 507.31,80.46C481.23,89.03 440.84,119.18 422.02,154.55C422.02,167.08 436.02,186.14 472.46,222.58C484.27,234.09 495.22,238.97 507.31,238.97C531.61,238.97 551.31,219.27 551.31,194.97L551.31,124.46ZM527.45,155.87L527.45,194.98C527.45,206.11 518.43,215.13 507.3,215.13C492.09,208.17 472.95,189.46 453.27,169.5C448.43,142.74 456.9,136.74 497.02,106.14C518.26,103.58 527.44,124.09 527.44,124.09L527.45,155.87Z" style="fill:rgb(22,173,178);fill-rule:nonzero;"/></g><g transform="matrix(1,0,0,1,-225,99)"><path d="M491.71,137.41L445.85,91.55C438.02,84.68 427.77,80.46 416.54,80.46C393.58,80.46 372.54,120.49 372.54,120.49L372.54,235.54L396.39,235.54L396.39,123.15C396.39,112.02 405.41,103 416.54,103C432.98,111.41 476.34,154.77C481,167.7 469.65,185.89 486.45,202.69C497.39,194.69 505.33,150.06 491.71,137.41Z" style="fill:rgb(25,40,81);fill-rule:nonzero;"/></g></g>
 </svg></div>
   <div class="cover-logo">Skills<span>IQ</span></div>
   <div class="cover-tagline">HR Domain &nbsp;|&nbsp; Assess Skills. Build Capability.</div>
   <div class="cover-title">HR Competency Assessment Report</div>
-  <div class="cover-subtitle">Full-Domain Assessment &mdash; 8 Functions &middot; 19 Knowledge Areas &middot; 45 Skills</div>
+  <div class="cover-subtitle">Full-Domain &mdash; 8 Functions &middot; 19 Knowledge Areas &middot; 45 Skills</div>
   <div class="cover-candidate">
     <h2>Emily R. Parker</h2>
     <p>Human Resources Business Partner &mdash; Meridian Health Systems</p>
@@ -190,7 +191,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   <div class="cover-meta">
     <span>Domain: <strong>Human Resources</strong></span>
     <span>Target Level: <strong>Level 2 &mdash; Professional</strong></span>
-    <span>Assessment Date: <strong>June 9, 2026</strong></span>
+    <span>Date: <strong>June 9, 2026</strong></span>
   </div>
   <div class="cover-footer">&copy; 2026 Mernova Business Solutions. All rights reserved. &nbsp;|&nbsp; STRICTLY CONFIDENTIAL</div>
 </div>
@@ -216,26 +217,22 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 <div class="section">
   <div class="section-header"><div class="section-icon">&#128203;</div><h2>Executive Summary</h2></div>
   <div class="gauge-container">
-    <div class="gauge-wrap">
+    <div style="text-align:center;">
       <div class="gauge-score">1.85<small> / 5.0</small></div>
       <div class="gauge-label">Overall Assessment Score</div>
-      <div style="margin-top:10px;">
-        <span style="background:#d4a853;color:white;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;">92.5% Readiness for Level 2</span>
-      </div>
+      <div style="margin-top:10px;"><span style="background:var(--gold);color:white;padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600;">92.5% Readiness for Level 2</span></div>
     </div>
     <div class="gauge-stats">
-      <div class="stat-item"><div class="stat-dot" style="background:#11a4af"></div><span class="stat-text">Strength Areas</span><span class="stat-value">8</span></div>
-      <div class="stat-item"><div class="stat-dot" style="background:#d4a853"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">0</span></div>
-      <div class="stat-item"><div class="stat-dot" style="background:#dc2626"></div><span class="stat-text">Development Areas</span><span class="stat-value">11</span></div>
+      <div class="stat-item"><div class="stat-dot" style="background:#11a4af;"></div><span class="stat-text">Strength Areas</span><span class="stat-value">8</span></div>
+      <div class="stat-item"><div class="stat-dot" style="background:var(--gold);"></div><span class="stat-text">Proficient Areas</span><span class="stat-value">0</span></div>
+      <div class="stat-item"><div class="stat-dot" style="background:var(--red);"></div><span class="stat-text">Development Areas</span><span class="stat-value">11</span></div>
     </div>
   </div>
-  <div style="margin-top:20px; padding:20px; background:var(--gray-100); border-radius:10px; font-size:0.9rem; color:var(--gray-600); line-height:1.8;">
+  <div style="margin-top:20px;padding:18px;background:var(--gray-100);border-radius:10px;font-size:0.88rem;color:var(--gray-600);line-height:1.8;">
     Emily R. Parker demonstrates a <strong>Professional-level capability</strong> across the full HR domain,
     assessed across <strong>45 skills</strong> spanning <strong>19 Knowledge Areas</strong> and <strong>8 HR Functions</strong>.
-    The overall score of <strong>1.85 / 5.0</strong> reflects a readiness of <strong>92.5%</strong> against the Level 2 &mdash; Professional target (gap: <strong>-0.15</strong>).
-    <strong>8</strong> Knowledge Areas meet or exceed the target,
-    <strong>0</strong> approach readiness (90&ndash;99%), and <strong>11</strong> require structured development focus.
-    This report provides a three-layer breakdown &mdash; Function &rarr; Knowledge Area &rarr; Skill &mdash; giving full visibility into HR competency strengths and development priorities.
+    The overall score of <strong>1.85 / 5.0</strong> reflects <strong>92.5% readiness</strong> against the Level 2 &mdash; Professional target (gap: <strong>-0.15</strong>).
+    <strong>8</strong> Knowledge Areas meet or exceed the target, <strong>0</strong> approach readiness, and <strong>11</strong> require structured development focus.
   </div>
 </div>
 
@@ -243,67 +240,207 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
 <div class="section">
   <div class="section-header"><div class="section-icon">&#128202;</div><h2>Assessment Overview</h2></div>
   <div class="kpi-row">
-    <div class="kpi-card"><div class="value">HR</div><div class="label">Assessed Domain</div></div>
-    <div class="kpi-card"><div class="value">8</div><div class="label">HR Functions</div></div>
+    <div class="kpi-card"><div class="value">HR</div><div class="label">Domain</div></div>
+    <div class="kpi-card"><div class="value">8</div><div class="label">Functions</div></div>
     <div class="kpi-card"><div class="value">19</div><div class="label">Knowledge Areas</div></div>
     <div class="kpi-card"><div class="value">45</div><div class="label">Skills Assessed</div></div>
   </div>
-  <div style="margin-top:10px;">
-    <h4 style="margin-bottom:12px; color:var(--primary);">Capability Scale (1&ndash;5)</h4>
-    <table style="width:100%; font-size:0.85rem; border-collapse:collapse;">
-      <tr style="background:var(--gray-100);"><td style="padding:8px 12px;font-weight:700;width:80px;">1.0</td><td style="padding:8px 12px;">Operational &mdash; Basic task execution under supervision</td></tr>
-      <tr><td style="padding:8px 12px;font-weight:700;color:var(--accent);">2.0</td><td style="padding:8px 12px;">Professional &mdash; Independently manages operational activities &larr; <strong>Target</strong></td></tr>
-      <tr style="background:var(--gray-100);"><td style="padding:8px 12px;font-weight:700;">3.0</td><td style="padding:8px 12px;">Supervisory &mdash; Leads teams, manages workflows</td></tr>
-      <tr><td style="padding:8px 12px;font-weight:700;">4.0</td><td style="padding:8px 12px;">Managerial &mdash; Functional leadership, KPI management</td></tr>
-      <tr style="background:var(--gray-100);"><td style="padding:8px 12px;font-weight:700;">5.0</td><td style="padding:8px 12px;">Strategic &mdash; Enterprise transformation &amp; decision-making</td></tr>
-    </table>
-  </div>
+  <h4 style="margin-bottom:10px;color:var(--primary);font-size:0.92rem;">Capability Scale (1&ndash;5)</h4>
+  <table style="width:100%;font-size:0.83rem;border-collapse:collapse;">
+    <tr style="background:var(--gray-100);"><td style="padding:8px 12px;font-weight:700;width:70px;">1.0</td><td style="padding:8px 12px;">Operational &mdash; Basic task execution under supervision</td></tr>
+    <tr><td style="padding:8px 12px;font-weight:700;color:var(--teal);">2.0 &#8592;</td><td style="padding:8px 12px;">Professional &mdash; Independently manages operational activities &nbsp;<strong>Target</strong></td></tr>
+    <tr style="background:var(--gray-100);"><td style="padding:8px 12px;font-weight:700;">3.0</td><td style="padding:8px 12px;">Supervisory &mdash; Leads teams, manages workflows</td></tr>
+    <tr><td style="padding:8px 12px;font-weight:700;">4.0</td><td style="padding:8px 12px;">Managerial &mdash; Functional leadership, KPI management</td></tr>
+    <tr style="background:var(--gray-100);"><td style="padding:8px 12px;font-weight:700;">5.0</td><td style="padding:8px 12px;">Strategic &mdash; Enterprise transformation &amp; decision-making</td></tr>
+  </table>
 </div>
 
 <!-- PERFORMANCE DASHBOARD -->
 <div class="section">
   <div class="section-header"><div class="section-icon">&#128200;</div><h2>Overall Performance Dashboard</h2></div>
   <div class="kpi-row">
-    <div class="kpi-card"><div class="value">1.85</div><div class="label">Overall Assessed Score</div></div>
+    <div class="kpi-card"><div class="value">1.85</div><div class="label">Overall Score</div></div>
     <div class="kpi-card"><div class="value">92.5%</div><div class="label">Target Readiness</div></div>
     <div class="kpi-card"><div class="value" style="color:#dc2626;">-0.15</div><div class="label">Gap to Target (2.0)</div></div>
-    <div class="kpi-card"><div class="value" style="font-size:1rem;">Professional</div><div class="label">Current Trajectory</div></div>
+    <div class="kpi-card"><div class="value" style="font-size:0.95rem;">Professional</div><div class="label">Current Trajectory</div></div>
   </div>
   <div class="chart-row">
-    <div class="chart-box">
-      <h4>Function Radar</h4>
-      <div class="chart-canvas-wrap"><canvas id="radarChart"></canvas></div>
+    <div class="chart-box"><h4>Function Radar</h4><div class="chart-canvas-wrap"><canvas id="radarChart"></canvas></div></div>
+    <div class="chart-box"><h4>Function Scores (High &#8594; Low)</h4><div class="chart-canvas-wrap"><canvas id="barChart"></canvas></div></div>
+  </div>
+  <div class="chart-row">
+    <div class="chart-box"><h4>KA Readiness (19 Areas)</h4><div class="chart-canvas-wrap"><canvas id="readinessPieChart"></canvas></div></div>
+    <div class="chart-box"><h4>Skill Distribution (45 Skills)</h4><div class="chart-canvas-wrap"><canvas id="pieChart"></canvas></div></div>
+  </div>
+</div>
+<!-- FUNCTION PERFORMANCE -->
+<div class="section">
+  <div class="section-header"><div class="section-icon">&#9881;</div><h2>Function Performance</h2></div>
+  <p style="margin-bottom:20px;color:var(--gray-600);font-size:0.88rem;">Performance across all <strong>8 HR Functions</strong>, sorted highest to lowest score. Descriptors are drawn from the SkillsIQ HR framework and reflect the assessed capability level against the Level 2 &mdash; Professional target.</p>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Organizational Development</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">2 Knowledge Areas &middot; 4 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Strength Area &mdash; 100%</span>
+        <div class="fn-score-pill">2.00 / 5.0</div>
+      </div>
     </div>
-    <div class="chart-box">
-      <h4>Function Scores</h4>
-      <div class="chart-canvas-wrap"><canvas id="barChart"></canvas></div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#11a4af;">100%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div>
+      </div>
+      <div class="fn-desc-box">Demonstrates solid capability in supporting change management initiatives, organizational design projects, and workforce planning activities. Effectively applies OD principles with minimal supervision.</div>
     </div>
   </div>
-  <div class="chart-row" style="margin-top:20px;">
-    <div class="chart-box">
-      <h4>KA Readiness Analysis (19 Knowledge Areas)</h4>
-      <div class="chart-canvas-wrap"><canvas id="readinessPieChart"></canvas></div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Diversity, Equity &amp; Inclusion</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">2 Knowledge Areas &middot; 4 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Strength Area &mdash; 100%</span>
+        <div class="fn-score-pill">2.00 / 5.0</div>
+      </div>
     </div>
-    <div class="chart-box">
-      <h4>Proficiency Level Distribution (45 Skills)</h4>
-      <div class="chart-canvas-wrap"><canvas id="pieChart"></canvas></div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#11a4af;">100%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#11a4af;"></div></div>
+      </div>
+      <div class="fn-desc-box">Demonstrates solid capability in supporting DEI program delivery, diversity data collection, and inclusive practices facilitation. Effectively applies DEI principles and contributes to an inclusive culture with minimal supervision.</div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Performance Management</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">2 Knowledge Areas &middot; 5 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Proficient Area &mdash; 96.0%</span>
+        <div class="fn-score-pill">1.92 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#d4a853;">96.0%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:96%;background:#d4a853;"></div></div>
+      </div>
+      <div class="fn-desc-box">Possesses good understanding of performance management fundamentals and can manage standard review cycles. Further development in calibration facilitation, performance analytics, and continuous performance methods is recommended.</div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Talent Acquisition</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">2 Knowledge Areas &middot; 6 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Proficient Area &mdash; 93.8%</span>
+        <div class="fn-score-pill">1.88 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#d4a853;">93.8%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:94%;background:#d4a853;"></div></div>
+      </div>
+      <div class="fn-desc-box">Possesses good foundational knowledge of talent acquisition processes. Can independently manage standard recruitment cycles. Further development in employer branding, advanced assessment design, and data-driven sourcing is recommended.</div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Compensation &amp; Benefits</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">2 Knowledge Areas &middot; 5 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Proficient Area &mdash; 91.8%</span>
+        <div class="fn-score-pill">1.83 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#d4a853;">91.8%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:92%;background:#d4a853;"></div></div>
+      </div>
+      <div class="fn-desc-box">Possesses good understanding of compensation and benefits fundamentals and can manage standard processes. Further development in pay structure design, benefits program optimization, and compensation analytics is recommended.</div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Learning &amp; Development</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">3 Knowledge Areas &middot; 7 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Development Area &mdash; 88.8%</span>
+        <div class="fn-score-pill">1.78 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#dc2626;">88.8%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:89%;background:#dc2626;"></div></div>
+      </div>
+      <div class="fn-desc-box">Demonstrates limited L&amp;D proficiency. Development in training needs analysis, instructional design fundamentals, facilitation skills, and learning technology is a priority.</div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>HR Operations</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">3 Knowledge Areas &middot; 7 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Development Area &mdash; 86.2%</span>
+        <div class="fn-score-pill">1.72 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#dc2626;">86.2%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:86%;background:#dc2626;"></div></div>
+      </div>
+      <div class="fn-desc-box">Demonstrates limited HR operations proficiency. Development in HRIS administration, HR reporting tools, payroll fundamentals, and data governance is a priority.</div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-card-header">
+      <div>
+        <h3>Employee Relations</h3>
+        <div style="font-size:0.72rem;opacity:0.7;margin-top:2px;">3 Knowledge Areas &middot; 7 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:12px;padding:2px 10px;font-size:0.75rem;font-weight:600;">Development Area &mdash; 83.3%</span>
+        <div class="fn-score-pill">1.67 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-card-body">
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;"><span>Readiness</span><span style="font-weight:700;color:#dc2626;">83.3%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:83%;background:#dc2626;"></div></div>
+      </div>
+      <div class="fn-desc-box">Demonstrates limited employee relations proficiency. Development in grievance handling, disciplinary processes, employment legislation, and engagement program delivery is a priority.</div>
     </div>
   </div>
 </div>
 
-<!-- KA PERFORMANCE BY FUNCTION -->
+<!-- KA PERFORMANCE -->
 <div class="section">
   <div class="section-header"><div class="section-icon">&#127919;</div><h2>Knowledge Areas Performance</h2></div>
-  <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">Performance across all <strong>19 Knowledge Areas</strong> grouped by HR Function. Each descriptor reflects the assessed capability level against the Level 2 &mdash; Professional target. Sorted highest to lowest within each function.</p>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Organizational Development</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">2 Knowledge Areas</span>
-        <div class="fn-score-pill">2.00 / 5.0</div>
-      </div>
+  <p style="margin-bottom:20px;color:var(--gray-600);font-size:0.88rem;">All <strong>19 Knowledge Areas</strong> grouped by function, sorted highest to lowest score. Descriptors reflect assessed capability against the Level 2 &mdash; Professional target.</p>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Organizational Development</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">2.00</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.50</div>
@@ -324,15 +461,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Diversity, Equity &amp; Inclusion</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">2 Knowledge Areas</span>
-        <div class="fn-score-pill">2.00 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Diversity, Equity &amp; Inclusion</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">2.00</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.50</div>
@@ -353,15 +487,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Performance Management</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">2 Knowledge Areas</span>
-        <div class="fn-score-pill">1.92 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Performance Management</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">1.92</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.34</div>
@@ -382,15 +513,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Talent Acquisition</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">2 Knowledge Areas</span>
-        <div class="fn-score-pill">1.88 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Talent Acquisition</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">1.88</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.00</div>
@@ -411,15 +539,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Compensation &amp; Benefits</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">2 Knowledge Areas</span>
-        <div class="fn-score-pill">1.83 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Compensation &amp; Benefits</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">1.83</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.00</div>
@@ -440,15 +565,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Learning &amp; Development</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">3 Knowledge Areas</span>
-        <div class="fn-score-pill">1.78 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Learning &amp; Development</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">1.78</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.33</div>
@@ -477,15 +599,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>HR Operations</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">3 Knowledge Areas</span>
-        <div class="fn-score-pill">1.72 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">HR Operations</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">1.72</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.00</div>
@@ -514,15 +633,12 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
       </div>
     </div>
   </div>
-  <div class="fn-section">
-    <div class="fn-section-header">
-      <h3>Employee Relations</h3>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:0.75rem;opacity:0.7;">3 Knowledge Areas</span>
-        <div class="fn-score-pill">1.67 / 5.0</div>
-      </div>
+  <div style="margin-bottom:24px;">
+    <div style="background:var(--primary);color:white;border-radius:8px 8px 0 0;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+      <span style="font-weight:700;font-size:0.95rem;">Employee Relations</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:12px;padding:2px 12px;font-size:0.85rem;font-weight:700;">1.67</span>
     </div>
-    <div class="fn-section-body">
+    <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 8px 8px;padding:14px;">
       <div class="ka-grid">
         <div class="ka-card strength">
           <div class="ka-score" style="color:#11a4af;">2.00</div>
@@ -553,257 +669,208 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var
   </div>
 </div>
 
-<!-- DETAILED SKILLS -->
+<!-- SKILLS -->
 <div class="section">
   <div class="section-header"><div class="section-icon">&#128300;</div><h2>Detailed Skills Assessment</h2></div>
-  <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">All 45 assessed skills across 19 Knowledge Areas and 8 HR Functions, scored against a 1&ndash;5 capability scale. Sorted by score, highest to lowest.</p>
+  <p style="margin-bottom:18px;color:var(--gray-600);font-size:0.88rem;">All 45 assessed skills across 19 Knowledge Areas and 8 HR Functions, sorted by score (highest first).</p>
   <div class="skill-cards-grid" id="skillCardsGrid"></div>
 </div>
 
-<!-- SCORE DISTRIBUTION -->
+<!-- DISTRIBUTION -->
 <div class="section">
   <div class="section-header"><div class="section-icon">&#128201;</div><h2>Score Distribution Analysis</h2></div>
   <div class="kpi-row">
-    <div class="kpi-card"><div class="value" style="color:#dc2626;">11</div><div class="label">Skills at Level 1 (24%)</div></div>
-    <div class="kpi-card"><div class="value" style="color:#ea580c;">30</div><div class="label">Skills at Level 2 (67%)</div></div>
-    <div class="kpi-card"><div class="value" style="color:#d4a853;">4</div><div class="label">Skills at Level 3 (9%)</div></div>
-    <div class="kpi-card"><div class="value" style="color:#0fa897;">0</div><div class="label">Skills at Level 4 (0%)</div></div>
+    <div class="kpi-card"><div class="value" style="color:var(--red);">11</div><div class="label">Level 1 (24%)</div></div>
+    <div class="kpi-card"><div class="value" style="color:var(--orange);">30</div><div class="label">Level 2 (67%)</div></div>
+    <div class="kpi-card"><div class="value" style="color:var(--gold);">4</div><div class="label">Level 3 (9%)</div></div>
+    <div class="kpi-card"><div class="value" style="color:#0fa897;">0</div><div class="label">Level 4 (0%)</div></div>
   </div>
-  <div class="chart-container">
-    <div class="chart-canvas-wrap"><canvas id="distributionChart"></canvas></div>
-  </div>
+  <div style="max-width:600px;margin:0 auto;"><div class="chart-canvas-wrap"><canvas id="distributionChart"></canvas></div></div>
 </div>
 
 <!-- RECOMMENDATIONS -->
 <div class="section">
   <div class="section-header"><div class="section-icon">&#127891;</div><h2>Development Recommendations &amp; Certification Pathways</h2></div>
-  <p style="margin-bottom:20px; color:var(--gray-600); font-size:0.9rem;">Based on the assessment results for <strong>Level 2 &mdash; Professional</strong> across the full HR domain, the following development pathways are recommended per Knowledge Area, sorted by priority (lowest readiness first).</p>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 1 &mdash; Career Development <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Learning &amp; Development</strong></p>
+  <p style="margin-bottom:18px;color:var(--gray-600);font-size:0.88rem;">Development pathways per Knowledge Area, prioritized by lowest readiness first.</p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 1 &mdash; Career Development <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Learning &amp; Development</strong></p>
     <p>Demonstrates limited career development capability. Development in framework design, coaching skills, and development planning is a priority.</p>
     <div class="cert-list"><span class="cert-tag">ATD CPTD — Instructional Design</span><span class="cert-tag">LinkedIn Learning L&amp;D Certificate</span><span class="cert-tag">SHRM-CP — Learning &amp; Development</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 2 &mdash; Learning Technology <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Learning &amp; Development</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 2 &mdash; Learning Technology <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Learning &amp; Development</strong></p>
     <p>Demonstrates limited learning technology capability. Development in LMS administration, digital content creation, and technology integration is a priority.</p>
     <div class="cert-list"><span class="cert-tag">ATD CPTD — Instructional Design</span><span class="cert-tag">LinkedIn Learning L&amp;D Certificate</span><span class="cert-tag">SHRM-CP — Learning &amp; Development</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 3 &mdash; Performance Analytics <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Performance Management</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 3 &mdash; Performance Analytics <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Performance Management</strong></p>
     <p>Demonstrates limited performance analytics capability. Development in data analysis, visualization tools, and metrics interpretation is a priority.</p>
-    <div class="cert-list"><span class="cert-tag">SHRM-CP — Performance Management</span><span class="cert-tag">Coursera — People Management Certificate</span><span class="cert-tag">WorldatWork T1 — Total Rewards</span></div>
+    <div class="cert-list"><span class="cert-tag">SHRM-CP — Performance Management</span><span class="cert-tag">Coursera People Management Certificate</span><span class="cert-tag">WorldatWork T1 — Total Rewards</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 4 &mdash; Conflict &amp; Grievance Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Employee Relations</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 4 &mdash; Conflict &amp; Grievance Management <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Employee Relations</strong></p>
     <p>Demonstrates limited conflict management capability. Development in grievance procedures, investigation skills, and employment law fundamentals is a priority.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — Employee Relations Track</span><span class="cert-tag">HRCI PHR — Labor &amp; Employment Law</span><span class="cert-tag">Cornell ILR Employee Relations Certificate</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 5 &mdash; Labor &amp; Employment Law <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Employee Relations</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 5 &mdash; Labor &amp; Employment Law <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Employee Relations</strong></p>
     <p>Demonstrates limited employment law knowledge. Development in core labor legislation, policy application, and compliance fundamentals is a priority.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — Employee Relations Track</span><span class="cert-tag">HRCI PHR — Labor &amp; Employment Law</span><span class="cert-tag">Cornell ILR Employee Relations Certificate</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 6 &mdash; Payroll Management <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>HR Operations</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 6 &mdash; Payroll Management <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>HR Operations</strong></p>
     <p>Demonstrates limited payroll capability. Development in payroll processing, compliance fundamentals, and system administration is a priority.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — HR Operations</span><span class="cert-tag">HRCI PHR — Core HR Operations</span><span class="cert-tag">ServiceNow HR Service Delivery Certification</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 7 &mdash; Organization Design <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Organizational Development</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 7 &mdash; Organization Design <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Organizational Development</strong></p>
     <p>Demonstrates limited organizational design capability. Development in OD frameworks, structure analysis, and workforce planning is a priority.</p>
     <div class="cert-list"><span class="cert-tag">ATD CPTD — OD Track</span><span class="cert-tag">Prosci Change Management Certification</span><span class="cert-tag">SHRM OD Certificate Program</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 8 &mdash; DEI Analytics <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 75.0% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Diversity, Equity &amp; Inclusion</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 8 &mdash; DEI Analytics <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 75.0%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Diversity, Equity &amp; Inclusion</strong></p>
     <p>Demonstrates limited DEI analytics capability. Development in diversity data management, reporting tools, and equity analysis is a priority.</p>
     <div class="cert-list"><span class="cert-tag">SHRM Inclusive Workplace Culture Certificate</span><span class="cert-tag">Cornell DEI Certificate</span><span class="cert-tag">AIHR — Diversity &amp; Inclusion Specialist</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 9 &mdash; Compensation Design <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 83.5% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Compensation &amp; Benefits</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 9 &mdash; Compensation Design <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 83.5%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Compensation &amp; Benefits</strong></p>
     <p>Demonstrates limited compensation capability. Development in job evaluation methodologies, benchmarking, and pay structure design is a priority.</p>
     <div class="cert-list"><span class="cert-tag">WorldatWork CCP — Certified Compensation Professional</span><span class="cert-tag">CEBS — Certified Employee Benefits Specialist</span><span class="cert-tag">PayScale Compensation Certification</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 10 &mdash; HR Analytics &amp; Reporting <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 83.5% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>HR Operations</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 10 &mdash; HR Analytics &amp; Reporting <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 83.5%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>HR Operations</strong></p>
     <p>Demonstrates limited HR analytics capability. Development in data analysis, visualization tools, and HR metric interpretation is a priority.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — HR Operations</span><span class="cert-tag">HRCI PHR — Core HR Operations</span><span class="cert-tag">ServiceNow HR Service Delivery Certification</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#dc2626;margin-bottom:16px;">
-    <h4>Priority 11 &mdash; Recruitment &amp; Sourcing <span style="color:#dc2626;font-size:0.8rem;">(Development Area &mdash; 87.5% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Talent Acquisition</strong></p>
+  <div class="rec-card" style="background:#fff8f0;border-left:4px solid #dc2626;">
+    <h4>Priority 11 &mdash; Recruitment &amp; Sourcing <span style="color:#dc2626;font-size:0.78rem;font-weight:500;">(Development Area &mdash; 87.5%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Talent Acquisition</strong></p>
     <p>Demonstrates limited recruitment capability. Development in sourcing strategies, structured interviewing, and candidate assessment is a priority.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — Talent Acquisition Module</span><span class="cert-tag">LinkedIn Recruiter Certification</span><span class="cert-tag">AIRS CIR — Certified Internet Recruiter</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 12 &mdash; Onboarding &amp; Integration <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Talent Acquisition</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 12 &mdash; Onboarding &amp; Integration <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Talent Acquisition</strong></p>
     <p>Independently delivers structured onboarding programs that accelerate new hire productivity and engagement. Effectively facilitates orientation and coordinates cross-functional induction activities.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — Talent Acquisition Module</span><span class="cert-tag">LinkedIn Recruiter Certification</span><span class="cert-tag">AIRS CIR — Certified Internet Recruiter</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 13 &mdash; Benefits Administration <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Compensation &amp; Benefits</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 13 &mdash; Benefits Administration <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Compensation &amp; Benefits</strong></p>
     <p>Independently administers employee benefits programs including health, retirement, and wellness plans. Effectively manages enrollment, vendor relationships, and employee queries.</p>
     <div class="cert-list"><span class="cert-tag">WorldatWork CCP — Certified Compensation Professional</span><span class="cert-tag">CEBS — Certified Employee Benefits Specialist</span><span class="cert-tag">PayScale Compensation Certification</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 14 &mdash; Employee Engagement <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Employee Relations</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 14 &mdash; Employee Engagement <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Employee Relations</strong></p>
     <p>Independently designs and administers engagement surveys, analyzes results, and facilitates action planning with managers. Effectively communicates insights and tracks improvement initiatives.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — Employee Relations Track</span><span class="cert-tag">HRCI PHR — Labor &amp; Employment Law</span><span class="cert-tag">Cornell ILR Employee Relations Certificate</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 15 &mdash; HR Information Systems <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>HR Operations</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 15 &mdash; HR Information Systems <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>HR Operations</strong></p>
     <p>Independently administers HRIS platforms, maintains employee data integrity, and generates standard HR reports. Effectively supports HR transactions and system configurations.</p>
     <div class="cert-list"><span class="cert-tag">SHRM-CP — HR Operations</span><span class="cert-tag">HRCI PHR — Core HR Operations</span><span class="cert-tag">ServiceNow HR Service Delivery Certification</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 16 &mdash; Training Design &amp; Delivery <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Learning &amp; Development</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 16 &mdash; Training Design &amp; Delivery <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Learning &amp; Development</strong></p>
     <p>Independently conducts training needs analysis, designs learning programs using adult learning principles, and delivers engaging workshops with minimal supervision.</p>
     <div class="cert-list"><span class="cert-tag">ATD CPTD — Instructional Design</span><span class="cert-tag">LinkedIn Learning L&amp;D Certificate</span><span class="cert-tag">SHRM-CP — Learning &amp; Development</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 17 &mdash; Performance Appraisal <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Performance Management</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 17 &mdash; Performance Appraisal <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Performance Management</strong></p>
     <p>Independently facilitates goal-setting, manages performance review cycles, and delivers constructive feedback conversations. Effectively applies performance frameworks with minimal supervision.</p>
-    <div class="cert-list"><span class="cert-tag">SHRM-CP — Performance Management</span><span class="cert-tag">Coursera — People Management Certificate</span><span class="cert-tag">WorldatWork T1 — Total Rewards</span></div>
+    <div class="cert-list"><span class="cert-tag">SHRM-CP — Performance Management</span><span class="cert-tag">Coursera People Management Certificate</span><span class="cert-tag">WorldatWork T1 — Total Rewards</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 18 &mdash; Change Management <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Organizational Development</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 18 &mdash; Change Management <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Organizational Development</strong></p>
     <p>Leads change management programs with strong capability in stakeholder engagement, communication strategy, and adoption measurement. Drives successful change adoption and coaches leaders through transitions.</p>
     <div class="cert-list"><span class="cert-tag">ATD CPTD — OD Track</span><span class="cert-tag">Prosci Change Management Certification</span><span class="cert-tag">SHRM OD Certificate Program</span></div>
   </div>
-  <div class="rec-card" style="border-left-color:#11a4af;margin-bottom:16px;">
-    <h4>Priority 19 &mdash; DEI Strategy <span style="color:#11a4af;font-size:0.8rem;">(Strength Area &mdash; 100% Readiness)</span></h4>
-    <p style="font-size:0.8rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Diversity, Equity &amp; Inclusion</strong></p>
+  <div class="rec-card" style="background:#f0fdf4;border-left:4px solid #11a4af;">
+    <h4>Priority 19 &mdash; DEI Strategy <span style="color:#11a4af;font-size:0.78rem;font-weight:500;">(Strength Area &mdash; 100%)</span></h4>
+    <p style="font-size:0.78rem;color:var(--gray-600);margin-bottom:4px;">Function: <strong>Diversity, Equity &amp; Inclusion</strong></p>
     <p>Leads DEI programs with strong capability in inclusive leadership development, bias mitigation, and program measurement. Drives systemic inclusion and coaches leaders on DEI best practices.</p>
     <div class="cert-list"><span class="cert-tag">SHRM Inclusive Workplace Culture Certificate</span><span class="cert-tag">Cornell DEI Certificate</span><span class="cert-tag">AIHR — Diversity &amp; Inclusion Specialist</span></div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <div class="report-footer">
   <div class="confidential">STRICTLY CONFIDENTIAL</div>
   <p>This document contains proprietary assessment data and personalized developmental insights.<br>
-  It is intended exclusively for the assessed professional and authorized talent management personnel.</p>
-  <p style="margin-top:16px;">&copy; 2026 Mernova Business Solutions. All rights reserved.</p>
-  <p style="margin-top:8px; opacity:0.6;">Report ID: SIQ-2026-HR-00147 &nbsp;|&nbsp; Generated: June 9, 2026</p>
+  Intended exclusively for the assessed professional and authorized talent management personnel.</p>
+  <p style="margin-top:14px;">&copy; 2026 Mernova Business Solutions. All rights reserved.</p>
+  <p style="margin-top:6px;opacity:0.6;">Report ID: SIQ-2026-HR-00147 &nbsp;|&nbsp; Generated: June 9, 2026</p>
 </div>
 
-</div>
+</div><!-- .page -->
 
 <script>
-const skills = [{"code": "HR.0007", "name": "Training Needs Analysis", "score": 3, "ka": "Training Design & Delivery", "desc": "The ability to identify skill gaps and learning needs through assessment methods including surveys, performance data, an"}, {"code": "HR.0015", "name": "Performance Review Process", "score": 3, "ka": "Performance Appraisal", "desc": "The ability to design and manage performance review cycles including mid-year and annual appraisals, calibration session"}, {"code": "HR.0038", "name": "Change Planning & Strategy", "score": 3, "ka": "Change Management", "desc": "The ability to design and implement structured change management plans that minimize disruption and maximize adoption of"}, {"code": "HR.0042", "name": "DEI Program Design", "score": 3, "ka": "DEI Strategy", "desc": "The ability to design and implement diversity, equity, and inclusion programs that promote belonging and address systemi"}, {"code": "HR.0001", "name": "Job Analysis & Design", "score": 2, "ka": "Recruitment & Sourcing", "desc": "The ability to analyze job requirements, define role responsibilities, and design job descriptions that align with organ"}, {"code": "HR.0002", "name": "Sourcing Strategy", "score": 2, "ka": "Recruitment & Sourcing", "desc": "The ability to develop and implement strategies to identify and attract qualified candidates through various channels in"}, {"code": "HR.0003", "name": "Candidate Assessment", "score": 2, "ka": "Recruitment & Sourcing", "desc": "The ability to design and conduct structured interviews, assessments, and selection processes to evaluate candidate qual"}, {"code": "HR.0005", "name": "Onboarding Program Design", "score": 2, "ka": "Onboarding & Integration", "desc": "The ability to design comprehensive onboarding programs that accelerate new hire integration, productivity, and engageme"}, {"code": "HR.0006", "name": "Orientation & Induction", "score": 2, "ka": "Onboarding & Integration", "desc": "The ability to plan and deliver effective orientation sessions that familiarize new employees with organizational cultur"}, {"code": "HR.0008", "name": "Instructional Design", "score": 2, "ka": "Training Design & Delivery", "desc": "The ability to design structured learning experiences using adult learning principles, including e-learning modules, wor"}, {"code": "HR.0009", "name": "Facilitation & Delivery", "score": 2, "ka": "Training Design & Delivery", "desc": "The ability to deliver engaging training sessions and workshops using effective facilitation techniques that maximize le"}, {"code": "HR.0010", "name": "Career Pathing", "score": 2, "ka": "Career Development", "desc": "The ability to design and communicate career pathways that provide employees with clear progression opportunities aligne"}, {"code": "HR.0012", "name": "LMS Administration", "score": 2, "ka": "Learning Technology", "desc": "The ability to configure, manage, and optimize Learning Management Systems (LMS) to support the delivery and tracking of"}, {"code": "HR.0014", "name": "Goal Setting & OKRs", "score": 2, "ka": "Performance Appraisal", "desc": "The ability to facilitate effective goal-setting processes aligned to organizational strategy using frameworks such as S"}, {"code": "HR.0016", "name": "Feedback & Coaching for Performance", "score": 2, "ka": "Performance Appraisal", "desc": "The ability to provide constructive, evidence-based feedback and coaching conversations that support employee growth and"}, {"code": "HR.0017", "name": "Performance Data Analysis", "score": 2, "ka": "Performance Analytics", "desc": "The ability to analyze performance data and metrics to identify trends, patterns, and insights that inform talent decisi"}, {"code": "HR.0019", "name": "Job Evaluation & Grading", "score": 2, "ka": "Compensation Design", "desc": "The ability to assess and grade roles within the organization using structured job evaluation methodologies to establish"}, {"code": "HR.0020", "name": "Salary Benchmarking", "score": 2, "ka": "Compensation Design", "desc": "The ability to conduct market salary surveys and benchmarking analyses to ensure the organization's compensation is comp"}, {"code": "HR.0022", "name": "Benefits Program Design", "score": 2, "ka": "Benefits Administration", "desc": "The ability to design and administer employee benefits programs including health insurance, retirement plans, and wellne"}, {"code": "HR.0023", "name": "Total Rewards Strategy", "score": 2, "ka": "Benefits Administration", "desc": "The ability to develop and communicate a comprehensive total rewards strategy that integrates compensation, benefits, re"}, {"code": "HR.0024", "name": "Engagement Survey Design", "score": 2, "ka": "Employee Engagement", "desc": "The ability to design and administer employee engagement surveys and pulse checks to measure and monitor organizational "}, {"code": "HR.0025", "name": "Engagement Action Planning", "score": 2, "ka": "Employee Engagement", "desc": "The ability to analyze engagement data and facilitate action planning processes with leaders to improve workplace cultur"}, {"code": "HR.0026", "name": "Recognition Programs", "score": 2, "ka": "Employee Engagement", "desc": "The ability to design and implement employee recognition programs that reinforce desired behaviors and contribute to a p"}, {"code": "HR.0027", "name": "Grievance Handling", "score": 2, "ka": "Conflict & Grievance Management", "desc": "The ability to manage employee grievances through fair, consistent, and legally compliant processes."}, {"code": "HR.0029", "name": "Employment Legislation Compliance", "score": 2, "ka": "Labor & Employment Law", "desc": "Knowledge of applicable labor laws, employment regulations, and compliance requirements relevant to the organization's o"}, {"code": "HR.0031", "name": "HRIS Administration", "score": 2, "ka": "HR Information Systems", "desc": "The ability to configure, maintain, and optimize Human Resource Information Systems (HRIS) to support HR processes and d"}, {"code": "HR.0032", "name": "HR Data Management", "score": 2, "ka": "HR Information Systems", "desc": "The ability to manage employee data records, ensure data accuracy, and maintain confidentiality in accordance with data "}, {"code": "HR.0033", "name": "Workforce Analytics", "score": 2, "ka": "HR Analytics & Reporting", "desc": "The ability to analyze workforce data to generate insights on headcount, turnover, productivity, and other key HR metric"}, {"code": "HR.0034", "name": "HR Dashboards & Reporting", "score": 2, "ka": "HR Analytics & Reporting", "desc": "The ability to design and maintain HR dashboards and reports that provide stakeholders with timely and accurate people d"}, {"code": "HR.0036", "name": "Payroll Processing", "score": 2, "ka": "Payroll Management", "desc": "The ability to manage end-to-end payroll processing, ensuring accuracy, compliance, and timeliness of employee compensat"}, {"code": "HR.0039", "name": "Stakeholder Communication", "score": 2, "ka": "Change Management", "desc": "The ability to develop and execute communication strategies that keep stakeholders informed, engaged, and aligned during"}, {"code": "HR.0040", "name": "Organizational Structure Design", "score": 2, "ka": "Organization Design", "desc": "The ability to analyze and design organizational structures that align with business strategy and enable effective opera"}, {"code": "HR.0043", "name": "Inclusive Leadership Development", "score": 2, "ka": "DEI Strategy", "desc": "The ability to design and deliver development programs that build inclusive leadership capabilities across the organizat"}, {"code": "HR.0044", "name": "Diversity Metrics & Reporting", "score": 2, "ka": "DEI Analytics", "desc": "The ability to collect, analyze, and report on diversity metrics to measure progress, identify gaps, and inform DEI stra"}, {"code": "HR.0004", "name": "Employer Branding", "score": 1, "ka": "Recruitment & Sourcing", "desc": "The ability to develop and promote the organization's reputation as an employer of choice to attract top talent."}, {"code": "HR.0011", "name": "Coaching & Mentoring", "score": 1, "ka": "Career Development", "desc": "The ability to provide structured coaching and mentoring support to individuals to enhance their professional developmen"}, {"code": "HR.0013", "name": "Digital Learning Design", "score": 1, "ka": "Learning Technology", "desc": "The ability to create interactive digital learning content using authoring tools and multimedia approaches to enhance le"}, {"code": "HR.0018", "name": "Performance Improvement Plans", "score": 1, "ka": "Performance Analytics", "desc": "The ability to design and manage structured performance improvement plans (PIPs) to address underperformance and support"}, {"code": "HR.0021", "name": "Pay Structure Design", "score": 1, "ka": "Compensation Design", "desc": "The ability to design salary bands, pay grades, and compensation structures that support attraction, retention, and inte"}, {"code": "HR.0028", "name": "Disciplinary Processes", "score": 1, "ka": "Conflict & Grievance Management", "desc": "The ability to manage disciplinary proceedings in accordance with policy, legislation, and principles of natural justice"}, {"code": "HR.0030", "name": "Workplace Policies & Procedures", "score": 1, "ka": "Labor & Employment Law", "desc": "The ability to develop, implement, and communicate HR policies and procedures that ensure legal compliance and a fair wo"}, {"code": "HR.0035", "name": "Predictive People Analytics", "score": 1, "ka": "HR Analytics & Reporting", "desc": "The ability to apply statistical and predictive modeling techniques to anticipate workforce trends and support data-driv"}, {"code": "HR.0037", "name": "Payroll Compliance", "score": 1, "ka": "Payroll Management", "desc": "Knowledge of payroll legislation, tax obligations, and statutory requirements to ensure full compliance with applicable "}, {"code": "HR.0041", "name": "Workforce Planning", "score": 1, "ka": "Organization Design", "desc": "The ability to forecast and plan workforce requirements, considering factors such as business growth, attrition, and ski"}, {"code": "HR.0045", "name": "Pay Equity Analysis", "score": 1, "ka": "DEI Analytics", "desc": "The ability to conduct pay equity analyses to identify and address gender, race, or other pay disparities within the org"}];
-const levelNames = {1:"Operational",2:"Professional",3:"Supervisory",4:"Managerial",5:"Strategic"};
-const grid = document.getElementById('skillCardsGrid');
-skills.forEach((s) => {
-  const card = document.createElement('div');
-  card.className = 'skill-card';
-  card.innerHTML = `
-    <div class="skill-score-wrap">
-      <span class="score-badge score-${s.score}">${s.score}</span>
-      <span class="skill-code">${s.code}</span>
-    </div>
-    <div class="skill-info">
-      <div class="skill-name">${s.name}</div>
-      <div class="skill-desc">${s.desc}</div>
-      <div class="skill-level">${levelNames[s.score]} &nbsp;&middot;&nbsp; ${s.ka}</div>
-    </div>
-  `;
+const skills=[{"code": "HR.0007", "name": "Training Needs Analysis", "score": 3, "ka": "Training Design & Delivery", "desc": "The ability to identify skill gaps and learning needs through assessment methods including surveys, performance data, an"}, {"code": "HR.0015", "name": "Performance Review Process", "score": 3, "ka": "Performance Appraisal", "desc": "The ability to design and manage performance review cycles including mid-year and annual appraisals, calibration session"}, {"code": "HR.0038", "name": "Change Planning & Strategy", "score": 3, "ka": "Change Management", "desc": "The ability to design and implement structured change management plans that minimize disruption and maximize adoption of"}, {"code": "HR.0042", "name": "DEI Program Design", "score": 3, "ka": "DEI Strategy", "desc": "The ability to design and implement diversity, equity, and inclusion programs that promote belonging and address systemi"}, {"code": "HR.0001", "name": "Job Analysis & Design", "score": 2, "ka": "Recruitment & Sourcing", "desc": "The ability to analyze job requirements, define role responsibilities, and design job descriptions that align with organ"}, {"code": "HR.0002", "name": "Sourcing Strategy", "score": 2, "ka": "Recruitment & Sourcing", "desc": "The ability to develop and implement strategies to identify and attract qualified candidates through various channels in"}, {"code": "HR.0003", "name": "Candidate Assessment", "score": 2, "ka": "Recruitment & Sourcing", "desc": "The ability to design and conduct structured interviews, assessments, and selection processes to evaluate candidate qual"}, {"code": "HR.0005", "name": "Onboarding Program Design", "score": 2, "ka": "Onboarding & Integration", "desc": "The ability to design comprehensive onboarding programs that accelerate new hire integration, productivity, and engageme"}, {"code": "HR.0006", "name": "Orientation & Induction", "score": 2, "ka": "Onboarding & Integration", "desc": "The ability to plan and deliver effective orientation sessions that familiarize new employees with organizational cultur"}, {"code": "HR.0008", "name": "Instructional Design", "score": 2, "ka": "Training Design & Delivery", "desc": "The ability to design structured learning experiences using adult learning principles, including e-learning modules, wor"}, {"code": "HR.0009", "name": "Facilitation & Delivery", "score": 2, "ka": "Training Design & Delivery", "desc": "The ability to deliver engaging training sessions and workshops using effective facilitation techniques that maximize le"}, {"code": "HR.0010", "name": "Career Pathing", "score": 2, "ka": "Career Development", "desc": "The ability to design and communicate career pathways that provide employees with clear progression opportunities aligne"}, {"code": "HR.0012", "name": "LMS Administration", "score": 2, "ka": "Learning Technology", "desc": "The ability to configure, manage, and optimize Learning Management Systems (LMS) to support the delivery and tracking of"}, {"code": "HR.0014", "name": "Goal Setting & OKRs", "score": 2, "ka": "Performance Appraisal", "desc": "The ability to facilitate effective goal-setting processes aligned to organizational strategy using frameworks such as S"}, {"code": "HR.0016", "name": "Feedback & Coaching for Performance", "score": 2, "ka": "Performance Appraisal", "desc": "The ability to provide constructive, evidence-based feedback and coaching conversations that support employee growth and"}, {"code": "HR.0017", "name": "Performance Data Analysis", "score": 2, "ka": "Performance Analytics", "desc": "The ability to analyze performance data and metrics to identify trends, patterns, and insights that inform talent decisi"}, {"code": "HR.0019", "name": "Job Evaluation & Grading", "score": 2, "ka": "Compensation Design", "desc": "The ability to assess and grade roles within the organization using structured job evaluation methodologies to establish"}, {"code": "HR.0020", "name": "Salary Benchmarking", "score": 2, "ka": "Compensation Design", "desc": "The ability to conduct market salary surveys and benchmarking analyses to ensure the organization's compensation is comp"}, {"code": "HR.0022", "name": "Benefits Program Design", "score": 2, "ka": "Benefits Administration", "desc": "The ability to design and administer employee benefits programs including health insurance, retirement plans, and wellne"}, {"code": "HR.0023", "name": "Total Rewards Strategy", "score": 2, "ka": "Benefits Administration", "desc": "The ability to develop and communicate a comprehensive total rewards strategy that integrates compensation, benefits, re"}, {"code": "HR.0024", "name": "Engagement Survey Design", "score": 2, "ka": "Employee Engagement", "desc": "The ability to design and administer employee engagement surveys and pulse checks to measure and monitor organizational "}, {"code": "HR.0025", "name": "Engagement Action Planning", "score": 2, "ka": "Employee Engagement", "desc": "The ability to analyze engagement data and facilitate action planning processes with leaders to improve workplace cultur"}, {"code": "HR.0026", "name": "Recognition Programs", "score": 2, "ka": "Employee Engagement", "desc": "The ability to design and implement employee recognition programs that reinforce desired behaviors and contribute to a p"}, {"code": "HR.0027", "name": "Grievance Handling", "score": 2, "ka": "Conflict & Grievance Management", "desc": "The ability to manage employee grievances through fair, consistent, and legally compliant processes."}, {"code": "HR.0029", "name": "Employment Legislation Compliance", "score": 2, "ka": "Labor & Employment Law", "desc": "Knowledge of applicable labor laws, employment regulations, and compliance requirements relevant to the organization's o"}, {"code": "HR.0031", "name": "HRIS Administration", "score": 2, "ka": "HR Information Systems", "desc": "The ability to configure, maintain, and optimize Human Resource Information Systems (HRIS) to support HR processes and d"}, {"code": "HR.0032", "name": "HR Data Management", "score": 2, "ka": "HR Information Systems", "desc": "The ability to manage employee data records, ensure data accuracy, and maintain confidentiality in accordance with data "}, {"code": "HR.0033", "name": "Workforce Analytics", "score": 2, "ka": "HR Analytics & Reporting", "desc": "The ability to analyze workforce data to generate insights on headcount, turnover, productivity, and other key HR metric"}, {"code": "HR.0034", "name": "HR Dashboards & Reporting", "score": 2, "ka": "HR Analytics & Reporting", "desc": "The ability to design and maintain HR dashboards and reports that provide stakeholders with timely and accurate people d"}, {"code": "HR.0036", "name": "Payroll Processing", "score": 2, "ka": "Payroll Management", "desc": "The ability to manage end-to-end payroll processing, ensuring accuracy, compliance, and timeliness of employee compensat"}, {"code": "HR.0039", "name": "Stakeholder Communication", "score": 2, "ka": "Change Management", "desc": "The ability to develop and execute communication strategies that keep stakeholders informed, engaged, and aligned during"}, {"code": "HR.0040", "name": "Organizational Structure Design", "score": 2, "ka": "Organization Design", "desc": "The ability to analyze and design organizational structures that align with business strategy and enable effective opera"}, {"code": "HR.0043", "name": "Inclusive Leadership Development", "score": 2, "ka": "DEI Strategy", "desc": "The ability to design and deliver development programs that build inclusive leadership capabilities across the organizat"}, {"code": "HR.0044", "name": "Diversity Metrics & Reporting", "score": 2, "ka": "DEI Analytics", "desc": "The ability to collect, analyze, and report on diversity metrics to measure progress, identify gaps, and inform DEI stra"}, {"code": "HR.0004", "name": "Employer Branding", "score": 1, "ka": "Recruitment & Sourcing", "desc": "The ability to develop and promote the organization's reputation as an employer of choice to attract top talent."}, {"code": "HR.0011", "name": "Coaching & Mentoring", "score": 1, "ka": "Career Development", "desc": "The ability to provide structured coaching and mentoring support to individuals to enhance their professional developmen"}, {"code": "HR.0013", "name": "Digital Learning Design", "score": 1, "ka": "Learning Technology", "desc": "The ability to create interactive digital learning content using authoring tools and multimedia approaches to enhance le"}, {"code": "HR.0018", "name": "Performance Improvement Plans", "score": 1, "ka": "Performance Analytics", "desc": "The ability to design and manage structured performance improvement plans (PIPs) to address underperformance and support"}, {"code": "HR.0021", "name": "Pay Structure Design", "score": 1, "ka": "Compensation Design", "desc": "The ability to design salary bands, pay grades, and compensation structures that support attraction, retention, and inte"}, {"code": "HR.0028", "name": "Disciplinary Processes", "score": 1, "ka": "Conflict & Grievance Management", "desc": "The ability to manage disciplinary proceedings in accordance with policy, legislation, and principles of natural justice"}, {"code": "HR.0030", "name": "Workplace Policies & Procedures", "score": 1, "ka": "Labor & Employment Law", "desc": "The ability to develop, implement, and communicate HR policies and procedures that ensure legal compliance and a fair wo"}, {"code": "HR.0035", "name": "Predictive People Analytics", "score": 1, "ka": "HR Analytics & Reporting", "desc": "The ability to apply statistical and predictive modeling techniques to anticipate workforce trends and support data-driv"}, {"code": "HR.0037", "name": "Payroll Compliance", "score": 1, "ka": "Payroll Management", "desc": "Knowledge of payroll legislation, tax obligations, and statutory requirements to ensure full compliance with applicable "}, {"code": "HR.0041", "name": "Workforce Planning", "score": 1, "ka": "Organization Design", "desc": "The ability to forecast and plan workforce requirements, considering factors such as business growth, attrition, and ski"}, {"code": "HR.0045", "name": "Pay Equity Analysis", "score": 1, "ka": "DEI Analytics", "desc": "The ability to conduct pay equity analyses to identify and address gender, race, or other pay disparities within the org"}];
+const levelNames={1:"Operational",2:"Professional",3:"Supervisory",4:"Managerial",5:"Strategic"};
+const grid=document.getElementById('skillCardsGrid');
+skills.forEach(s=>{
+  const card=document.createElement('div');
+  card.className='skill-card';
+  card.innerHTML=`
+    <div class="skill-score-wrap"><span class="score-badge score-${s.score}">${s.score}</span><span class="skill-code">${s.code}</span></div>
+    <div class="skill-info"><div class="skill-name">${s.name}</div><div class="skill-desc">${s.desc}</div><div class="skill-level">${levelNames[s.score]} &middot; ${s.ka}</div></div>`;
   grid.appendChild(card);
 });
 
-const fnLabels = ["Talent Acq.", "L&D", "Perf. Mgmt", "Comp & Ben", "Emp. Rel.", "HR Ops", "Org Dev", "DEI"];
-const fnScores = [1.88, 1.78, 1.92, 1.83, 1.67, 1.72, 2.0, 2.0];
-const fnColors = ["#d4a853", "#dc2626", "#d4a853", "#d4a853", "#dc2626", "#dc2626", "#11a4af", "#11a4af"];
-const fnTarget = [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0];
+const radarLabels=["Talent Acq.", "L&D", "Perf. Mgmt", "Comp & Ben", "Emp. Rel.", "HR Ops", "Org Dev", "DEI"];
+const radarScores=[1.88, 1.78, 1.92, 1.83, 1.67, 1.72, 2.0, 2.0];
+const barLabels=["Org Dev", "DEI", "Perf. Mgmt", "Talent Acq.", "Comp & Ben", "L&D", "HR Ops", "Emp. Rel."];
+const barScores=[2.0, 2.0, 1.92, 1.88, 1.83, 1.78, 1.72, 1.67];
+const barColors=["#11a4af", "#11a4af", "#d4a853", "#d4a853", "#d4a853", "#dc2626", "#dc2626", "#dc2626"];
 
-new Chart(document.getElementById('radarChart'), {
-  type: 'radar',
-  data: {
-    labels: fnLabels,
-    datasets: [{
-      label: 'Assessed Score', data: fnScores,
-      borderColor: '#11a4af', backgroundColor: 'rgba(0,180,180,0.15)',
-      pointBackgroundColor: '#11a4af', borderWidth: 2
-    },{
-      label: 'Target (Level 2)', data: fnTarget,
-      borderColor: '#dc2626', backgroundColor: 'rgba(220,38,38,0.05)',
-      borderDash: [5,5], pointBackgroundColor: '#dc2626', borderWidth: 2
-    }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    scales: { r: { min: 0, max: 5, ticks: { stepSize: 1 } } },
-    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
-  }
+new Chart(document.getElementById('radarChart'),{
+  type:'radar',
+  data:{labels:radarLabels,datasets:[
+    {label:'Assessed Score',data:radarScores,borderColor:'#11a4af',backgroundColor:'rgba(0,180,180,0.15)',pointBackgroundColor:'#11a4af',borderWidth:2},
+    {label:'Target (2.0)',data:Array(8).fill(2.0),borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,0.05)',borderDash:[5,5],pointBackgroundColor:'#dc2626',borderWidth:2}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,scales:{r:{min:0,max:3,ticks:{stepSize:1}}},plugins:{legend:{position:'bottom',labels:{font:{size:10}}}}}
 });
 
-new Chart(document.getElementById('barChart'), {
-  type: 'bar',
-  data: {
-    labels: fnLabels,
-    datasets: [{ label: 'Score', data: fnScores, backgroundColor: fnColors, borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 }]
-  },
-  options: {
-    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-    scales: { x: { min: 0, max: 5, ticks: { stepSize: 1 } } },
-    plugins: { legend: { display: false } }
-  }
+new Chart(document.getElementById('barChart'),{
+  type:'bar',
+  data:{labels:barLabels,datasets:[{label:'Score',data:barScores,backgroundColor:barColors,borderRadius:6,barPercentage:0.6,categoryPercentage:0.75}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{min:0,max:3,ticks:{stepSize:0.5}}},plugins:{legend:{display:false}}}
 });
 
-new Chart(document.getElementById('pieChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Level 1 — Operational (11)', 'Level 2 — Professional (30)', 'Level 3 — Supervisory (4)', 'Level 4 — Managerial (0)', 'Level 5 — Strategic (0)'],
-    datasets: [{ data: [11,30,4,0,0], backgroundColor: ['#dc2626','#ea580c','#d4a853','#0fa897','#1a2744'], borderWidth: 2, borderColor: '#fff' }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } },
-      tooltip: { callbacks: { label: function(ctx) { const pct = Math.round((ctx.parsed/45)*100); return ` ${ctx.parsed} skills (${pct}%)`; } } }
-    }
-  }
+new Chart(document.getElementById('pieChart'),{
+  type:'doughnut',
+  data:{labels:['L1 Operational (11)','L2 Professional (30)','L3 Supervisory (4)','L4 Managerial (0)','L5 Strategic (0)'],
+    datasets:[{data:[11,30,4,0,0],backgroundColor:['#dc2626','#ea580c','#d4a853','#0fa897','#1a2744'],borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:6}}}}
 });
 
-new Chart(document.getElementById('readinessPieChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Strength Area (≥100%) — 8', 'Proficient (90–99%) — 0', 'Development Area (<90%) — 11'],
-    datasets: [{ data: [8,0,11], backgroundColor: ['#11a4af','#d4a853','#dc2626'], borderWidth: 2, borderColor: '#fff' }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } },
-      tooltip: { callbacks: { label: function(ctx) { const pct = Math.round((ctx.parsed/19)*100); return ` ${ctx.parsed} KAs (${pct}%)`; } } }
-    }
-  }
+new Chart(document.getElementById('readinessPieChart'),{
+  type:'doughnut',
+  data:{labels:['Strength ≥100% — 8','Proficient 90-99% — 0','Development <90% — 11'],
+    datasets:[{data:[8,0,11],backgroundColor:['#11a4af','#d4a853','#dc2626'],borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:6}}}}
 });
 
-new Chart(document.getElementById('distributionChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Level 1\n(Operational)', 'Level 2\n(Professional)', 'Level 3\n(Supervisory)', 'Level 4\n(Managerial)', 'Level 5\n(Strategic)'],
-    datasets: [{ label: 'Number of Skills', data: [11,30,4,0,0], backgroundColor: ['#dc2626','#ea580c','#d4a853','#0fa897','#1a2744'], borderRadius: 8, barPercentage: 0.55, categoryPercentage: 0.7 }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    scales: { y: { beginAtZero: true, ticks: { stepSize: 5 } }, x: { ticks: { font: { size: 11 } } } },
-    plugins: { legend: { display: false } }
-  }
+new Chart(document.getElementById('distributionChart'),{
+  type:'bar',
+  data:{labels:['L1 Operational','L2 Professional','L3 Supervisory','L4 Managerial','L5 Strategic'],
+    datasets:[{label:'Skills',data:[11,30,4,0,0],backgroundColor:['#dc2626','#ea580c','#d4a853','#0fa897','#1a2744'],borderRadius:8,barPercentage:0.55,categoryPercentage:0.7}]},
+  options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,ticks:{stepSize:5}}},plugins:{legend:{display:false}}}
 });
 </script>
 </body>
