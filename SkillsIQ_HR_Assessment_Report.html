@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SkillsIQ HR Assessment Report</title>
+<style>
+:root{--navy:#1F2937;--blue:#1E3A5F;--green:#065F46;--accent:#3B82F6;--success:#10B981;--warn:#F59E0B;--danger:#EF4444;--border:#E5E7EB;--light:#F9FAFB;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F3F4F6;color:#111827;font-size:13px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.page{background:#fff;max-width:980px;margin:0 auto 40px;box-shadow:0 2px 24px rgba(0,0,0,.13);}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,#1F2937 55%,#1E3A5F 100%);color:#fff;padding:60px 56px 48px;position:relative;overflow:hidden;}
+.cover::after{content:'';position:absolute;right:-80px;top:-80px;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.03);}
+.cover-id{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#60A5FA;margin-bottom:6px;}
+.cover-logo{font-size:30px;font-weight:900;letter-spacing:1px;margin-bottom:2px;}
+.cover-logo span{color:#60A5FA;}
+.cover-tagline{font-size:10px;color:#9CA3AF;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;}
+.cover-title{font-size:19px;font-weight:700;color:#E5E7EB;margin-bottom:3px;}
+.cover-sub{font-size:12px;color:#9CA3AF;margin-bottom:32px;}
+.cover-name{font-size:36px;font-weight:900;margin-bottom:6px;}
+.cover-role{font-size:14px;color:#93C5FD;margin-bottom:28px;}
+.cover-meta{display:flex;gap:28px;flex-wrap:wrap;}
+.cover-meta-item{font-size:11px;color:#9CA3AF;}
+.cover-meta-item strong{display:block;color:#E5E7EB;font-size:12px;margin-bottom:1px;}
+.cover-conf{font-size:10px;color:#6B7280;margin-top:28px;border-top:1px solid rgba(255,255,255,.1);padding-top:14px;}
+
+/* SECTIONS */
+.section{padding:38px 56px;border-bottom:1px solid var(--border);}
+.section:last-child{border-bottom:none;}
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sec-icon{width:36px;height:36px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.sec-title{font-size:17px;font-weight:700;color:var(--navy);}
+.sec-sub{font-size:11px;color:#6B7280;margin-top:2px;}
+
+/* PROFILE */
+.profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.p-item{background:#F9FAFB;border:1px solid var(--border);border-radius:8px;padding:13px 15px;}
+.p-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#6B7280;margin-bottom:3px;}
+.p-val{font-size:13px;font-weight:600;color:#111827;}
+
+/* HERO */
+.score-hero{text-align:center;padding:22px;background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border-radius:12px;border:1px solid #DBEAFE;margin-bottom:20px;}
+.hero-num{font-size:58px;font-weight:900;color:#1E3A5F;line-height:1;}
+.hero-lbl{font-size:12px;color:#6B7280;margin-top:4px;}
+.hero-sub{font-size:12px;color:#3B82F6;margin-top:6px;font-weight:600;}
+.summary-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.stat{border-radius:10px;padding:16px;text-align:center;}
+.stat.strength{background:#ECFDF5;border:1px solid #6EE7B7;}
+.stat.proficient{background:#EFF6FF;border:1px solid #93C5FD;}
+.stat.development{background:#FEF2F2;border:1px solid #FCA5A5;}
+.stat-n{font-size:34px;font-weight:900;margin-bottom:3px;}
+.stat.strength .stat-n{color:#065F46;}
+.stat.proficient .stat-n{color:#1E40AF;}
+.stat.development .stat-n{color:#991B1B;}
+.stat-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#374151;}
+.summary-text{background:#F9FAFB;border-left:4px solid #3B82F6;border-radius:0 8px 8px 0;padding:15px 18px;font-size:13px;line-height:1.75;color:#374151;}
+
+/* OVERVIEW */
+.ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.ov-card{background:#F9FAFB;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+.ov-n{font-size:26px;font-weight:800;color:var(--navy);}
+.ov-l{font-size:11px;color:#6B7280;margin-top:4px;}
+.scale-tbl{width:100%;border-collapse:collapse;}
+.scale-tbl th{background:var(--navy);color:#fff;padding:8px 12px;font-size:11px;text-align:left;}
+.scale-tbl td{padding:8px 12px;font-size:12px;border-bottom:1px solid var(--border);}
+.scale-tbl tr.target td{background:#EFF6FF;font-weight:600;color:#1E40AF;}
+
+/* DASHBOARD */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
+.kpi{background:#F9FAFB;border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;}
+.kpi-v{font-size:22px;font-weight:800;color:var(--navy);}
+.kpi-l{font-size:10px;color:#6B7280;margin-top:3px;}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.chart-box{background:#F9FAFB;border:1px solid var(--border);border-radius:10px;padding:18px;}
+.chart-title{font-size:12px;font-weight:700;color:#374151;margin-bottom:14px;text-align:center;}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
+.bar-lbl{font-size:11px;color:#374151;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{flex:1;background:#E5E7EB;border-radius:4px;height:10px;}
+.bar-fill{height:100%;border-radius:4px;}
+.bar-sc{font-size:11px;font-weight:700;width:32px;text-align:right;flex-shrink:0;}
+
+/* READINESS */
+.rd-row{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid #F3F4F6;}
+.rd-name{font-size:11px;color:#374151;flex:1;}
+.badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin-left:6px;white-space:nowrap;}
+.badge-strength{background:#ECFDF5;color:#065F46;}
+.badge-proficient{background:#EFF6FF;color:#1E40AF;}
+.badge-development{background:#FEF2F2;color:#991B1B;}
+.rd-pct{font-size:11px;font-weight:700;width:42px;text-align:right;flex-shrink:0;}
+
+/* DIST */
+.dist-row{display:flex;align-items:center;gap:9px;margin-bottom:8px;}
+.dist-lbl{font-size:11px;width:60px;flex-shrink:0;color:#374151;}
+.dist-track{flex:1;background:#E5E7EB;border-radius:4px;height:13px;}
+.dist-fill{height:100%;border-radius:4px;}
+.dist-cnt{font-size:11px;font-weight:700;width:52px;text-align:right;}
+
+/* FUNCTION CARDS */
+.fn-card{border:1px solid var(--border);border-radius:10px;margin-bottom:18px;overflow:hidden;}
+.fn-hdr{background:var(--navy);color:#fff;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;}
+.fn-title{font-size:14px;font-weight:700;}
+.fn-pill{background:rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;font-size:13px;font-weight:800;}
+.fn-body{padding:14px 18px;}
+
+/* KA ITEMS */
+.ka-item{border:1px solid #E5E7EB;border-radius:8px;margin-bottom:10px;overflow:hidden;}
+.ka-hdr{background:#F9FAFB;padding:9px 14px;display:flex;align-items:center;gap:8px;}
+.ka-title{font-size:12px;font-weight:700;color:#1F2937;flex:1;}
+.ka-sc-badge{font-size:12px;font-weight:800;}
+.ka-desc{background:#fff;padding:9px 14px;font-size:12px;line-height:1.65;color:#374151;border-top:1px solid #E5E7EB;}
+.skills-tbl{width:100%;border-collapse:collapse;}
+.skills-tbl th{background:#F3F4F6;padding:6px 9px;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#6B7280;text-align:left;border-bottom:1px solid var(--border);}
+.skills-tbl td{padding:7px 9px;font-size:11px;border-bottom:1px solid #F3F4F6;vertical-align:top;}
+.skills-tbl tr:last-child td{border-bottom:none;}
+.sk-code{color:#9CA3AF;font-size:10px;}
+.score-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px;}
+
+/* KA PERF TABLE */
+.perf-tbl{width:100%;border-collapse:collapse;}
+.perf-tbl th{background:var(--navy);color:#fff;padding:8px 12px;font-size:11px;text-align:left;}
+.perf-tbl td{padding:8px 12px;font-size:11px;border-bottom:1px solid var(--border);}
+.perf-tbl tr:nth-child(even) td{background:#F9FAFB;}
+
+/* REC CARDS */
+.rec-card{border-radius:10px;padding:16px 18px;margin-bottom:12px;}
+.rec-card.development{background:#FEF9F0;border:1px solid #FCD34D;}
+.rec-card.proficient{background:#EFF6FF;border:1px solid #93C5FD;}
+.rec-card.strength{background:#F0FDF4;border:1px solid #6EE7B7;}
+.rec-priority{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.rec-ka{font-size:14px;font-weight:700;margin-bottom:2px;}
+.rec-fn{font-size:11px;color:#6B7280;margin-bottom:7px;}
+.rec-desc{font-size:12px;line-height:1.65;margin-bottom:9px;}
+.rec-training{display:flex;flex-wrap:wrap;gap:6px;}
+.t-tag{background:rgba(255,255,255,.65);border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:3px 10px;font-size:11px;font-weight:500;}
+
+/* FOOTER */
+.footer{background:var(--navy);color:#9CA3AF;padding:22px 56px;font-size:10px;line-height:1.9;}
+.footer strong{color:#E5E7EB;}
+
+@media print{body{background:#fff;}.page{box-shadow:none;max-width:100%;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="cover">
+  <div class="cover-id">SIQ-HR-2026 — Full Domain Assessment</div>
+  <div class="cover-logo">Skills<span>IQ</span></div>
+  <div class="cover-tagline">HR Domain | Assess Skills. Build Capability.</div>
+  <div class="cover-title">HR Competency Assessment Report</div>
+  <div class="cover-sub">Comprehensive Individual Performance Analysis — Full HR Domain (8 Functions · 19 Knowledge Areas · 45 Skills)</div>
+  <div class="cover-name">Sarah M. Johnson</div>
+  <div class="cover-role">HR Business Partner — Meridian Health Systems</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>Domain</strong>Human Resources</div>
+    <div class="cover-meta-item"><strong>Functions Assessed</strong>8</div>
+    <div class="cover-meta-item"><strong>Knowledge Areas</strong>19</div>
+    <div class="cover-meta-item"><strong>Skills Assessed</strong>45</div>
+    <div class="cover-meta-item"><strong>Target Level</strong>Level 2 — Professional</div>
+    <div class="cover-meta-item"><strong>Assessment Date</strong>June 9, 2026</div>
+  </div>
+  <div class="cover-conf">© 2026 SkillsIQ. All rights reserved. &nbsp;|&nbsp; STRICTLY CONFIDENTIAL</div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">👤</div><div><div class="sec-title">Candidate Profile</div></div></div>
+  <div class="profile-grid">
+    <div class="p-item"><div class="p-lbl">Full Name</div><div class="p-val">{C["name"]}</div></div>
+    <div class="p-item"><div class="p-lbl">Candidate ID</div><div class="p-val">{C["id"]}</div></div>
+    <div class="p-item"><div class="p-lbl">Current Role</div><div class="p-val">{C["role"]}</div></div>
+    <div class="p-item"><div class="p-lbl">Organization</div><div class="p-val">{C["org"]}</div></div>
+    <div class="p-item"><div class="p-lbl">Experience</div><div class="p-val">{C["exp"]}</div></div>
+    <div class="p-item"><div class="p-lbl">Education</div><div class="p-val">{C["edu"]}</div></div>
+    <div class="p-item"><div class="p-lbl">Assessment Scope</div><div class="p-val">Full HR Domain</div></div>
+    <div class="p-item"><div class="p-lbl">Target Level</div><div class="p-val">Level 2 — Professional</div></div>
+    <div class="p-item"><div class="p-lbl">Assessment Date</div><div class="p-val">{C["date"]}</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">📋</div>
+    <div><div class="sec-title">Executive Summary</div>
+    <div class="sec-sub">Full HR Domain — 45 Skills across 19 Knowledge Areas and 8 Functions</div></div>
+  </div>
+  <div class="score-hero">
+    <div class="hero-num">2.86 <span style="font-size:18px;color:#6B7280;">/ 5.0</span></div>
+    <div class="hero-lbl">Overall Assessment Score</div>
+    <div class="hero-sub">100% Readiness for Level 2 — Professional</div>
+  </div>
+  <div class="summary-stats">
+    <div class="stat strength"><div class="stat-n">15</div><div class="stat-l">Strength Areas</div></div>
+    <div class="stat proficient"><div class="stat-n">0</div><div class="stat-l">Proficient Areas</div></div>
+    <div class="stat development"><div class="stat-n">4</div><div class="stat-l">Development Areas</div></div>
+  </div>
+  <div class="summary-text">
+    The candidate demonstrates a <strong>Supervisory-level capability</strong> across the full HR domain,
+    assessed against <strong>45 HR skills</strong> spanning <strong>19 Knowledge Areas</strong>
+    across <strong>8 HR Functions</strong>. The overall score of <strong>2.86 / 5.0</strong>
+    reflects performance against the <strong>Level 2 — Professional</strong> target (gap: <strong>+0.86</strong>).
+    <strong>15</strong> Knowledge Areas meet or exceed the target,
+    <strong>0</strong> approach readiness, and <strong>4</strong> require structured development focus.
+    This report provides a three-layer breakdown — Function → Knowledge Area → Skill — giving full visibility
+    into HR competency strengths and development priorities.
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">📊</div><div><div class="sec-title">Assessment Overview</div></div></div>
+  <div class="ov-grid">
+    <div class="ov-card"><div class="ov-n">8</div><div class="ov-l">HR Functions</div></div>
+    <div class="ov-card"><div class="ov-n">19</div><div class="ov-l">Knowledge Areas</div></div>
+    <div class="ov-card"><div class="ov-n">45</div><div class="ov-l">Skills Assessed</div></div>
+    <div class="ov-card"><div class="ov-n">2.0</div><div class="ov-l">Target Level</div></div>
+  </div>
+  <table class="scale-tbl">
+    <tr><th>Score</th><th>Capability Level</th><th>Description</th></tr>
+    <tr><td>1.0</td><td>Operational</td><td>Basic task execution under supervision</td></tr>
+    <tr class="target"><td><strong>2.0 ← Target</strong></td><td><strong>Professional</strong></td><td>Independently manages operational activities</td></tr>
+    <tr><td>3.0</td><td>Supervisory</td><td>Leads teams, manages workflows</td></tr>
+    <tr><td>4.0</td><td>Managerial</td><td>Functional leadership, KPI management</td></tr>
+    <tr><td>5.0</td><td>Strategic</td><td>Enterprise transformation &amp; decision-making</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">📈</div><div><div class="sec-title">Overall Performance Dashboard</div></div></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-v">2.86</div><div class="kpi-l">Overall Score</div></div>
+    <div class="kpi"><div class="kpi-v">100%</div><div class="kpi-l">Target Readiness</div></div>
+    <div class="kpi"><div class="kpi-v">+0.86</div><div class="kpi-l">Gap to Target (2.0)</div></div>
+    <div class="kpi"><div class="kpi-v">Supervisory</div><div class="kpi-l">Current Trajectory</div></div>
+  </div>
+  <div class="dash-grid">
+    <div class="chart-box">
+      <div class="chart-title">Function Radar</div>
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:360px;display:block;margin:0 auto;">
+        <polygon points="200.0,170.0 221.2,178.8 230.0,200.0 221.2,221.2 200.0,230.0 178.8,221.2 170.0,200.0 178.8,178.8" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+        <polygon points="200.0,140.0 242.4,157.6 260.0,200.0 242.4,242.4 200.0,260.0 157.6,242.4 140.0,200.0 157.6,157.6" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+        <polygon points="200.0,110.0 263.6,136.4 290.0,200.0 263.6,263.6 200.0,290.0 136.4,263.6 110.0,200.0 136.4,136.4" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+        <polygon points="200.0,80.0 284.9,115.1 320.0,200.0 284.9,284.9 200.0,320.0 115.1,284.9 80.0,200.0 115.1,115.1" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+        <polygon points="200.0,50.0 306.1,93.9 350.0,200.0 306.1,306.1 200.0,350.0 93.9,306.1 50.0,200.0 93.9,93.9" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="200.0" y2="50.0" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="306.1" y2="93.9" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="350.0" y2="200.0" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="306.1" y2="306.1" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="200.0" y2="350.0" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="93.9" y2="306.1" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="50.0" y2="200.0" stroke="#E5E7EB" stroke-width="1"/>
+        <line x1="200.0" y1="200.0" x2="93.9" y2="93.9" stroke="#E5E7EB" stroke-width="1"/>
+        <polygon points="200.0,110.4 245.4,154.6 282.9,200.0 265.9,265.9 200.0,282.2 120.0,280.0 87.5,200.0 165.0,165.0" fill="rgba(59,130,246,.25)" stroke="#3B82F6" stroke-width="2"/>
+        <circle cx="200.0" cy="110.4" r="4" fill="#3B82F6"/>
+        <circle cx="245.4" cy="154.6" r="4" fill="#3B82F6"/>
+        <circle cx="282.9" cy="200.0" r="4" fill="#3B82F6"/>
+        <circle cx="265.9" cy="265.9" r="4" fill="#3B82F6"/>
+        <circle cx="200.0" cy="282.2" r="4" fill="#3B82F6"/>
+        <circle cx="120.0" cy="280.0" r="4" fill="#3B82F6"/>
+        <circle cx="87.5" cy="200.0" r="4" fill="#3B82F6"/>
+        <circle cx="165.0" cy="165.0" r="4" fill="#3B82F6"/>
+        <text x="200.0" y="20.0" text-anchor="middle" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">Talent Acq.</text>
+        <text x="200.0" y="31.0" text-anchor="middle" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">2.99</text>
+        <text x="327.3" y="72.7" text-anchor="start" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">L&amp;D</text>
+        <text x="327.3" y="83.7" text-anchor="start" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">2.14</text>
+        <text x="380.0" y="200.0" text-anchor="start" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">Performance</text>
+        <text x="380.0" y="211.0" text-anchor="start" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">2.76</text>
+        <text x="327.3" y="327.3" text-anchor="start" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">Comp &amp; Ben</text>
+        <text x="327.3" y="338.3" text-anchor="start" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">3.11</text>
+        <text x="200.0" y="380.0" text-anchor="middle" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">Emp. Relations</text>
+        <text x="200.0" y="391.0" text-anchor="middle" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">2.74</text>
+        <text x="72.7" y="327.3" text-anchor="end" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">HR Ops</text>
+        <text x="72.7" y="338.3" text-anchor="end" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">3.77</text>
+        <text x="20.0" y="200.0" text-anchor="end" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">Org Dev</text>
+        <text x="20.0" y="211.0" text-anchor="end" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">3.75</text>
+        <text x="72.7" y="72.7" text-anchor="end" font-size="9.5" fill="#374151" font-family="Segoe UI,Arial">DEI</text>
+        <text x="72.7" y="83.7" text-anchor="end" font-size="9" fill="#6B7280" font-family="Segoe UI,Arial">1.65</text>
+      </svg>
+    </div>
+    <div>
+      <div class="chart-box" style="margin-bottom:16px;">
+        <div class="chart-title">Function Scores</div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="HR Operations">HR Ops</div>
+          <div class="bar-track"><div class="bar-fill" style="width:75%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.77</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Organizational Development">Org Dev</div>
+          <div class="bar-track"><div class="bar-fill" style="width:75%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.75</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Compensation &amp; Benefits">Comp &amp; Ben</div>
+          <div class="bar-track"><div class="bar-fill" style="width:62%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.11</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Talent Acquisition">Talent Acq.</div>
+          <div class="bar-track"><div class="bar-fill" style="width:60%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.99</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Performance Management">Performance</div>
+          <div class="bar-track"><div class="bar-fill" style="width:55%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.76</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Employee Relations">Emp. Relations</div>
+          <div class="bar-track"><div class="bar-fill" style="width:55%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.74</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Learning &amp; Development">L&amp;D</div>
+          <div class="bar-track"><div class="bar-fill" style="width:43%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.14</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:110px;" title="Diversity, Equity &amp; Inclusion">DEI</div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%;background:#EF4444;"></div></div>
+          <div class="bar-sc" style="color:#EF4444">1.65</div>
+        </div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">KA Readiness (All 19 Areas)</div>
+        <div class="rd-row">
+          <div class="rd-name" title="HR Operations">HR Information Systems</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Organizational Development">Change Management</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Employee Relations">Labor &amp; Employment Law</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Talent Acquisition">Onboarding &amp; Integration</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="HR Operations">Payroll Management</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Organizational Development">Organization Design</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="HR Operations">HR Analytics &amp; Reporting</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Compensation &amp; Benefits">Compensation Design</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Compensation &amp; Benefits">Benefits Administration</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Employee Relations">Employee Engagement</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Performance Management">Performance Appraisal</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Learning &amp; Development">Training Design &amp; Delivery</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Performance Management">Performance Analytics</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Talent Acquisition">Recruitment &amp; Sourcing</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Learning &amp; Development">Learning Technology</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <div class="rd-pct">100%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Diversity, Equity &amp; Inclusion">DEI Analytics</div>
+          <span class="badge badge-development">Development Area</span>
+          <div class="rd-pct">87.5%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Diversity, Equity &amp; Inclusion">DEI Strategy</div>
+          <span class="badge badge-development">Development Area</span>
+          <div class="rd-pct">77.5%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Learning &amp; Development">Career Development</div>
+          <span class="badge badge-development">Development Area</span>
+          <div class="rd-pct">75.0%</div>
+        </div>
+        <div class="rd-row">
+          <div class="rd-name" title="Employee Relations">Conflict &amp; Grievance Management</div>
+          <span class="badge badge-development">Development Area</span>
+          <div class="rd-pct">70.0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chart-box" style="margin-top:18px;">
+    <div class="chart-title">Skill Proficiency Distribution</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <div class="dist-row">
+          <div class="dist-lbl">Level 1</div>
+          <div class="dist-track"><div class="dist-fill" style="width:20%;background:#EF4444;"></div></div>
+          <div class="dist-cnt" style="color:#EF4444">9 (20%)</div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-lbl">Level 2</div>
+          <div class="dist-track"><div class="dist-fill" style="width:24%;background:#F59E0B;"></div></div>
+          <div class="dist-cnt" style="color:#F59E0B">11 (24%)</div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-lbl">Level 3</div>
+          <div class="dist-track"><div class="dist-fill" style="width:18%;background:#3B82F6;"></div></div>
+          <div class="dist-cnt" style="color:#3B82F6">8 (18%)</div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-lbl">Level 4</div>
+          <div class="dist-track"><div class="dist-fill" style="width:31%;background:#10B981;"></div></div>
+          <div class="dist-cnt" style="color:#10B981">14 (31%)</div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-lbl">Level 5</div>
+          <div class="dist-track"><div class="dist-fill" style="width:7%;background:#6D28D9;"></div></div>
+          <div class="dist-cnt" style="color:#6D28D9">3 (7%)</div>
+        </div>
+      </div><div style='display:flex;flex-direction:column;gap:8px;justify-content:center;'>
+        <div style="font-size:11px;color:#374151;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#EF4444;margin-right:6px;"></span>Level 1 — Operational: <strong>9</strong></div>
+        <div style="font-size:11px;color:#374151;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F59E0B;margin-right:6px;"></span>Level 2 — Professional: <strong>11</strong></div>
+        <div style="font-size:11px;color:#374151;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#3B82F6;margin-right:6px;"></span>Level 3 — Supervisory: <strong>8</strong></div>
+        <div style="font-size:11px;color:#374151;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10B981;margin-right:6px;"></span>Level 4 — Managerial: <strong>14</strong></div>
+        <div style="font-size:11px;color:#374151;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#6D28D9;margin-right:6px;"></span>Level 5 — Strategic: <strong>3</strong></div>
+      </div></div></div></div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">🗂️</div>
+    <div><div class="sec-title">Function-by-Function Breakdown</div>
+    <div class="sec-sub">Three-layer view: Function → Knowledge Area → Individual Skills — sorted highest to lowest score</div></div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">HR Operations</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">3 Knowledge Areas · 7 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">3.77 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="HR Information Systems">HR Information Systems</div>
+          <div class="bar-track"><div class="bar-fill" style="width:81%;background:#10B981;"></div></div>
+          <div class="bar-sc" style="color:#10B981">4.05</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Payroll Management">Payroll Management</div>
+          <div class="bar-track"><div class="bar-fill" style="width:75%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.75</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="HR Analytics &amp; Reporting">HR Analytics &amp; Reporting</div>
+          <div class="bar-track"><div class="bar-fill" style="width:70%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.51</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">HR Information Systems</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#10B981;margin-left:8px;">4.05</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs HRIS strategy with expertise in system architecture, digital HR transformation, and data governance. Manages vendor relationships and drives HR technology roadmap execution.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0031</td>
+              <td><strong>HRIS Administration</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to configure, maintain, and optimize Human Resource Information Systems (HRIS) to support HR proce…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0032</td>
+              <td><strong>HR Data Management</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to manage employee data records, ensure data accuracy, and maintain confidentiality in accordance …</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">Workday Extend Developer</span><span class="t-tag">SAP HR Solution Architect</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Payroll Management</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.75</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs payroll strategy with expertise in payroll transformation, compliance governance, and technology optimization. Manages vendor relationships and drives payroll excellence at scale.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0037</td>
+              <td><strong>Payroll Compliance</strong><br><span style="color:#9CA3AF;font-size:10px;">Knowledge of payroll legislation, tax obligations, and statutory requirements to ensure full compliance with a…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.3</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0036</td>
+              <td><strong>Payroll Processing</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to manage end-to-end payroll processing, ensuring accuracy, compliance, and timeliness of employee…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">CIPP/D — Payroll Director</span><span class="t-tag">APA Complete Certification</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">HR Analytics &amp; Reporting</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.51</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs HR analytics strategy with expertise in people analytics, data governance, and workforce intelligence. Manages analytics capability and drives evidence-based talent strategy.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0034</td>
+              <td><strong>HR Dashboards &amp; Reporting</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and maintain HR dashboards and reports that provide stakeholders with timely and accurat…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Strategic</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0033</td>
+              <td><strong>Workforce Analytics</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to analyze workforce data to generate insights on headcount, turnover, productivity, and other key…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.1</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0035</td>
+              <td><strong>Predictive People Analytics</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to apply statistical and predictive modeling techniques to anticipate workforce trends and support…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#F59E0B;"><span class="score-dot" style="background:#F59E0B;"></span>2.5</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">AIHR Advanced People Analytics</span><span class="t-tag">Wharton People Analytics</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Organizational Development</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">2 Knowledge Areas · 4 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">3.75 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Change Management">Change Management</div>
+          <div class="bar-track"><div class="bar-fill" style="width:79%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.95</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Organization Design">Organization Design</div>
+          <div class="bar-track"><div class="bar-fill" style="width:71%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.55</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Change Management</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.95</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs change management strategy with expertise in enterprise transformation, organizational resilience, and change capability building. Manages portfolio of change initiatives and drives sustained adoption.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0039</td>
+              <td><strong>Stakeholder Communication</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to develop and execute communication strategies that keep stakeholders informed, engaged, and alig…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0038</td>
+              <td><strong>Change Planning &amp; Strategy</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and implement structured change management plans that minimize disruption and maximize a…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.5</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">Prosci Enterprise Change Management</span><span class="t-tag">CIPD Level 7 — Organisational Development</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Organization Design</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.55</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs OD strategy with expertise in enterprise design, workforce planning, and operating model transformation. Manages OD portfolio and drives organizational effectiveness at scale.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0041</td>
+              <td><strong>Workforce Planning</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to forecast and plan workforce requirements, considering factors such as business growth, attritio…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.8</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0040</td>
+              <td><strong>Organizational Structure Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to analyze and design organizational structures that align with business strategy and enable effec…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.3</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">CIPD Level 7 — Organisational Design</span><span class="t-tag">Cornell OD Certificate</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Compensation &amp; Benefits</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">2 Knowledge Areas · 5 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">3.11 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Compensation Design">Compensation Design</div>
+          <div class="bar-track"><div class="bar-fill" style="width:62%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.11</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Benefits Administration">Benefits Administration</div>
+          <div class="bar-track"><div class="bar-fill" style="width:62%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.10</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Compensation Design</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.11</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Leads compensation design with strong capability in job architecture, market analysis, and pay equity. Drives compensation program implementation and coaches HR partners on pay decisions.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0019</td>
+              <td><strong>Job Evaluation &amp; Grading</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to assess and grade roles within the organization using structured job evaluation methodologies to…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0021</td>
+              <td><strong>Pay Structure Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design salary bands, pay grades, and compensation structures that support attraction, retention…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0020</td>
+              <td><strong>Salary Benchmarking</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to conduct market salary surveys and benchmarking analyses to ensure the organization&#x27;s compensati…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.0</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">WorldatWork CCP — Compensation Management</span><span class="t-tag">CIPD Level 5 — Reward Management</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Benefits Administration</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.10</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Leads benefits administration with strong capability in program management, vendor oversight, and employee communication. Drives utilization and manages renewal processes effectively.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0022</td>
+              <td><strong>Benefits Program Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and administer employee benefits programs including health insurance, retirement plans, …</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.8</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0023</td>
+              <td><strong>Total Rewards Strategy</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to develop and communicate a comprehensive total rewards strategy that integrates compensation, be…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#F59E0B;"><span class="score-dot" style="background:#F59E0B;"></span>2.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">WorldatWork CEBS — Complete Certification</span><span class="t-tag">CIPD Level 5 — Reward Management</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Talent Acquisition</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">2 Knowledge Areas · 6 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">2.99 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Onboarding &amp; Integration">Onboarding &amp; Integration</div>
+          <div class="bar-track"><div class="bar-fill" style="width:76%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.80</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Recruitment &amp; Sourcing">Recruitment &amp; Sourcing</div>
+          <div class="bar-track"><div class="bar-fill" style="width:43%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.17</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Onboarding &amp; Integration</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.80</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs onboarding strategy with expertise in new hire experience design, technology enablement, and integration analytics. Reduces time-to-productivity and drives retention through structured onboarding excellence.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0005</td>
+              <td><strong>Onboarding Program Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design comprehensive onboarding programs that accelerate new hire integration, productivity, an…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0006</td>
+              <td><strong>Orientation &amp; Induction</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to plan and deliver effective orientation sessions that familiarize new employees with organizatio…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.7</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-SCP — Employee Experience Strategy</span><span class="t-tag">CIPD Level 7 — People Management</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Recruitment &amp; Sourcing</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#F59E0B;margin-left:8px;">2.17</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Independently manages end-to-end recruitment including job analysis, multi-channel sourcing, and structured interviews. Effectively attracts quality candidates with minimal supervision.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0001</td>
+              <td><strong>Job Analysis &amp; Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to analyze job requirements, define role responsibilities, and design job descriptions that align …</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.6</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0003</td>
+              <td><strong>Candidate Assessment</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and conduct structured interviews, assessments, and selection processes to evaluate cand…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#F59E0B;"><span class="score-dot" style="background:#F59E0B;"></span>2.1</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0004</td>
+              <td><strong>Employer Branding</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to develop and promote the organization&#x27;s reputation as an employer of choice to attract top talen…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0002</td>
+              <td><strong>Sourcing Strategy</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to develop and implement strategies to identify and attract qualified candidates through various c…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.1</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-CP — Talent Acquisition Module</span><span class="t-tag">CIPD Level 3 — Recruitment &amp; Selection</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Performance Management</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">2 Knowledge Areas · 5 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">2.76 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Performance Appraisal">Performance Appraisal</div>
+          <div class="bar-track"><div class="bar-fill" style="width:57%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.87</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Performance Analytics">Performance Analytics</div>
+          <div class="bar-track"><div class="bar-fill" style="width:53%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.65</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Performance Appraisal</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#F59E0B;margin-left:8px;">2.87</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Leads performance management with strong capability in calibration facilitation, manager coaching, and performance analytics. Drives a high-performance culture through consistent process execution.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0015</td>
+              <td><strong>Performance Review Process</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and manage performance review cycles including mid-year and annual appraisals, calibrati…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.6</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0016</td>
+              <td><strong>Feedback &amp; Coaching for Performance</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to provide constructive, evidence-based feedback and coaching conversations that support employee …</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0014</td>
+              <td><strong>Goal Setting &amp; OKRs</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to facilitate effective goal-setting processes aligned to organizational strategy using frameworks…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.8</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-CP — HR Management</span><span class="t-tag">CIPD Level 5 — Performance Management</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Performance Analytics</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#F59E0B;margin-left:8px;">2.65</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Leads performance analytics with strong capability in data visualization, trend analysis, and insight communication. Drives data-informed talent decisions and coaches managers on performance data.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0018</td>
+              <td><strong>Performance Improvement Plans</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and manage structured performance improvement plans (PIPs) to address underperformance a…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0017</td>
+              <td><strong>Performance Data Analysis</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to analyze performance data and metrics to identify trends, patterns, and insights that inform tal…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">Tableau Desktop Specialist</span><span class="t-tag">People Analytics Certification — AIHR</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Employee Relations</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">3 Knowledge Areas · 7 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">2.74 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Labor &amp; Employment Law">Labor &amp; Employment Law</div>
+          <div class="bar-track"><div class="bar-fill" style="width:78%;background:#3B82F6;"></div></div>
+          <div class="bar-sc" style="color:#3B82F6">3.90</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Employee Engagement">Employee Engagement</div>
+          <div class="bar-track"><div class="bar-fill" style="width:58%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.92</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Conflict &amp; Grievance Management">Conflict &amp; Grievance Management</div>
+          <div class="bar-track"><div class="bar-fill" style="width:28%;background:#EF4444;"></div></div>
+          <div class="bar-sc" style="color:#EF4444">1.40</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Labor &amp; Employment Law</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#3B82F6;margin-left:8px;">3.90</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Directs employment law strategy with expertise in multi-jurisdiction compliance, legal risk management, and policy governance. Advises senior leaders on complex legal matters.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0029</td>
+              <td><strong>Employment Legislation Compliance</strong><br><span style="color:#9CA3AF;font-size:10px;">Knowledge of applicable labor laws, employment regulations, and compliance requirements relevant to the organi…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Managerial</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0030</td>
+              <td><strong>Workplace Policies &amp; Procedures</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to develop, implement, and communicate HR policies and procedures that ensure legal compliance and…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-SCP — Employment Law</span><span class="t-tag">CIPD Level 7 — Employment Law</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Employee Engagement</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#F59E0B;margin-left:8px;">2.92</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Leads employee engagement programs with strong capability in culture diagnostics, action planning, and manager coaching. Drives measurable improvement in engagement scores and workplace culture.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0025</td>
+              <td><strong>Engagement Action Planning</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to analyze engagement data and facilitate action planning processes with leaders to improve workpl…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.8</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Strategic</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0026</td>
+              <td><strong>Recognition Programs</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and implement employee recognition programs that reinforce desired behaviors and contrib…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#F59E0B;"><span class="score-dot" style="background:#F59E0B;"></span>2.3</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0024</td>
+              <td><strong>Engagement Survey Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and administer employee engagement surveys and pulse checks to measure and monitor organ…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.6</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-CP — HR Management</span><span class="t-tag">CIPD Level 5 — Employee Engagement</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Conflict &amp; Grievance Management</div>
+          <span class="badge badge-development">Development Area</span>
+          <span class="ka-sc-badge" style="color:#EF4444;margin-left:8px;">1.40</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(70.0% readiness)</span>
+        </div>
+        <div class="ka-desc">Demonstrates limited conflict management capability. Development in grievance procedures, investigation skills, and employment law fundamentals is a priority.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0027</td>
+              <td><strong>Grievance Handling</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to manage employee grievances through fair, consistent, and legally compliant processes.</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0028</td>
+              <td><strong>Disciplinary Processes</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to manage disciplinary proceedings in accordance with policy, legislation, and principles of natur…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.4</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-CP — Employee Relations</span><span class="t-tag">CIPD Level 3 — Employee Relations</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Learning &amp; Development</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">3 Knowledge Areas · 7 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-strength">Strength Area</span>
+        <div class="fn-pill">2.14 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Training Design &amp; Delivery">Training Design &amp; Delivery</div>
+          <div class="bar-track"><div class="bar-fill" style="width:57%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.87</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Learning Technology">Learning Technology</div>
+          <div class="bar-track"><div class="bar-fill" style="width:41%;background:#F59E0B;"></div></div>
+          <div class="bar-sc" style="color:#F59E0B">2.05</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="Career Development">Career Development</div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%;background:#EF4444;"></div></div>
+          <div class="bar-sc" style="color:#EF4444">1.50</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Training Design &amp; Delivery</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#F59E0B;margin-left:8px;">2.87</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Leads training design and delivery with strong capability in curriculum development, facilitation excellence, and learning evaluation. Drives learner engagement and measures effectiveness.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0007</td>
+              <td><strong>Training Needs Analysis</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to identify skill gaps and learning needs through assessment methods including surveys, performanc…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#10B981;"><span class="score-dot" style="background:#10B981;"></span>4.6</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Strategic</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0009</td>
+              <td><strong>Facilitation &amp; Delivery</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to deliver engaging training sessions and workshops using effective facilitation techniques that m…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#F59E0B;"><span class="score-dot" style="background:#F59E0B;"></span>2.7</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0008</td>
+              <td><strong>Instructional Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design structured learning experiences using adult learning principles, including e-learning mo…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.3</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">ATD CPTD — Talent Development</span><span class="t-tag">CIPD Level 5 — Learning &amp; Development</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Learning Technology</div>
+          <span class="badge badge-strength">Strength Area</span>
+          <span class="ka-sc-badge" style="color:#F59E0B;margin-left:8px;">2.05</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(100% readiness)</span>
+        </div>
+        <div class="ka-desc">Independently administers LMS platforms and creates digital learning content. Effectively manages learning technology to support program delivery and track learner progress.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0012</td>
+              <td><strong>LMS Administration</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to configure, manage, and optimize Learning Management Systems (LMS) to support the delivery and t…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#3B82F6;"><span class="score-dot" style="background:#3B82F6;"></span>3.0</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Supervisory</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0013</td>
+              <td><strong>Digital Learning Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to create interactive digital learning content using authoring tools and multimedia approaches to …</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.1</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">LinkedIn Learning — LMS Administration</span><span class="t-tag">Articulate Rise 360 Essentials</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">Career Development</div>
+          <span class="badge badge-development">Development Area</span>
+          <span class="ka-sc-badge" style="color:#EF4444;margin-left:8px;">1.50</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(75.0% readiness)</span>
+        </div>
+        <div class="ka-desc">Demonstrates limited career development capability. Development in framework design, coaching skills, and development planning is a priority.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0011</td>
+              <td><strong>Coaching &amp; Mentoring</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to provide structured coaching and mentoring support to individuals to enhance their professional …</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0010</td>
+              <td><strong>Career Pathing</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and communicate career pathways that provide employees with clear progression opportunit…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.1</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">ICF ACC — Coaching Certification</span><span class="t-tag">CIPD Level 3 — Career Development</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn-card">
+    <div class="fn-hdr">
+      <div>
+        <div class="fn-title">Diversity, Equity &amp; Inclusion</div>
+        <div style="font-size:10px;color:#93C5FD;margin-top:2px;">2 Knowledge Areas · 4 Skills</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="badge badge-development">Development Area</span>
+        <div class="fn-pill">1.65 / 5.0</div>
+      </div>
+    </div>
+    <div class="fn-body">
+      <div style="margin-bottom:12px;">
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="DEI Analytics">DEI Analytics</div>
+          <div class="bar-track"><div class="bar-fill" style="width:35%;background:#EF4444;"></div></div>
+          <div class="bar-sc" style="color:#EF4444">1.75</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lbl" style="width:200px;" title="DEI Strategy">DEI Strategy</div>
+          <div class="bar-track"><div class="bar-fill" style="width:31%;background:#EF4444;"></div></div>
+          <div class="bar-sc" style="color:#EF4444">1.55</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">DEI Analytics</div>
+          <span class="badge badge-development">Development Area</span>
+          <span class="ka-sc-badge" style="color:#EF4444;margin-left:8px;">1.75</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(87.5% readiness)</span>
+        </div>
+        <div class="ka-desc">Demonstrates limited DEI analytics capability. Development in diversity data management, reporting tools, and equity analysis is a priority.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0044</td>
+              <td><strong>Diversity Metrics &amp; Reporting</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to collect, analyze, and report on diversity metrics to measure progress, identify gaps, and infor…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#F59E0B;"><span class="score-dot" style="background:#F59E0B;"></span>2.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0045</td>
+              <td><strong>Pay Equity Analysis</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to conduct pay equity analyses to identify and address gender, race, or other pay disparities with…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.3</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">Excel — Diversity Analytics</span><span class="t-tag">Power BI Diversity Reporting</span></div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-hdr">
+          <div class="ka-title">DEI Strategy</div>
+          <span class="badge badge-development">Development Area</span>
+          <span class="ka-sc-badge" style="color:#EF4444;margin-left:8px;">1.55</span>
+          <span style="font-size:10px;color:#9CA3AF;margin-left:6px;">(77.5% readiness)</span>
+        </div>
+        <div class="ka-desc">Demonstrates limited DEI capability. Development in DEI frameworks, data analysis, and program design is a priority.</div>
+        <div style="padding:0 14px 10px;">
+          <table class="skills-tbl">
+            <tr><th>Code</th><th>Skill</th><th style="text-align:center;">Score</th><th style="text-align:center;">Level</th></tr>
+            <tr>
+              <td class="sk-code">HR.0043</td>
+              <td><strong>Inclusive Leadership Development</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and deliver development programs that build inclusive leadership capabilities across the…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.9</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Professional</td>
+            </tr>
+            <tr>
+              <td class="sk-code">HR.0042</td>
+              <td><strong>DEI Program Design</strong><br><span style="color:#9CA3AF;font-size:10px;">The ability to design and implement diversity, equity, and inclusion programs that promote belonging and addre…</span></td>
+              <td style="text-align:center;font-weight:700;"><span style="color:#EF4444;"><span class="score-dot" style="background:#EF4444;"></span>1.2</span></td>
+              <td style="text-align:center;font-size:10px;color:#6B7280;">Operational</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding:0 14px 10px;"><span style="font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;">Recommended Training: </span><span class="t-tag">SHRM-CP — Diversity &amp; Inclusion</span><span class="t-tag">CIPD Level 3 — Diversity &amp; Inclusion</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">🎯</div>
+    <div><div class="sec-title">Knowledge Areas Performance Summary</div>
+    <div class="sec-sub">All Knowledge Areas across all HR Functions — sorted highest to lowest</div></div>
+  </div>
+  <table class="perf-tbl">
+    <tr><th>#</th><th>Function</th><th>Knowledge Area</th><th style="text-align:center;">Score</th><th style="text-align:center;">Readiness</th><th>Status</th></tr>
+    <tr>
+      <td style="color:#9CA3AF;">1</td>
+      <td style="font-size:10px;color:#6B7280;">HR Operations</td>
+      <td><strong>HR Information Systems</strong></td>
+      <td style="text-align:center;font-weight:700;color:#10B981">4.05</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">2</td>
+      <td style="font-size:10px;color:#6B7280;">Organizational Development</td>
+      <td><strong>Change Management</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.95</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">3</td>
+      <td style="font-size:10px;color:#6B7280;">Employee Relations</td>
+      <td><strong>Labor &amp; Employment Law</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.90</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">4</td>
+      <td style="font-size:10px;color:#6B7280;">Talent Acquisition</td>
+      <td><strong>Onboarding &amp; Integration</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.80</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">5</td>
+      <td style="font-size:10px;color:#6B7280;">HR Operations</td>
+      <td><strong>Payroll Management</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.75</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">6</td>
+      <td style="font-size:10px;color:#6B7280;">Organizational Development</td>
+      <td><strong>Organization Design</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.55</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">7</td>
+      <td style="font-size:10px;color:#6B7280;">HR Operations</td>
+      <td><strong>HR Analytics &amp; Reporting</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.51</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">8</td>
+      <td style="font-size:10px;color:#6B7280;">Compensation &amp; Benefits</td>
+      <td><strong>Compensation Design</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.11</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">9</td>
+      <td style="font-size:10px;color:#6B7280;">Compensation &amp; Benefits</td>
+      <td><strong>Benefits Administration</strong></td>
+      <td style="text-align:center;font-weight:700;color:#3B82F6">3.10</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">10</td>
+      <td style="font-size:10px;color:#6B7280;">Employee Relations</td>
+      <td><strong>Employee Engagement</strong></td>
+      <td style="text-align:center;font-weight:700;color:#F59E0B">2.92</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">11</td>
+      <td style="font-size:10px;color:#6B7280;">Performance Management</td>
+      <td><strong>Performance Appraisal</strong></td>
+      <td style="text-align:center;font-weight:700;color:#F59E0B">2.87</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">12</td>
+      <td style="font-size:10px;color:#6B7280;">Learning &amp; Development</td>
+      <td><strong>Training Design &amp; Delivery</strong></td>
+      <td style="text-align:center;font-weight:700;color:#F59E0B">2.87</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">13</td>
+      <td style="font-size:10px;color:#6B7280;">Performance Management</td>
+      <td><strong>Performance Analytics</strong></td>
+      <td style="text-align:center;font-weight:700;color:#F59E0B">2.65</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">14</td>
+      <td style="font-size:10px;color:#6B7280;">Talent Acquisition</td>
+      <td><strong>Recruitment &amp; Sourcing</strong></td>
+      <td style="text-align:center;font-weight:700;color:#F59E0B">2.17</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">15</td>
+      <td style="font-size:10px;color:#6B7280;">Learning &amp; Development</td>
+      <td><strong>Learning Technology</strong></td>
+      <td style="text-align:center;font-weight:700;color:#F59E0B">2.05</td>
+      <td style="text-align:center;">100%</td>
+      <td><span class="badge badge-strength">Strength Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">16</td>
+      <td style="font-size:10px;color:#6B7280;">Diversity, Equity &amp; Inclusion</td>
+      <td><strong>DEI Analytics</strong></td>
+      <td style="text-align:center;font-weight:700;color:#EF4444">1.75</td>
+      <td style="text-align:center;">87.5%</td>
+      <td><span class="badge badge-development">Development Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">17</td>
+      <td style="font-size:10px;color:#6B7280;">Diversity, Equity &amp; Inclusion</td>
+      <td><strong>DEI Strategy</strong></td>
+      <td style="text-align:center;font-weight:700;color:#EF4444">1.55</td>
+      <td style="text-align:center;">77.5%</td>
+      <td><span class="badge badge-development">Development Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">18</td>
+      <td style="font-size:10px;color:#6B7280;">Learning &amp; Development</td>
+      <td><strong>Career Development</strong></td>
+      <td style="text-align:center;font-weight:700;color:#EF4444">1.50</td>
+      <td style="text-align:center;">75.0%</td>
+      <td><span class="badge badge-development">Development Area</span></td>
+    </tr>
+    <tr>
+      <td style="color:#9CA3AF;">19</td>
+      <td style="font-size:10px;color:#6B7280;">Employee Relations</td>
+      <td><strong>Conflict &amp; Grievance Management</strong></td>
+      <td style="text-align:center;font-weight:700;color:#EF4444">1.40</td>
+      <td style="text-align:center;">70.0%</td>
+      <td><span class="badge badge-development">Development Area</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="sec-hdr"><div class="sec-icon">🎓</div>
+    <div><div class="sec-title">Development Recommendations &amp; Certification Pathways</div>
+    <div class="sec-sub">Prioritized development actions — lowest scoring Knowledge Areas first</div></div>
+  </div>
+  <div class="rec-card development">
+    <div class="rec-priority" style="color:#991B1B;">Priority 1 — Development Area (70.0% Readiness)</div>
+    <div class="rec-ka">Conflict &amp; Grievance Management</div>
+    <div class="rec-fn">Function: Employee Relations</div>
+    <div class="rec-desc">Demonstrates limited conflict management capability. Development in grievance procedures, investigation skills, and employment law fundamentals is a priority.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-CP — Employee Relations</span><span class="t-tag">CIPD Level 3 — Employee Relations</span></div>
+  </div>
+  <div class="rec-card development">
+    <div class="rec-priority" style="color:#991B1B;">Priority 2 — Development Area (75.0% Readiness)</div>
+    <div class="rec-ka">Career Development</div>
+    <div class="rec-fn">Function: Learning &amp; Development</div>
+    <div class="rec-desc">Demonstrates limited career development capability. Development in framework design, coaching skills, and development planning is a priority.</div>
+    <div class="rec-training"><span class="t-tag">ICF ACC — Coaching Certification</span><span class="t-tag">CIPD Level 3 — Career Development</span></div>
+  </div>
+  <div class="rec-card development">
+    <div class="rec-priority" style="color:#991B1B;">Priority 3 — Development Area (77.5% Readiness)</div>
+    <div class="rec-ka">DEI Strategy</div>
+    <div class="rec-fn">Function: Diversity, Equity &amp; Inclusion</div>
+    <div class="rec-desc">Demonstrates limited DEI capability. Development in DEI frameworks, data analysis, and program design is a priority.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-CP — Diversity &amp; Inclusion</span><span class="t-tag">CIPD Level 3 — Diversity &amp; Inclusion</span></div>
+  </div>
+  <div class="rec-card development">
+    <div class="rec-priority" style="color:#991B1B;">Priority 4 — Development Area (87.5% Readiness)</div>
+    <div class="rec-ka">DEI Analytics</div>
+    <div class="rec-fn">Function: Diversity, Equity &amp; Inclusion</div>
+    <div class="rec-desc">Demonstrates limited DEI analytics capability. Development in diversity data management, reporting tools, and equity analysis is a priority.</div>
+    <div class="rec-training"><span class="t-tag">Excel — Diversity Analytics</span><span class="t-tag">Power BI Diversity Reporting</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 5 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Learning Technology</div>
+    <div class="rec-fn">Function: Learning &amp; Development</div>
+    <div class="rec-desc">Independently administers LMS platforms and creates digital learning content. Effectively manages learning technology to support program delivery and track learner progress.</div>
+    <div class="rec-training"><span class="t-tag">LinkedIn Learning — LMS Administration</span><span class="t-tag">Articulate Rise 360 Essentials</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 6 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Recruitment &amp; Sourcing</div>
+    <div class="rec-fn">Function: Talent Acquisition</div>
+    <div class="rec-desc">Independently manages end-to-end recruitment including job analysis, multi-channel sourcing, and structured interviews. Effectively attracts quality candidates with minimal supervision.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-CP — Talent Acquisition Module</span><span class="t-tag">CIPD Level 3 — Recruitment &amp; Selection</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 7 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Performance Analytics</div>
+    <div class="rec-fn">Function: Performance Management</div>
+    <div class="rec-desc">Leads performance analytics with strong capability in data visualization, trend analysis, and insight communication. Drives data-informed talent decisions and coaches managers on performance data.</div>
+    <div class="rec-training"><span class="t-tag">Tableau Desktop Specialist</span><span class="t-tag">People Analytics Certification — AIHR</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 8 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Training Design &amp; Delivery</div>
+    <div class="rec-fn">Function: Learning &amp; Development</div>
+    <div class="rec-desc">Leads training design and delivery with strong capability in curriculum development, facilitation excellence, and learning evaluation. Drives learner engagement and measures effectiveness.</div>
+    <div class="rec-training"><span class="t-tag">ATD CPTD — Talent Development</span><span class="t-tag">CIPD Level 5 — Learning &amp; Development</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 9 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Performance Appraisal</div>
+    <div class="rec-fn">Function: Performance Management</div>
+    <div class="rec-desc">Leads performance management with strong capability in calibration facilitation, manager coaching, and performance analytics. Drives a high-performance culture through consistent process execution.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-CP — HR Management</span><span class="t-tag">CIPD Level 5 — Performance Management</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 10 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Employee Engagement</div>
+    <div class="rec-fn">Function: Employee Relations</div>
+    <div class="rec-desc">Leads employee engagement programs with strong capability in culture diagnostics, action planning, and manager coaching. Drives measurable improvement in engagement scores and workplace culture.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-CP — HR Management</span><span class="t-tag">CIPD Level 5 — Employee Engagement</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 11 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Benefits Administration</div>
+    <div class="rec-fn">Function: Compensation &amp; Benefits</div>
+    <div class="rec-desc">Leads benefits administration with strong capability in program management, vendor oversight, and employee communication. Drives utilization and manages renewal processes effectively.</div>
+    <div class="rec-training"><span class="t-tag">WorldatWork CEBS — Complete Certification</span><span class="t-tag">CIPD Level 5 — Reward Management</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 12 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Compensation Design</div>
+    <div class="rec-fn">Function: Compensation &amp; Benefits</div>
+    <div class="rec-desc">Leads compensation design with strong capability in job architecture, market analysis, and pay equity. Drives compensation program implementation and coaches HR partners on pay decisions.</div>
+    <div class="rec-training"><span class="t-tag">WorldatWork CCP — Compensation Management</span><span class="t-tag">CIPD Level 5 — Reward Management</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 13 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">HR Analytics &amp; Reporting</div>
+    <div class="rec-fn">Function: HR Operations</div>
+    <div class="rec-desc">Directs HR analytics strategy with expertise in people analytics, data governance, and workforce intelligence. Manages analytics capability and drives evidence-based talent strategy.</div>
+    <div class="rec-training"><span class="t-tag">AIHR Advanced People Analytics</span><span class="t-tag">Wharton People Analytics</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 14 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Organization Design</div>
+    <div class="rec-fn">Function: Organizational Development</div>
+    <div class="rec-desc">Directs OD strategy with expertise in enterprise design, workforce planning, and operating model transformation. Manages OD portfolio and drives organizational effectiveness at scale.</div>
+    <div class="rec-training"><span class="t-tag">CIPD Level 7 — Organisational Design</span><span class="t-tag">Cornell OD Certificate</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 15 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Payroll Management</div>
+    <div class="rec-fn">Function: HR Operations</div>
+    <div class="rec-desc">Directs payroll strategy with expertise in payroll transformation, compliance governance, and technology optimization. Manages vendor relationships and drives payroll excellence at scale.</div>
+    <div class="rec-training"><span class="t-tag">CIPP/D — Payroll Director</span><span class="t-tag">APA Complete Certification</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 16 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Onboarding &amp; Integration</div>
+    <div class="rec-fn">Function: Talent Acquisition</div>
+    <div class="rec-desc">Directs onboarding strategy with expertise in new hire experience design, technology enablement, and integration analytics. Reduces time-to-productivity and drives retention through structured onboarding excellence.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-SCP — Employee Experience Strategy</span><span class="t-tag">CIPD Level 7 — People Management</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 17 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Labor &amp; Employment Law</div>
+    <div class="rec-fn">Function: Employee Relations</div>
+    <div class="rec-desc">Directs employment law strategy with expertise in multi-jurisdiction compliance, legal risk management, and policy governance. Advises senior leaders on complex legal matters.</div>
+    <div class="rec-training"><span class="t-tag">SHRM-SCP — Employment Law</span><span class="t-tag">CIPD Level 7 — Employment Law</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 18 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">Change Management</div>
+    <div class="rec-fn">Function: Organizational Development</div>
+    <div class="rec-desc">Directs change management strategy with expertise in enterprise transformation, organizational resilience, and change capability building. Manages portfolio of change initiatives and drives sustained adoption.</div>
+    <div class="rec-training"><span class="t-tag">Prosci Enterprise Change Management</span><span class="t-tag">CIPD Level 7 — Organisational Development</span></div>
+  </div>
+  <div class="rec-card strength">
+    <div class="rec-priority" style="color:#065F46;">Priority 19 — Strength Area (100% Readiness)</div>
+    <div class="rec-ka">HR Information Systems</div>
+    <div class="rec-fn">Function: HR Operations</div>
+    <div class="rec-desc">Directs HRIS strategy with expertise in system architecture, digital HR transformation, and data governance. Manages vendor relationships and drives HR technology roadmap execution.</div>
+    <div class="rec-training"><span class="t-tag">Workday Extend Developer</span><span class="t-tag">SAP HR Solution Architect</span></div>
+  </div>
+</div>
+
+<div class="footer">
+  <strong>STRICTLY CONFIDENTIAL</strong><br>
+  This document contains proprietary assessment data and personalized developmental insights.
+  Intended exclusively for the assessed professional and authorized HR talent management personnel.<br><br>
+  © 2026 SkillsIQ. All rights reserved. &nbsp;|&nbsp; HR Domain Assessment — Full-Domain Report<br>
+  Functions: 8 &nbsp;|&nbsp; Knowledge Areas: 19 &nbsp;|&nbsp; Total Skills: 45 &nbsp;|&nbsp; Target: Level 2 — Professional
+</div>
+</div>
+</body>
+</html>
